@@ -3,6 +3,11 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     margin: 0;
     padding: 0;
 }
+
+h1, h2, h3, h4, h5, h6, p{
+    cursor:text;
+}
+
 *{box-sizing: border-box;}
 html, body {
     min-height: 100%;
@@ -22,6 +27,13 @@ ul,ol {
 img {
     border: none;
     vertical-align: middle;
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 
 a {

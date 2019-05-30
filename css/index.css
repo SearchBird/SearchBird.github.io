@@ -22,8 +22,8 @@
     position:relative;
     z-index:999;
 }
-.background-header img{
-    display:block;
+img{
+    display:inline;
 }
 .back-line{
     position: absolute;

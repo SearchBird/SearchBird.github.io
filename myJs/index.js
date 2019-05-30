@@ -1,5 +1,7 @@
 $(function() {
-    $("img").lazyload({
+    $img = $("img");
+
+    $img.lazyload({
         effect : "fadeIn"
     });
 });
