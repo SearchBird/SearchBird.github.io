@@ -42,3 +42,20 @@
     position: absolute;
     top:330px;
 }
+.arknight{
+    position: absolute;
+    top:30px;
+    left:20px;
+}
+.moyulogo{
+    position: absolute;
+    top:50px;
+    right:70px;
+}
+.line-character{
+    position: relative;
+    top: -104px;
+    left:20px;
+    font-size: 97px;
+    color:white;
+}
