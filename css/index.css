@@ -7,11 +7,13 @@
     width : 1024px;
     height : 1576px;
     background: url("../img/nosie-header.jpg");
+    background-size:100%;
     font-size:0
 }
 .background-body{
     width : 1024px;
     height : 3000px;
     background: url("../img/nosie-background-repeat.jpg");
+    background-size:100%;
     font-size:0
 }
