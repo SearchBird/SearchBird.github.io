@@ -4,6 +4,7 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     padding: 0;
 }
 
+/* 对于文字可以复制 */
 h1, h2, h3, h4, h5, h6, p{
     cursor:text;
 }
@@ -24,6 +25,7 @@ ul,ol {
     list-style: none;
 }
 
+/* 对于图片不能选中 */
 img {
     border: none;
     vertical-align: middle;
