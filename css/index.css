@@ -3,6 +3,7 @@
     height : 3000px;
     margin:auto;
     background:url("../img/block.png");
+    position: relative;
 }
 .background-header{
     /*opacity: 1;*/
@@ -19,4 +20,24 @@
     background: url("../img/nosie-background-repeat.jpg");
     background-size:100%;
     font-size:0
+}
+.background-header img{
+    display:block;
+}
+.back-line{
+    position: absolute;
+    top:846px;
+}
+.line-opacity{
+    position: absolute;
+    top:902px;
+}
+.character-weapon{
+    position: absolute;
+    top: 919px;
+    left: 687px;
+}
+.character-noweapon{
+    position: absolute;
+    top:330px;
 }
