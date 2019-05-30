@@ -2,7 +2,6 @@
     width : 1024px;
     height : 3000px;
     margin:auto;
-    background:url("../img/block.png");
     position: relative;
 }
 .background-header{
@@ -12,14 +11,16 @@
     background: linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),url("../img/nosie-header.jpg");
     /*linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),*/
     background-size:100%;
-    font-size:0
+    position:relative;
+    z-index:999;
 }
 .background-body{
     width : 1024px;
     height : 3000px;
     background: url("../img/nosie-background-repeat.jpg");
     background-size:100%;
-    font-size:0
+    position:relative;
+    z-index:999;
 }
 .background-header img{
     display:block;
