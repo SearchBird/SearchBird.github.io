@@ -13,6 +13,7 @@
     background-size:100%;
     position:relative;
     z-index:999;
+    color:white;
 }
 .background-body{
     width : 1024px;
@@ -27,35 +28,49 @@ img{
 }
 .back-line{
     position: absolute;
-    top:846px;
+    top:642px;
 }
 .line-opacity{
     position: absolute;
-    top:902px;
+    top:702px;
 }
 .character-weapon{
     position: absolute;
-    top: 917px;
-    left: 686px;
+    top: 737px;
+    left: 687px;
 }
 .character-noweapon{
     position: absolute;
-    top:330px;
+    top:150px;
 }
 .arknight{
     position: absolute;
-    top:30px;
-    left:20px;
+    top:10px;
+    left:15px;
 }
 .moyulogo{
     position: absolute;
-    top:50px;
+    top:30px;
     right:70px;
 }
 .line-character{
     position: relative;
-    top: -104px;
+    top: -80px;
     left:20px;
     font-size: 97px;
     color:white;
+}
+
+.base-info{
+    position:absolute;
+    top:150px;
+    right:17px;
+    font-size:20px;
+}
+
+.character-sign {
+    width:320px;
+    position:absolute;
+    top:396px;
+    right:251px;
 }
