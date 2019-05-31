@@ -1,0 +1,98 @@
+@keyframes tit-ani-1 {
+    0% {
+        clip: rect(7px, 820px, 39px, 0); }
+    5.8823529412% {
+        clip: rect(40px, 820px, 9px, 0); }
+    11.7647058824% {
+        clip: rect(105px, 820px, 37px, 0); }
+    17.6470588235% {
+        clip: rect(53px, 820px, 17px, 0); }
+    23.5294117647% {
+        clip: rect(57px, 820px, 29px, 0); }
+    29.4117647059% {
+        clip: rect(47px, 820px, 21px, 0); }
+    35.2941176471% {
+        clip: rect(45px, 820px, 39px, 0); }
+    41.1764705882% {
+        clip: rect(4px, 820px, 21px, 0); }
+    47.0588235294% {
+        clip: rect(6px, 820px, 63px, 0); }
+    52.9411764706% {
+        clip: rect(30px, 820px, 52px, 0); }
+    58.8235294118% {
+        clip: rect(41px, 820px, 59px, 0); }
+    64.7058823529% {
+        clip: rect(86px, 820px, 107px, 0); }
+    70.5882352941% {
+        clip: rect(112px, 820px, 76px, 0); }
+    76.4705882353% {
+        clip: rect(103px, 820px, 13px, 0); }
+    82.3529411765% {
+        clip: rect(17px, 820px, 6px, 0); }
+    88.2352941176% {
+        clip: rect(13px, 820px, 72px, 0); }
+    94.1176470588% {
+        clip: rect(70px, 820px, 85px, 0); }
+    100% {
+        clip: rect(38px, 820px, 9px, 0); } }
+
+@keyframes tit-ani-2 {
+    0% {
+        clip: rect(66px, 820px, 81px, 0); }
+    5.8823529412% {
+        clip: rect(29px, 820px, 26px, 0); }
+    11.7647058824% {
+        clip: rect(61px, 820px, 1px, 0); }
+    17.6470588235% {
+        clip: rect(70px, 820px, 50px, 0); }
+    23.5294117647% {
+        clip: rect(51px, 820px, 93px, 0); }
+    29.4117647059% {
+        clip: rect(31px, 820px, 32px, 0); }
+    35.2941176471% {
+        clip: rect(36px, 820px, 53px, 0); }
+    41.1764705882% {
+        clip: rect(100px, 820px, 100px, 0); }
+    47.0588235294% {
+        clip: rect(105px, 820px, 102px, 0); }
+    52.9411764706% {
+        clip: rect(20px, 820px, 22px, 0); }
+    58.8235294118% {
+        clip: rect(75px, 820px, 4px, 0); }
+    64.7058823529% {
+        clip: rect(13px, 820px, 14px, 0); }
+    70.5882352941% {
+        clip: rect(23px, 820px, 93px, 0); }
+    76.4705882353% {
+        clip: rect(53px, 820px, 70px, 0); }
+    82.3529411765% {
+        clip: rect(42px, 820px, 114px, 0); }
+    88.2352941176% {
+        clip: rect(43px, 820px, 78px, 0); }
+    94.1176470588% {
+        clip: rect(54px, 820px, 76px, 0); }
+    100% {
+        clip: rect(108px, 820px, 17px, 0); } }
+.tit-ani {
+    position: relative;
+    font-weight:normal;
+    width: 300px;
+    margin: 20px auto;
+}
+.tit-ani:before, .tit-ani:after {
+    content: "三月初一";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    clip: rect(0, 0, 0, 0); }
+.tit-ani:after {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    animation: tit-ani-1 2s infinite linear alternate-reverse;
+}
+.tit-ani:before {
+    left: -2px;
+    text-shadow: 2px 0 #000;
+    animation: tit-ani-2 3s infinite linear alternate-reverse;
+}

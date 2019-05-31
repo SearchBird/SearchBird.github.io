@@ -74,3 +74,45 @@ img{
     top:396px;
     right:251px;
 }
+
+.attack-scale{
+    position:absolute;
+    width:100px;
+    height:100px;
+    background:rgba(0,0,0,0.5);
+    top:48px;
+    right:24px;
+}
+
+.right-font{
+    position:absolute;
+    top: 198px;
+    right: -332px;
+    background:rgba(0,0,0,0);
+    height:52px;
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    font-family: "Adobe 黑体 Std R";
+    font-size:70px;
+    font-style: italic;
+    font-weight:600;
+    color:white;
+}
+
+.back-curtain1{
+    position: absolute;
+    right: 0px;
+    width: 470px;
+    border-bottom: 642px solid #BB3441;
+    border-left: 84px solid transparent;
+}
+.back-curtain2{
+    position: absolute;
+    left: 0px;
+    width: 150px;
+    border-top: 643px solid #BB3441;
+    border-right: 101px solid transparent;
+}
+.curtain-distance{
+    height:711px;
+}
