@@ -9,6 +9,7 @@
     <script rel="script" src="nativeJs/jquery.min.js"></script>
     <script rel="script" src="nativeJs/jquery.lazyload.js"></script>
     <script rel="script" src="myJs/index.js"></script>
+    <script rel="script" src="myJs/util.js"></script>
 </head>
 <body>
     <div class="piiic-main-container">
@@ -35,7 +36,7 @@
             <img class="arknight" src="img/arknight-min.png">
 
             <!-- 右侧文字 -->
-            <textarea class="right-font">DNALSI SEDOHR</textarea>
+            <textarea class="right-font" readonly="readonly">DNALSI SEDOHR</textarea>
 
             <!-- 基础信息 -->
             <div class="base-info">
@@ -43,23 +44,28 @@
                 <hr style="width:200px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:0;margin-top:0;margin-right:181px">
 
                 <div style="display:inline-block;width:257px;margin-top:7px;">
-                    <p style="color:white;display:inline-block">代号</p>
+                    <p style="display:inline-block">代号</p>
+                    <div style="display:inline-block;margin-left:13px;">红豆</div>
                 </div>
                 <div style="display:inline-block">
-                    <p style="color:white;">攻击范围</p>
+                    <p>攻击范围</p>
                 </div>
 
                 <div style="width:272px;overflow:hidden;margin-top:7px;">
                     <div style="float:left;width:60px;color:white;display:inline-block">特性</div>
-                    <div style="float:left;width:185px;color:white;display:inline-block;word-wrap:break-word"> SAIKA，那你很棒棒啊</div>
+                    <div style="float:left;width:185px;color:white;display:inline-block;word-wrap:break-word"> 击杀敌人后获得1点
+                        部署费用撤退时返还
+                        初始部署费用</div>
                 </div>
                 <div style="margin-top:7px;">
                     <div style="width:53px;color:white;display:inline-block">定位</div>
-                    <div style="color:white;display:inline-block">定位 定位 定位</div>
+                    <div style="color:white;display:inline-block">近战位 输出 费用回复</div>
                 </div>
 
                 <!-- 攻击范围 -->
-                <div class="attack-scale"></div>
+                <div class="attack-scale">
+                    ■■
+                </div>
             </div>
 
             <!-- 角色签名 -->
@@ -67,17 +73,17 @@
                 <!-- 星级职业 -->
                 <div style="height:54px;margin-right:0;">
                     <div style="width:110px;display:inline-block;font-size:20px;float:right;">
-                        <div style="text-align:right;font-family:'Adobe 黑体 Std R';font-weight:600;margin-right:8px;">先锋</div>
+                        <div style="text-align:right;font-weight:600;margin-right:8px;">先锋</div>
                         <hr style="width:102px;border-top:1px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:0;margin-top:0;">
-                        <div style="font-family:'Adobe 黑体 Std R';font-weight:600;font-style: italic;font-size:23px;height:28px;line-height:28px">★★★★</div>
+                        <div style=";font-weight:600;font-style: italic;font-size:23px;height:28px;line-height:28px">★★★★</div>
                     </div>
 
-                    <div style="height:54px;display:inline-block;font-size:49px;float:right;margin-right:7px;font-family:'Adobe 黑体 Std R';font-weight:600;">红豆</div>
+                    <div style="height:54px;display:inline-block;font-size:49px;float:right;margin-right:7px;font-weight:600;">红豆</div>
                 </div>
 
 
-                <hr style="width:171px;border-top:15px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:0;margin-top:0;margin-right:42px;">
-                <div style="height:20px;font-size:39px;font-weight:600;position:relative;left:57px;top:-8px;text-shadow:6px 2px 8px #000, 3px 1px 16px #000;">Vigna</div>
+                <div class="difference" style="background:#BB3441;width:171px;height:15px;margin-left:109px;"></div>
+                <div style="font-family:黑体;height:20px;font-style: italic;font-size:39px;font-weight:600;position:relative;left:57px;top:-8px;text-shadow:9px 2px 2px #000, 7px 2px 2px #000;">Vigna</div>
             </div>
 
         </div>

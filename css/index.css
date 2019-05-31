@@ -66,6 +66,7 @@ img{
     top:150px;
     right:17px;
     font-size:20px;
+    color:white;
 }
 
 .character-sign {
@@ -73,21 +74,25 @@ img{
     position:absolute;
     top:396px;
     right:251px;
+    font-family:'Adobe 黑体 Std R';
 }
 
 .attack-scale{
     position:absolute;
     width:100px;
-    height:100px;
     background:rgba(0,0,0,0.5);
+    font-family: "Adobe 繁黑體 Std B";
     top:48px;
     right:24px;
+    font-size:30px;
+    text-align:center;
+    line-height:100%;
 }
 
 .right-font{
     position:absolute;
     top: 198px;
-    right: -332px;
+    right: -331px;
     background:rgba(0,0,0,0);
     height:52px;
     -moz-transform: rotate(-90deg);
@@ -97,8 +102,10 @@ img{
     font-style: italic;
     font-weight:600;
     color:white;
+    overflow:hidden
 }
 
+/*背景图层*/
 .back-curtain1{
     position: absolute;
     right: 0px;
@@ -116,3 +123,5 @@ img{
 .curtain-distance{
     height:711px;
 }
+
+

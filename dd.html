@@ -1,48 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <style type="text/css">
-        .box {
-            /* .box 默认样式 */
-            margin: 200px 0 0 200px;
-            width: 200px;
-            height: 200px;
-            background-image: url("img/lzx.JPEG");
-            background-repeat: no-repeat;
- 
-            border-top: 30px solid transparent;
-            border-left: 30px solid transparent;
-            border-bottom: 30px solid red;
-            border-right: 30px solid red;
- 
- 
-            padding: 50px;
- 
-            /*
-	    background-origin: padding-box|border-box|content-box;
-            padding-box	背景图像相对于内边距框来定位。	
-            border-box	背景图像相对于边框盒来定位。	
-            content-box	背景图像相对于内容框来定位。
-			*/
-            background-origin: border-box;
-            /*background-origin: content-box;*/
- 
-            background-position: -50px 0;
-        }
- 
-        .box:hover {
-            /* 鼠标悬浮时样式 */
- 
-        }
-    </style>
 </head>
 <body>
+<div id='d1' style='color:#ddd;font-size:40px'>
+xxxx
+</div>
+<input type='button' onclick="test()" value='test' />
+<script>
+function oppositeColor(a){
+    a=a.replace('rgb(','');
+    a=a.replace(')','');
+    a=a.split(', ');
+    var c16,c10,max16=15,b=[];
+    for(var i=0;i<a.length;i++){   
+        c16=parseInt(a[i],16);
+        c10=parseInt(max16-c16,10);
+        b.push(c10.toString(16)); 
+    }
+    return 'rgb('+b.join(',') + ')';
+}
  
-<div class="box">HHHHHHHHHHH</div>
- 
-<script type="text/javascript">
+function test(){
+    var d=document.getElementById("d1");
+    //alert(oppositeColor(d.style.color));
+    d.style.background=oppositeColor(d.style.color);
+var dddddd = oppositeColor(d.style.color);
+debugger;
+}
 </script>
 </body>
 </html>
