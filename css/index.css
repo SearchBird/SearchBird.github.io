@@ -112,6 +112,8 @@ img{
     font-style: italic;
     font-weight:600;
     color:white;
+
+    /*禁止出现滑动*/
     overflow: hidden;
 }
 
