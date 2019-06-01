@@ -56,7 +56,18 @@ function imgOnload() {
 function differenceOnload(){
     $(".difference").each(function(index, value) {
         var $difference = $(value);
+
+        // 反色函数
         $difference.css("background-color", new reversalColor($difference.css("background-color")).parse());
+
+        // 亮度函数
+        var backgroundArr = $difference.css("background-color").replace(")","").replace("rgb(", "").split(", ");
+        for(var i = backgroundArr.length;i -- > 0;) {
+            var temp = backgroundArr[i];
+            var temp = parseInt(temp * 1.2);
+            backgroundArr[i] = temp > 255 ? 255 : temp;
+        }
+        $difference.css("background-color", "rgb(" + backgroundArr.join(",") + ")");
     })
 }
 

@@ -87,11 +87,11 @@ img{
     font-family: 华文细黑;
     top:48px;
     right:24px;
-    font-size:25px;
+    font-size:14px;
     text-align:center;
     line-height:100%;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .right-font{
