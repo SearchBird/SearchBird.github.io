@@ -66,7 +66,10 @@ img{
     top:150px;
     right:17px;
     font-size:20px;
+    font-family:Droid Sans;
+    font-weight: 600;
     color:white;
+    line-height: 180%;
 }
 
 .character-sign {
@@ -74,14 +77,14 @@ img{
     position:absolute;
     top:396px;
     right:251px;
-    font-family:'黑体';
+    font-family:Droid Sans;
 }
 
 .attack-scale{
     position:absolute;
     width:100px;
     background:rgba(0,0,0,0.5);
-    font-family: "黑体";
+    font-family: 华文细黑;
     top:48px;
     right:24px;
     font-size:25px;
@@ -130,4 +133,17 @@ img{
     height:711px;
 }
 
+.maker{
+    position:absolute;
+    right:59px;
+    font-size:13px;
+    color:white;
+    line-height: 220%;
+    font-family: 华文细黑;
+    font-style: italic;
+    width:150px;
+}
 
+.maker ul{
+    display:inline-block;
+}

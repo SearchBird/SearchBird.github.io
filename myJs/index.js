@@ -22,6 +22,14 @@ function onload(){
     imgOnload();
     // 初始化反色
     differenceOnload();
+    // 初始化盒子间距
+    distanceInit();
+}
+
+function distanceInit() {
+    var baseInfoHeight = parseInt($(".base-info").css("height").replace("px","")) + 155;
+    $(".maker").css("top",baseInfoHeight + "px");
+    debugger;
 }
 
 function imgOnload() {
