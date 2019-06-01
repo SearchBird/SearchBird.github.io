@@ -74,35 +74,41 @@ img{
     position:absolute;
     top:396px;
     right:251px;
-    font-family:'Adobe 黑体 Std R';
+    font-family:'黑体';
 }
 
 .attack-scale{
     position:absolute;
     width:100px;
     background:rgba(0,0,0,0.5);
-    font-family: "Adobe 繁黑體 Std B";
+    font-family: "黑体";
     top:48px;
     right:24px;
-    font-size:30px;
+    font-size:25px;
     text-align:center;
     line-height:100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .right-font{
-    position:absolute;
-    top: 198px;
-    right: -331px;
+    display:inline-block;
+    position: relative;
+    float:right;
+    margin-right:-342px;
+    margin-top:205px;
+    z-index:999;
     background:rgba(0,0,0,0);
-    height:52px;
+    height:51px;
+    transform:rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
-    font-family: "Adobe 黑体 Std R";
+    -ms-transform:rotate(-90deg);     /* IE 9 */
+    font-family: "黑体";
     font-size:70px;
     font-style: italic;
     font-weight:600;
     color:white;
-    overflow:hidden
 }
 
 /*背景图层*/

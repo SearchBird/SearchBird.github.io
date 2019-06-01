@@ -1,0 +1,42 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* All high contrast styling rules */
+    .right-font-Hie{
+        display:inline-block;
+        position: relative;
+        float:right;
+        margin-right:-337px;
+        margin-top:205px;
+        z-index:999;
+        background:rgba(0,0,0,0);
+        height:46px;
+        transform:rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -ms-transform:rotate(-90deg);     /* IE 9 */
+        font-family: "黑体";
+        font-size:70px;
+        font-style: italic;
+        font-weight:600;
+        color:white;
+    }
+}
+
+.right-font-ie{
+    display:inline-block;
+    position: relative;
+    float:right;
+    margin-right:-337px;
+    margin-top:205px;
+    z-index:999;
+    background:rgba(0,0,0,0);
+    height:46px;
+    transform:rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform:rotate(-90deg);     /* IE 9 */
+    font-family: "黑体";
+    font-size:70px;
+    font-style: italic;
+    font-weight:600;
+    color:white;
+}
