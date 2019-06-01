@@ -14,12 +14,10 @@ function decideEdge() {
     var isQQ = userAgent.indexOf('QQBrowser') > -1
     if (isEdge) {
         $("#right-font").css("margin-right","-332px");
+        changeFont();
     }
     if (isQQ) {
-        var baseInfo = $(".base-info");
-        baseInfo.css("font-family","黑体");
-        baseInfo.css("font-weight","400");
-        $(".character-sign").css("font-family","黑体");
+        changeFont();
     }
 }
 
@@ -31,6 +29,13 @@ function onload(){
     differenceOnload();
     // 初始化盒子间距
     distanceInit();
+}
+
+function changeFont() {
+    var baseInfo = $(".base-info");
+    baseInfo.css("font-family","黑体");
+    baseInfo.css("font-weight","400");
+    $(".character-sign").css("font-family","黑体");
 }
 
 function distanceInit() {
