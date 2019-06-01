@@ -13,7 +13,7 @@ function decideEdge() {
     var isEdge = userAgent.indexOf("Edge") > -1;
     var isQQ = userAgent.indexOf('QQBrowser') > -1
     if (isEdge) {
-        $("#right-font").css("margin-right","-332px");
+        $("#right-font").css("margin-right","-324px");
         changeFont();
     }
     if (isQQ) {
