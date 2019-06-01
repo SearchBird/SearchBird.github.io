@@ -1,6 +1,6 @@
 $(function() {
 
-    // 解决edge兼容
+    // 解决edge/ QQ浏览器兼容
     decideEdge();
     // 初始化动作
     onload();
@@ -11,8 +11,13 @@ $(function() {
 function decideEdge() {
     var userAgent = navigator.userAgent;
     var isEdge = userAgent.indexOf("Edge") > -1;
+    var isQQ = userAgent.indexOf('MQQBrowser') > -1
     if (isEdge) {
         $("#right-font").css("margin-right","-332px");
+    }
+    if (isQQ) {
+        $(".base-info").css("font-family","黑体");
+        $(".character-sign").css("font-family","黑体");
     }
 }
 
