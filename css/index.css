@@ -112,6 +112,7 @@ img{
     font-style: italic;
     font-weight:600;
     color:white;
+    overflow: hidden;
 }
 
 /*背景图层*/
