@@ -18,6 +18,7 @@ function decideEdge() {
     }
     if (isQQ) {
         changeFont();
+        $("#right-font").css("margin-right", "-351px");
     }
 }
 
