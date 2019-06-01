@@ -16,7 +16,9 @@ function decideEdge() {
         $("#right-font").css("margin-right","-332px");
     }
     if (isQQ) {
-        $(".base-info").css("font-family","黑体");
+        var baseInfo = $(".base-info");
+        baseInfo.css("font-family","黑体");
+        baseInfo.css("font-weight","400");
         $(".character-sign").css("font-family","黑体");
     }
 }
