@@ -11,7 +11,7 @@ $(function() {
 function decideEdge() {
     var userAgent = navigator.userAgent;
     var isEdge = userAgent.indexOf("Edge") > -1;
-    var isQQ = userAgent.indexOf('MQQBrowser') > -1
+    var isQQ = userAgent.indexOf('QQBrowser') > -1
     if (isEdge) {
         $("#right-font").css("margin-right","-332px");
     }
