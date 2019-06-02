@@ -11,7 +11,8 @@ $(function() {
 function decideEdge() {
     var userAgent = navigator.userAgent;
     var isEdge = userAgent.indexOf("Edge") > -1;
-    var isQQ = userAgent.indexOf('QQBrowser') > -1
+    var isQQ = userAgent.indexOf('QQBrowser') > -1;
+    var isFF = userAgent.indexOf("Firefox") > -1;
     if (isEdge) {
         $("#right-font").css("margin-right","-324px");
         changeFont();
@@ -19,6 +20,9 @@ function decideEdge() {
     if (isQQ) {
         changeFont();
         $("#right-font").css("margin-right", "-351px");
+    }
+    if(isFF) {
+        $("#right-font").css("margin-right", "-347px;")
     }
 }
 
