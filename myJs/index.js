@@ -30,6 +30,12 @@ function onload(){
     differenceOnload();
     // 初始化盒子间距
     distanceInit();
+    // 初始化高亮
+    highLightInit()
+}
+
+function highLightInit() {
+    $(".heightLight").css("text-shadow", "2px 0rem 2px #BB3441,0rem 0rem .5rem #BB3441,0rem 0rem 0rem #BB3441,0rem 0rem 3px #BB3441");
 }
 
 function changeFont() {
