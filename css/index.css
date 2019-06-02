@@ -8,7 +8,7 @@
     /*opacity: 1;*/
     width : 1024px;
     height : 1573px;
-    background: linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),url("../img/nosie-header-min.jpg");
+    background: linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/nosie-header-min.jpg");
     /*linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),*/
     background-size:100%;
     position:relative;
@@ -18,7 +18,7 @@
 .background-body{
     width : 1024px;
     height : 3000px;
-    background: url("../img/nosie-background-repeat-min.jpg");
+    background: url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/nosie-background-repeat-min.jpg");
     background-size:100%;
     position:relative;
     z-index:999;
