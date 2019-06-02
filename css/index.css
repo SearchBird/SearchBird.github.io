@@ -153,9 +153,13 @@ img{
 
 .title{
     position:absolute;
-    top:100px;
-    left:100px;
-    width:100px;
+    top:-176px;
+    left:20px;
+    width:420px;
     height:100px;
-    background: red;
+    font-family:黑体;
+    font-style: italic;
+    font-size:57px;
+    text-shadow:4px 2px 2px #000;
+    color:white;
 }
