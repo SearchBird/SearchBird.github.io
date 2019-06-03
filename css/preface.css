@@ -1,0 +1,48 @@
+.pf-title{
+    display:inline-block;
+    color:white;
+    margin-left: 20px;
+    margin-top:45px;
+}
+.pf-line{
+    display:inline-block;
+    font-size: 0;
+    line-height: 0;
+    border-width: 14px;
+    border-right-width: 0;
+    border-color: white;
+    border-style: dashed;
+    border-left-style: solid;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+.little{
+    border-width: 7px;
+    border-right-width: 0;
+}
+.pf-line2{
+    width:500px;
+    height:3px;
+    background: white;
+}
+
+.pf-content-line{
+    position:absolute;
+    display:inline-block;
+    width:5px;
+    height:100%;
+    background:white;
+    margin-left:40px;
+}
+.pf-word{
+    display:inline-block;
+    width:800px;
+    margin-left:60px;
+    margin-top:20px;
+    line-height: 200%;
+}
+
+.pf-content-span{
+    position:relative;
+    margin-top:20px;
+}

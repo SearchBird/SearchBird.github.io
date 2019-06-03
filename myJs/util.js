@@ -41,3 +41,14 @@ function reversalColor(colorStr){
         return '#' + (c1<10?'0'+c1:c1) + (c2<10?'0'+c2:c2) + (c3<10?'0'+c3:c3);
     };
 }
+
+function htmlLazyLoad(loadObj) {
+    var $window = $(window);
+    var scrollTop = $window.scrollTop()
+    var windowHeight = $window.height();
+    var scrollHeight = $(document).height();
+
+    if (scrollTop + windowHeight > loadObj.windowHeight) {
+        $(loadObj.objId).fadeIn(1000);
+    }
+}

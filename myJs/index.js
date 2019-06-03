@@ -1,14 +1,27 @@
 $(function() {
 
-    // 解决edge/ QQ浏览器兼容
-    decideEdge();
-    // 初始化动作
-    onload();
+    // 解决浏览器兼容
+    compatibleLoad();
+    // 加载其他html文件
+    htmlLoad();
+    // 初始化样式
+    cssLoad();
+    // 滑动加载初始化
+    scrollLoad();
+
 
 });
 
-// 解决edge兼容
-function decideEdge() {
+// 滑动加载初始化
+function scrollLoad() {
+    $(window).scroll(function () {
+        htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
+        htmlLazyLoad({objId : "#gift", windowHeight : "1000"});
+    });
+}
+
+// 解决浏览器兼容
+function compatibleLoad() {
     var userAgent = navigator.userAgent;
     var isEdge = userAgent.indexOf("Edge") > -1;
     var isQQ = userAgent.indexOf('QQBrowser') > -1;
@@ -27,17 +40,43 @@ function decideEdge() {
 }
 
 // 初始化动作
-function onload(){
+function cssLoad(){
     // 初始化图片
     imgOnload();
     // 初始化反色
     differenceOnload();
     // 初始化盒子间距
     distanceInit();
-    // 初始化高亮
-    highLightInit()
     // 初始化攻击范围文字大小
     attackScaleSizeInit();
+}
+
+// 加载其他html文件
+function htmlLoad() {
+
+    // 同步
+    $.ajax({
+        url:'html/preface.html',
+        type:'get',
+        async:false,
+        success:function(res){
+            $('#preface').html($(res));
+            htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
+        }
+    });
+    $.ajax({
+        url:'html/gift.html',
+        type:'get',
+        async:false,
+        success:function(res){
+            $('#gift').html($(res));
+            htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
+        }
+    });
+
+    // 初始化高亮
+    highLightInit()
+
 }
 
 function attackScaleSizeInit() {
@@ -62,7 +101,6 @@ function changeFont() {
 function distanceInit() {
     var baseInfoHeight = parseInt($(".base-info").css("height").replace("px","")) + 155;
     $(".maker").css("top",baseInfoHeight + "px");
-    debugger;
 }
 
 function imgOnload() {
@@ -79,16 +117,20 @@ function differenceOnload(){
 
         // 反色函数
         $difference.css("background-color", new reversalColor($difference.css("background-color")).parse());
-
-        // 亮度函数
-        var backgroundArr = $difference.css("background-color").replace(")","").replace("rgb(", "").split(", ");
-        for(var i = backgroundArr.length;i -- > 0;) {
-            var temp = backgroundArr[i];
-            var temp = parseInt(temp * 1.2);
-            backgroundArr[i] = temp > 255 ? 255 : temp;
-        }
-        $difference.css("background-color", "rgb(" + backgroundArr.join(",") + ")");
+        // 高亮处理
+        $difference.css("background-color", heightLight($difference));
     })
+}
+
+// 亮度函数
+function heightLight($heightLight) {
+    var backgroundArr = $heightLight.css("background-color").replace(")","").replace("rgb(", "").split(", ");
+    for(var i = backgroundArr.length;i -- > 0;) {
+        var temp = backgroundArr[i];
+        var temp = parseInt(temp * 1.2);
+        backgroundArr[i] = temp > 255 ? 255 : temp;
+    }
+    return "rgb(" + backgroundArr.join(",") + ")";
 }
 
 

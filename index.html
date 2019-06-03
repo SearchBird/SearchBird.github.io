@@ -7,10 +7,9 @@
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link type="text/css" rel="stylesheet" href="css/index-ie.css"/>
-    <script rel="script" src="nativeJs/jquery.min.js"></script>
-    <script rel="script" src="nativeJs/jquery.lazyload.js"></script>
-    <script rel="script" src="myJs/index.js"></script>
-    <script rel="script" src="myJs/util.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/piiic-module.css"/>
+    <link type="text/css" rel="stylesheet" href="css/preface.css"/>
+    <link type="text/css" rel="stylesheet" href="css/gift.css"/>
 </head>
 <body>
     <div class="piiic-main-container">
@@ -117,13 +116,27 @@
             <div class="title">
                 干员测评分析
                 <div style="width:365px;height:9px;background:white;border-radius:2px 2px 0 2px;box-shadow:5px 2px 6px #000;"></div>
-                <div style="width: 139px;height: 13px;background:white;float:right;border-radius:0 2px 2px 2px;box-shadow:3px 5px 6px #000"></div>
+                <div style="width: 139px;height: 13px;background:white;float:right;box-shadow:3px 5px 6px #000"></div>
                 <div style="width: 14px;height: 14px;background: white;position: absolute;top:22px;right: 42px;box-shadow:5px 2px 6px #000"></div>
                 <div style="width: 53px;height: 8px;background: white;position: absolute;top:33px;right: -3px;border-radius: 0 2px 2px 0px;box-shadow:5px 2px 6px #000"></div>
                 <div style="width: 15px;height: 6px;background: white;position: absolute;top: 48px;right: -3px;border-radius: 0 2px 2px 0px;box-shadow:5px 2px 6px #000"></div>
             </div>
             <div class="introduce"><span class="heightLight">亲民</span>，实用的低星先锋，在<span class="heightLight">COST严重吃紧的关卡尤为重要</span></div>
+
+            <div id="main-content">
+            <!-- 小前言 -->
+                <div id="preface" style="display: none"></div>
+
+                <!-- 天赋分析 -->
+                <div id="gift" style="display: none"></div>
+            </div>
         </div>
     </div>
+    <script rel="script" src="nativeJs/jquery.min.js"></script>
+    <script rel="script" src="nativeJs/jquery.lazyload.js"></script>
+    <script rel="script" src="myJs/util.js"></script>
+    <script rel="script" src="myJs/index.js"></script>
+    <script rel="script" src="myJs/preface.js"></script>
 </body>
+
 </html>
