@@ -110,3 +110,23 @@
 .sk-totalTest-content{
     margin-top:20px;
 }
+
+.sk-logistics-title{
+    margin-top:40px;
+    font-size:35px;
+    position:relative;
+    width:390px;
+    height:56px;
+}
+
+.sk-logistics-title-img{
+    width:390px;
+    height:56px;
+    background:url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/skill/skill-testTotal-icon.png") no-repeat;
+}
+
+.sk-logistics-title-word{
+    position:absolute;
+    top: 17px;
+    right: 176px;
+}

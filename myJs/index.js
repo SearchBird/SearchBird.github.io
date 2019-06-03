@@ -18,6 +18,8 @@ function scrollLoad() {
     calculaHeight();
     // 初始化加载
     scrollInit();
+    // 初始化容器高度
+    containerInit();
 }
 
 // 解决浏览器兼容
@@ -144,5 +146,9 @@ function syncHtml(synObj) {
         });
     }
     //htmlLazyLoad();
+}
+
+function containerInit() {
+    $("#background-body").css("height", (globalDivHeight[globalDivHeight.length - 2] + parseInt($(".gs-content-word").height()) - 630) + "px");
 }
 

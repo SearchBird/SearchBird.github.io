@@ -1,6 +1,5 @@
 .piiic-main-container{
     width : 1024px;
-    height : 3000px;
     margin:auto;
     position: relative;
 }
@@ -17,7 +16,6 @@
 }
 .background-body{
     width : 1024px;
-    height : 3000px;
     background: url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/nosie-background-repeat-min.jpg");
     background-size:100%;
     position:relative;

@@ -1,3 +1,67 @@
 #gs{
 
 }
+
+.gs-content-lefttop{
+    position: relative;
+}
+.gs-content-lefttop .line1{
+    position: absolute;
+    top: 115px;
+    left: -95px;
+    height:7px;
+    width:185px;
+    background:white;
+    transform:rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform:rotate(-90deg);     /* IE 9 */
+}
+.gs-content-lefttop .line2{
+    position: absolute;
+    top: 41px;
+    left: -23px;
+    height:7px;
+    width:185px;
+    background:white;
+}
+.gs-content-rightbottom{
+    position: relative;
+}
+.gs-content-rightbottom .line1{
+    position: absolute;
+    top: 115px;
+    right: 0;
+    height:7px;
+    width:185px;
+    background:white;
+    transform:rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform:rotate(-90deg);     /* IE 9 */
+}
+
+.gs-content-rightbottom .line2{
+    position: absolute;
+    top: 189px;
+    right: 72px;
+    height:7px;
+    width:185px;
+    background:white;
+}
+
+.gs-content-word{
+    position:relative;
+    top: 100px;
+    left: 45px;
+}
+.gs-content-word-title{
+    font-style: italic;
+    line-height: 400%;
+}
+
+.gs-content-word-content{
+    width:800px;
+    text-indent:2em;
+    line-height:200%;
+}
