@@ -16,7 +16,7 @@ $(function() {
 function scrollLoad() {
     $(window).scroll(function () {
         htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
-        htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").height) + 50});
+        htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 50});
     });
 }
 
@@ -70,7 +70,7 @@ function htmlLoad() {
         async:false,
         success:function(res){
             $('#gift').html($(res));
-            htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").height) + 50});
+            htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 50});
         }
     });
 
