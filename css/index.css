@@ -185,14 +185,14 @@ img{
 }
 
 .headLine2{
-    margin-top:5px;
+    margin-top:7px;
     width:800px;
     background: white;
-    height:2px;
+    height:4px;
 }
 
 .headword{
-    font-size: 35px;
+    font-size: 45px;
     color: white;
     font-style: italic;
     font-weight: 600;

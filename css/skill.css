@@ -1,0 +1,112 @@
+#sk{
+    margin-top:50px;
+}
+
+#sk-list{
+    margin-top: 30px;
+}
+
+.sk-box{
+    margin-top: 25px;
+}
+
+.sk-top-line{
+    width: 300px;
+    height: 7px;
+    background: white;
+}
+
+.sk-desc{
+    margin-top:10px;
+}
+
+
+.sk-img{
+    display:inline-block;
+    width:94px;
+    height:94px;
+}
+
+.sk-word{
+    margin-left:20px;
+    display:inline-block;
+    width:720px;
+    vertical-align: top;
+}
+
+.sk-desc-line{
+    margin-top:8px;
+    width:300px;
+    height:2px;
+    background:white;
+}
+
+.sk-word-name{
+    font-style: italic;
+}
+
+.sk-word-test{
+    margin-left:30px;
+    margin-top:10px;
+    line-height: 150%;
+}
+
+.sk-bottom-line{
+    margin-top:10px;
+    width:300px;
+    height:7px;
+    background:white;
+    margin-left:158px;
+}
+
+.sk-test-title{
+    margin-top:40px;
+    font-size:35px;
+    position:relative;
+    width:370px;
+    height:50px;
+}
+
+.sk-test-title-img{
+    background:url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/skill/skill-icon.png") no-repeat;
+    width:370px;
+    height:50px;
+    position:absolute;
+    top:10px;
+}
+
+.sk-test-title-word{
+    position:absolute;
+    top:-5px;
+    right:96px;
+}
+
+.sk-totalTest-title{
+    margin-top:40px;
+    font-size:35px;
+    position:relative;
+    width:390px;
+    height:56px;
+}
+
+.sk-totalTest-title-img{
+    width:390px;
+    height:56px;
+    background:url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/skill/skill-test-icon.png") no-repeat;
+}
+
+.sk-totalTest-title-word{
+    position:absolute;
+    top: 17px;
+    right: 176px;
+}
+
+.sk-test-content,.sk-totalTest-content{
+    text-indent:2em;
+    line-height:150%;
+    margin-top:10px;
+}
+
+.sk-totalTest-content{
+    margin-top:20px;
+}

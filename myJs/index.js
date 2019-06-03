@@ -16,7 +16,9 @@ $(function() {
 function scrollLoad() {
     $(window).scroll(function () {
         htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
-        htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 50});
+        htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 58});
+        htmlLazyLoad({objId : "#skill", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true)) + 108});
+        htmlLazyLoad({objId : "#gist", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true))  + parseInt($("#skill").outerHeight(true)) + 108});
     });
 }
 
@@ -70,7 +72,25 @@ function htmlLoad() {
         async:false,
         success:function(res){
             $('#gift').html($(res));
-            htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 50});
+            htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 58});
+        }
+    });
+    $.ajax({
+        url:'html/skill.html',
+        type:'get',
+        async:false,
+        success:function(res){
+            $('#skill').html($(res));
+            htmlLazyLoad({objId : "#skill", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true)) + 108});
+        }
+    });
+    $.ajax({
+        url:'html/gist.html',
+        type:'get',
+        async:false,
+        success:function(res){
+            $('#gist').html($(res));
+            htmlLazyLoad({objId : "#gist", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true))  + parseInt($("#skill").outerHeight(true)) + 108});
         }
     });
 
@@ -119,7 +139,8 @@ function differenceOnload(){
         $difference.css("background-color", new reversalColor($difference.css("background-color")).parse());
         // 高亮处理
         $difference.css("background-color", heightLight($difference));
-    })
+    });
+
 }
 
 // 亮度函数
