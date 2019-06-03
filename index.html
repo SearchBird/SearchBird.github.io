@@ -126,19 +126,24 @@
 
             <div id="main-content">
                 <!-- 小前言 -->
-                <div id="preface" style="display: none"></div>
+                <div id="preface" style="opacity: 0"></div>
 
                 <!-- 天赋分析 -->
-                <div id="gift" style="display: none"></div>
+                <div id="gift" style="opacity: 0"></div>
 
                 <!-- 技能分析 -->
-                <div id="skill" style="display: none"></div>
+                <div id="skill" style="opacity: 0"></div>
 
                 <!-- 使用要领 -->
-                <div id="gist" style="display: none"></div>
+                <div id="gist" style="opacity: 0"></div>
             </div>
         </div>
     </div>
+    <script rel="script">
+        var globalDiv = ["#preface", "#gift", "#skill", "#gist"];
+        var globalDivHeight = [];
+        var globalLock = [true, true, true, true];
+    </script>
     <script rel="script" src="nativeJs/jquery.min.js"></script>
     <script rel="script" src="nativeJs/jquery.lazyload.js"></script>
     <script rel="script" src="myJs/util.js"></script>

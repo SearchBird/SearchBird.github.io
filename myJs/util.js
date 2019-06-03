@@ -42,13 +42,39 @@ function reversalColor(colorStr){
     };
 }
 
-function htmlLazyLoad(loadObj) {
+// 因为监听原因，而且某些鼠标信号会输入多次，导致方法会重复调用多次，所以animate绑定时候会出现多个animate绑定导致页面不断地闪烁，而且animate是异步，需要使用锁进行同步控制
+function htmlLazyLoad() {
     var $window = $(window);
     var scrollTop = $window.scrollTop()
     var windowHeight = $window.height();
     var scrollHeight = $(document).height();
+    var currentHeight = scrollTop + windowHeight;
 
-    if (scrollTop + windowHeight > loadObj.windowHeight) {
-        $(loadObj.objId).fadeIn(1000);
+    // 顶部底部算法
+    /*for(var i = globalDiv.length;i -- >0;) {
+        $(globalDiv[i]).css("opacity" , "0");
+    }
+    for(var i = globalDiv.length;i -- >0;) {
+        if(currentHeight > globalDivHeight[i])
+            $(globalDiv[i]).css("opacity" , "1");
+    }*/
+    for(var i = globalDiv.length;i -- >0;) {
+        var $obj = $(globalDiv[i]);
+        if(scrollTop > globalDivHeight[i + 1] || currentHeight < globalDivHeight[i]){
+
+            // 由于使用animate会让css失去控制，需要停止animate的动作
+            $obj.stop().css("opacity" , "0");
+            globalLock[i] = true;
+            //$obj.animate({opacity: 0}, 100);
+            continue;
+        } else {
+            //$obj.css("opacity" , "1");
+            if(globalLock[i]) {
+                $obj.animate({opacity: 1}, 1000, function () {
+                    globalLock[i] = true;
+                });
+                globalLock[i] = false;
+            }
+        }
     }
 }

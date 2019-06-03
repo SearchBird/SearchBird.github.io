@@ -14,12 +14,10 @@ $(function() {
 
 // 滑动加载初始化
 function scrollLoad() {
-    $(window).scroll(function () {
-        htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
-        htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 58});
-        htmlLazyLoad({objId : "#skill", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true)) + 108});
-        htmlLazyLoad({objId : "#gist", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true))  + parseInt($("#skill").outerHeight(true)) + 108});
-    });
+    // 计算盒子高度，并且缓存
+    calculaHeight();
+    // 初始化加载
+    scrollInit();
 }
 
 // 解决浏览器兼容
@@ -55,48 +53,10 @@ function cssLoad(){
 
 // 加载其他html文件
 function htmlLoad() {
-
-    // 同步
-    $.ajax({
-        url:'html/preface.html',
-        type:'get',
-        async:false,
-        success:function(res){
-            $('#preface').html($(res));
-            htmlLazyLoad({objId : "#preface", windowHeight : "1000"});
-        }
-    });
-    $.ajax({
-        url:'html/gift.html',
-        type:'get',
-        async:false,
-        success:function(res){
-            $('#gift').html($(res));
-            htmlLazyLoad({objId : "#gift", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + 58});
-        }
-    });
-    $.ajax({
-        url:'html/skill.html',
-        type:'get',
-        async:false,
-        success:function(res){
-            $('#skill').html($(res));
-            htmlLazyLoad({objId : "#skill", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true)) + 108});
-        }
-    });
-    $.ajax({
-        url:'html/gist.html',
-        type:'get',
-        async:false,
-        success:function(res){
-            $('#gist').html($(res));
-            htmlLazyLoad({objId : "#gist", windowHeight : 1000 + parseInt($("#preface").outerHeight(true)) + parseInt($("#gift").outerHeight(true))  + parseInt($("#skill").outerHeight(true)) + 108});
-        }
-    });
-
+    // 同步加载
+    syncHtml();
     // 初始化高亮
-    highLightInit()
-
+    highLightInit();
 }
 
 function attackScaleSizeInit() {
@@ -154,5 +114,35 @@ function heightLight($heightLight) {
     return "rgb(" + backgroundArr.join(",") + ")";
 }
 
+// 通过遍历做缓存
+function calculaHeight(){
+    var divInitHeight = 1000;
+    globalDivHeight.push(divInitHeight);
+    for (var i = -1;i ++ < globalDiv.length - 1;){
+        var $globalDiv = $(globalDiv[i]);
+        divInitHeight += $globalDiv.outerHeight(true);
+        globalDivHeight.push(divInitHeight);
+    }
+}
+// 利用缓存中数据做绑定
+function scrollInit(){
+    $(window).scroll(function () {
+            htmlLazyLoad();
+    });
+}
 
+function syncHtml(synObj) {
+    for(var i = globalDiv.length;i -- >0;) {
+        var syncName = globalDiv[i];
+        $.ajax({
+            url: 'html/' + syncName.replace("#", "") + '.html',
+            type: 'get',
+            async: false,
+            success: function (res) {
+                $(syncName).html($(res));
+            }
+        });
+    }
+    //htmlLazyLoad();
+}
 
