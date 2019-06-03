@@ -130,3 +130,11 @@
     top: 17px;
     right: 176px;
 }
+.sk-logistics-content{
+    line-height:150%;
+    margin-top:20px;
+}
+.sk-logistics-content-test{
+    text-indent:2em;
+    width:850px;
+}
