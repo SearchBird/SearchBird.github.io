@@ -32,7 +32,7 @@ function compatibleLoad() {
     }
     if (isQQ) {
         changeFont();
-        $("#right-font").css("margin-right", "-351px");
+        $("#right-font").css("margin-right", "-343px");
     }
     if(isFF) {
         $("#right-font").css("margin-right", "-347px;")
