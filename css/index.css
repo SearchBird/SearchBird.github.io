@@ -36,6 +36,13 @@ img{
     left: 1px;
     opacity: 0.4;
 }
+.background-logo-B{
+    position:absolute;
+    z-index:-1;
+    opacity: 0.5;
+    left:10%;
+}
+
 .line-opacity{
     position: absolute;
     top:702px;
