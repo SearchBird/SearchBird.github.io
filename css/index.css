@@ -30,6 +30,11 @@ img{
     position: absolute;
     top:642px;
 }
+.background-logo{
+    position:absolute;
+    top: 199px;
+    left: 1px;
+}
 .line-opacity{
     position: absolute;
     top:702px;
