@@ -1,0 +1,216 @@
+.piiic-main-container{
+    width : 1024px;
+    margin:auto;
+    position: relative;
+}
+.background-header{
+    /*opacity: 1;*/
+    width : 1024px;
+    height : 1000px;
+    background: linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/nosie-header-min.jpg");
+    /*linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(0,0,0,0)),*/
+    background-size:100%;
+    position:relative;
+    z-index:999;
+    color:white;
+}
+.background-body{
+    width : 1024px;
+    background: url("https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/nosie-background-repeat-min.jpg");
+    background-size:100%;
+    position:relative;
+    font-size:27px;
+    color:white;
+    z-index:999;
+}
+img{
+    display:inline;
+}
+.back-line{
+    position: absolute;
+    top:642px;
+}
+.background-logo{
+    position:absolute;
+    top: 199px;
+    left: 1px;
+    opacity: 0.4;
+}
+.background-logo-B{
+    position:absolute;
+    z-index:-1;
+    opacity: 0.5;
+    left:10%;
+}
+
+.line-opacity{
+    position: absolute;
+    top:702px;
+}
+.character-weapon{
+    position: absolute;
+    top: 737px;
+    left: 687px;
+}
+.character-noweapon{
+    position: absolute;
+    top:150px;
+}
+.arknight{
+    position: absolute;
+    top:10px;
+    left:15px;
+}
+.moyulogo{
+    position: absolute;
+    top:30px;
+    right:70px;
+}
+.line-character{
+    position: relative;
+    top: -80px;
+    left:20px;
+    font-size: 97px;
+    color:white;
+}
+
+.base-info{
+    position:absolute;
+    top:150px;
+    right:17px;
+    font-size:20px;
+    font-family:Droid Sans;
+    font-weight: 600;
+    color:white;
+    line-height: 180%;
+}
+
+.character-sign {
+    width:320px;
+    position:absolute;
+    top:396px;
+    right:251px;
+    font-family:Droid Sans;
+}
+
+.attack-scale{
+    position:absolute;
+    width:100px;
+    background:rgba(0,0,0,0.5);
+    font-family: 华文细黑;
+    top:48px;
+    right:24px;
+    font-size:14px;
+    text-align:center;
+    line-height:100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.right-font{
+    display:inline-block;
+    position: relative;
+    float:right;
+    margin-right:-341px;
+    margin-top:205px;
+    z-index:999;
+    background:rgba(0,0,0,0);
+    height:51px;
+    transform:rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform:rotate(-90deg);     /* IE 9 */
+    font-family: "黑体";
+    font-size:70px;
+    font-style: italic;
+    font-weight:600;
+    color:white;
+
+    /*禁止出现滑动*/
+    overflow: hidden;
+}
+
+/*背景图层*/
+.back-curtain1{
+    position: absolute;
+    right: 0px;
+    width: 470px;
+    border-bottom: 642px solid #BB3441;
+    border-left: 84px solid transparent;
+}
+.back-curtain2{
+    position: absolute;
+    left: 0px;
+    width: 150px;
+    border-top: 643px solid #BB3441;
+    border-right: 101px solid transparent;
+}
+.curtain-distance{
+    height:711px;
+}
+
+.maker{
+    position:absolute;
+    right:59px;
+    font-size:13px;
+    color:white;
+    line-height: 220%;
+    font-family: 华文细黑;
+    font-style: italic;
+    width:150px;
+}
+
+.maker ul{
+    display:inline-block;
+}
+
+.title{
+    position:absolute;
+    top:-176px;
+    left:20px;
+    width:420px;
+    height:100px;
+    font-family:黑体;
+    font-style: italic;
+    font-size:57px;
+    text-shadow:4px 2px 2px #000;
+    color:white;
+}
+
+.introduce{
+    position:absolute;
+    top:-66px;
+    left:40px;
+    height:100px;
+    font-family:黑体;
+    font-style: italic;
+    font-size:27px;
+    color:white;
+}
+
+.headLine1{
+    height: 20px;
+    width: 155px;
+    background: #BB3441;
+    box-shadow: inset -13px 0px  10px -15px #000, inset 18px 0px 10px -17px #FFF, inset 0px 11px 10px -15px #FFF, inset 0px -14px 10px -15px #000;
+}
+
+.headLine2{
+    margin-top:7px;
+    width:800px;
+    background: white;
+    height:4px;
+}
+
+.headword{
+    font-size: 45px;
+    color: white;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 17px;
+}
+
+#main-content{
+    font-family: 黑体;
+    margin-left:40px;
+}
