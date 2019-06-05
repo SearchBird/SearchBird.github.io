@@ -1,24 +1,20 @@
-/**
- * demo.js
- */
-
 var canvas = document.querySelector("#canvas"),
     ctx = canvas.getContext("2d"),
     link = document.createElement('link');
-    particles = [],
-    amount = 0,
-    mouse = { x: -9999, y: -9999 },
-    radius = 1,
-    colors = [
-      "rgba(0,222,255,0.85)", 
-      "rgba(12,253,74,0.75)", 
-      "rgba(193,253,12,0.85)", 
-      "rgba(192,213,255,0.85)", 
-      "rgba(244,223,254,0.75)"
-    ],
-    headline = document.querySelector("#headline"),
-    ww = window.innerWidth,
-    wh = window.innerHeight;
+particles = [],
+amount = 0,
+mouse = { x: -9999, y: -9999 },
+radius = 1,
+colors = [
+  "rgba(0,222,255,0.85)",
+  "rgba(12,253,74,0.75)",
+  "rgba(193,253,12,0.85)",
+  "rgba(192,213,255,0.85)",
+  "rgba(244,223,254,0.75)"
+],
+headline = document.querySelector("#headline"),
+ww = window.innerWidth,
+wh = window.innerHeight;
 
 function Particle(x, y) {
 
@@ -63,16 +59,15 @@ Particle.prototype.render = function() {
   }
 }
 
+// 鼠标悬停扩散
 function onMouseMove(e) {
-
   mouse.x = e.clientX;
   mouse.y = e.clientY;
-  }
+}
 
-  function onTouchMove(e) {
+function onTouchMove(e) {
 
   if (e.touches.length > 0) {
-
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
   }
@@ -91,14 +86,14 @@ function initScene() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  link.rel = 'stylesheet';
+  /*link.rel = 'stylesheet';
   link.type = 'text/css';
   link.href = 'https://fonts.googleapis.com/css?family=Abril+Fatface';
-  document.getElementsByTagName('head')[0].appendChild(link);
+  document.getElementsByTagName('head')[0].appendChild(link);*/
 
-  ctx.font = 'bold 16vw "Abril Fatface"';
+  ctx.font = 'bold 16vw "黑体"';
   ctx.textAlign = "center";
-  ctx.fillText(headline.innerHTML, ww / 2, wh / 1.6);
+  ctx.fillText(headline.innerHTML, ww / 2, wh / 1.2);
 
   var data = ctx.getImageData(0, 0, ww, wh).data;
 

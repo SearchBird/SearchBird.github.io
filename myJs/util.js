@@ -1,21 +1,24 @@
 /**
- * 反色对象
+ * 反色闭包对象
  * @param colorStr
  */
 function reversalColor(colorStr){
-    var sixNumReg = /^#(\d{2})(\d{2})(\d{2})$/ig;
-    var threeNumReg = /^#(\d{1})(\d{1})(\d{1})$/ig;
-    var rgbReg = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/ig;
+
+    // let局部常量，无变量提升
+    let sixNumReg = /^#(\d{2})(\d{2})(\d{2})$/ig,
+        threeNumReg = /^#(\d{1})(\d{1})(\d{1})$/ig,
+        rgbReg = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/ig;
     var c1=0, c2=0, c3=0;
+
     var parseHexToInt = function(hex){
-        return parseInt(hex,16);
+        return Math.floor(hex,16);
     };
     var parseIntToHex = function(int){
         return int.toString(16);
     };
 
     // 反色函数
-    this.parse = function(){
+    this.parse = function(follow){
         if(sixNumReg.test(colorStr)){
             sixNumReg.exec(colorStr);
             c1 = parseHexToInt(RegExp.$1);
@@ -35,19 +38,34 @@ function reversalColor(colorStr){
         } else {
             throw new Error("Error color string format. eg.[rgb(0,0,0),#000000,#f00]");
         }
-        c1 = parseIntToHex(255 - c1);
-        c2 = parseIntToHex(255 - c2);
-        c3 = parseIntToHex(255 - c3);
-        return '#' + (c1<10?'0'+c1:c1) + (c2<10?'0'+c2:c2) + (c3<10?'0'+c3:c3);
+
+        c1 = 255 - c1;
+        c2 = 255 - c2;
+        c3 = 255 - c3;
+
+        if(follow)
+            return [c1, c2, c3];
+        else
+            return 'rgb(' + c1 + "," + c2 + "," + c3 + ')';
     };
+
+    // 亮度函数
+    this.highLight = function(arr) {
+        for(var i = arr.length;i -- > 0;) {
+            var temp = arr[i];
+            var temp = Math.floor(temp * 1.2);
+            arr[i] = temp > 255 ? 255 : temp;
+        }
+        return "rgb(" + arr.join(",") + ")";
+    }
 }
 
 // 因为监听原因，而且某些鼠标信号会输入多次，导致方法会重复调用多次，所以animate绑定时候会出现多个animate绑定导致页面不断地闪烁，而且animate是异步，需要使用锁进行同步控制
 function htmlLazyLoad() {
-    var $window = $(window);
-    var scrollTop = $window.scrollTop()
-    var windowHeight = $window.height();
-    var scrollHeight = $(document).height();
+    let $window = $(window),
+        scrollTop = $window.scrollTop(),
+        windowHeight = $window.height(),
+        scrollHeight = $(document).height();
     var currentHeight = scrollTop + windowHeight;
 
     // 顶部底部算法

@@ -81,7 +81,7 @@ function changeFont() {
 }
 
 function distanceInit() {
-    var baseInfoHeight = parseInt($(".base-info").css("height").replace("px","")) + 155;
+    var baseInfoHeight = Math.floor($(".base-info").css("height").replace("px","")) + 155;
     $(".maker").css("top",baseInfoHeight + "px");
 }
 
@@ -95,25 +95,11 @@ function imgOnload() {
 
 function differenceOnload(){
     $(".difference").each(function(index, value) {
-        var $difference = $(value);
-
-        // 反色函数
-        $difference.css("background-color", new reversalColor($difference.css("background-color")).parse());
-        // 高亮处理
-        $difference.css("background-color", heightLight($difference));
+        var $difference = $(value),
+            reversor = new reversalColor($difference.css("background-color"));
+        // 反色高亮
+        $difference.css("background-color", reversor.highLight(reversor.parse(true)));
     });
-
-}
-
-// 亮度函数
-function heightLight($heightLight) {
-    var backgroundArr = $heightLight.css("background-color").replace(")","").replace("rgb(", "").split(", ");
-    for(var i = backgroundArr.length;i -- > 0;) {
-        var temp = backgroundArr[i];
-        var temp = parseInt(temp * 1.2);
-        backgroundArr[i] = temp > 255 ? 255 : temp;
-    }
-    return "rgb(" + backgroundArr.join(",") + ")";
 }
 
 // 通过遍历做缓存
@@ -149,6 +135,6 @@ function syncHtml(synObj) {
 }
 
 function containerInit() {
-    $("#background-body").css("height", (globalDivHeight[globalDivHeight.length - 2] + parseInt($(".gs-content-word").height()) - 630) + "px");
+    $("#background-body").css("height", (globalDivHeight[globalDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 630) + "px");
 }
 
