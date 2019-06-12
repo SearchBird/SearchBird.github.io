@@ -12,10 +12,13 @@
     <link type="text/css" rel="stylesheet" href="../css/gist.css"/>
 </head>
 <body>
+<div>
+    <button id="getImg" style="width:100px;height:100px;">我是一个很好看的点击下载按钮</button>
+</div>
     <div id="piiic-container" class="piiic-main-container">
 
         <!-- 头部背景布局 -->
-        <div class="background-header">
+        <div id="background-header" class="background-header">
 
             <!-- 右侧文字 -->
             <!--[if !IE]><!--><textarea id="right-font" class="right-font right-font-Hie" readonly="readonly" disabled="disabled" >DNALSI SEDOHR</textarea> <!-- <![endif]-->
@@ -128,16 +131,16 @@
 
             <div id="main-content">
                 <!-- 小前言 -->
-                <div id="preface" style="opacity: 0"></div>
+                <div id="preface"></div>
 
                 <!-- 天赋分析 -->
-                <div id="gift" style="opacity: 0"></div>
+                <div id="gift"></div>
 
                 <!-- 技能分析 -->
-                <div id="skill" style="opacity: 0"></div>
+                <div id="skill"></div>
 
                 <!-- 使用要领 -->
-                <div id="gist" style="opacity: 0"></div>
+                <div id="gist"></div>
             </div>
         </div>
 
@@ -151,6 +154,8 @@
     </script>
     <script rel="script" src="../nativeJs/jquery.min.js"></script>
     <script rel="script" src="../nativeJs/jquery.lazyload.js"></script>
+    <script rel="script" src="../nativeJs/html2canvas.js"></script>
+    <script rel="script" src="../nativeJs/dom-to-image.js"></script>
     <script rel="script" src="../myJs/util.js"></script>
     <script rel="script" src="../myJs/piiic.js"></script>
     <script rel="script" src="../myJs/preface.js"></script>

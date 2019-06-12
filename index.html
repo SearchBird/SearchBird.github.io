@@ -13,15 +13,26 @@
 <header class="coidea-header">
 
 </header>
-<!-- COIDEA:header END -->
 
-<!-- COIDEA:demo START -->
-<section id="ci-particles">
-    <canvas id="canvas"></canvas>
-    <h1 id="headline">逼格神牛逼</h1>
-</section>
-<!-- COIDEA:demo END -->
+    <div id='search'>
+        <form>
+            <input type="text" placeholder="请输入要查看的干员代号，如：阿米娅"
+                   id='ganyuanid'>
+            <button type="button" onclick='dcce()'></button>
+        </form>
+    </div>
+
+    <section id="ci-particles">
+        <canvas id="canvas"></canvas>
+        <h1 id="headline">逼格神牛逼</h1>
+    </section>
 
 <script src="myJs/index.js"></script>
+<script type='text/javascript'>
+    var dcce=function(){
+        var dd=document.getElementById('ganyuanid');
+        alert(dd.value);
+    };
+</script>
 </body>
 </html>

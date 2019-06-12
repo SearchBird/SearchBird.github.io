@@ -108,3 +108,48 @@
         font-size: 12px; 
     }
 }
+
+
+
+
+* {
+    box-sizing:border-box;
+}
+#search {
+    margin-top:80px;
+}
+form {
+    position:relative;
+    width:350px;
+    margin:0 auto;
+}
+input,button {
+    outline:none;
+}
+input {
+    width:100%;
+    height:42px;
+    padding-left:13px;
+    border:2px solid #c5464a;
+    border-radius:5px;
+    background:white;
+    top:0;
+    right:0;
+}
+button {
+    border:none;
+    height:42px;
+    width:42px;
+    cursor:pointer;
+    position:absolute;
+    background:#c5464a;
+    border-radius:0 5px 5px 0;
+    width:60px;
+    top:0;
+    right:0;
+}
+button:before {
+    content:"搜索";
+    font-size:13px;
+    color:#F9F0DA;
+}
