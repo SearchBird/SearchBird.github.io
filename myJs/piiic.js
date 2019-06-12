@@ -188,7 +188,7 @@ var callback = function(blob) {
 
 
 // 因为受到CORS浏览器安全限制，所以使用arraybuffer形式下载图片
-function imgchange() {
+function imgB64() {
     //image2base64($("#background-header"));
     //image2base64($("#background-body"));
     var imgList = $("#piiic-container img").each(function(index, value) {
