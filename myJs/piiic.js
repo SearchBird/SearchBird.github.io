@@ -191,13 +191,14 @@ function dataURIToBlob(dataURI, callback) {
             blob = new Blob( [arr.buffer], {type : "image/png"});
         }
     } finally {
-        callback(blob);
+        let files = new window.File([blob], "test.png", {type: "png"})
+        callback(files);
     }
 }
-var callback = function(blob) {
+var callback = function(files) {
     let blobdown = document.createElement('a');
     blobdown.download = "test.png";
-    blobdown.href = window.URL.createObjectURL(blob);
+    blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
     blobdown.click();
 
