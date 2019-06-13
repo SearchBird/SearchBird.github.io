@@ -68,7 +68,7 @@ function scrollInit() {
     // 计算盒子高度，并且缓存
     calculaHeight();
     // 初始化加载
-    scrollInit();
+    scrollData();
     // 初始化容器高度
     containerInit();
 }
@@ -125,7 +125,7 @@ function calculaHeight(){
     }
 }
 // 利用缓存中数据做绑定
-function scrollInit(){
+function scrollData(){
     $(window).scroll(function () {
             htmlLazyLoad();
     });
@@ -163,7 +163,6 @@ function getImg() {
         },
     });
 }
-// edited from https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob#Polyfill
 function dataURIToBlob(dataURI, callback) {
     var binStr = atob(dataURI.split(',')[1]),
         len = binStr.length,
@@ -173,19 +172,39 @@ function dataURIToBlob(dataURI, callback) {
         arr[i] = binStr.charCodeAt(i);
     }
 
-    callback(new Blob([arr]));
+    // 判断版本的API
+    var blob;
+    try{
+        blob = new Blob([arr], {type : "image/png"});
+    }
+    catch(e){
+        window.BlobBuilder = window.BlobBuilder ||
+            window.WebKitBlobBuilder ||
+            window.MozBlobBuilder ||
+            window.MSBlobBuilder;
+        if(e.name == 'TypeError' && window.BlobBuilder){
+            var bb = new BlobBuilder();
+            bb.append([arr.buffer]);
+            blob = bb.getBlob("image/jpeg");
+        }
+        else if(e.name == "InvalidStateError"){
+            blob = new Blob( [arr.buffer], {type : "image/png"});
+        }
+    } finally {
+        callback(blob);
+    }
 }
 var callback = function(blob) {
-    var a = document.createElement('a');
-    a.download = "test.png";
-    // the string representation of the object URL will be small enough to workaround the browser's limitations
-    a.href = URL.createObjectURL(blob);
-    // you must revoke the object URL,
-    //   but since we can't know when the download occured, we have to attach it on the click handler..
-    a.click();
+    let blobdown = document.createElement('a');
+    blobdown.download = "test.png";
+    blobdown.href = window.URL.createObjectURL(blob);
+    blobdown.style.display = 'none';
+    blobdown.click();
+
+    // 下载完成移除元素，并且重现滑动加载
+    document.body.removeChild(blobdown);
+    htmlLazyLoad()
 };
-
-
 
 // 因为受到CORS浏览器安全限制，所以使用arraybuffer形式下载图片
 function imgB64() {
