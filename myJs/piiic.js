@@ -154,8 +154,15 @@ function containerInit() {
 function getImg() {
     html2canvas($('#piiic-container'), {
         onrendered: function(canvas) {
+            //Canvas2Image.saveAsImage(canvas)
+            /*let base64ImgSrc = canvas.toDataURL("image/png")
+            let img = document.createElement("img")
+            img.src = base64ImgSrc;
+            document.body.appendChild(img);*/
             var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-            dataURIToBlob(url, callback);
+
+            // 转为file并且下载
+            callback(dataURIToBlob(url));
            /* var link = document.createElement('a');
             link.download = 'my-image-name.jpg';
             link.href = url;
@@ -163,7 +170,7 @@ function getImg() {
         },
     });
 }
-function dataURIToBlob(dataURI, callback) {
+function dataURIToBlob(dataURI) {
     var binStr = atob(dataURI.split(',')[1]),
         len = binStr.length,
         arr = new Uint8Array(len);
@@ -185,25 +192,26 @@ function dataURIToBlob(dataURI, callback) {
         if(e.name == 'TypeError' && window.BlobBuilder){
             var bb = new BlobBuilder();
             bb.append([arr.buffer]);
-            blob = bb.getBlob("image/jpeg");
+            blob = bb.getBlob("image/png");
         }
         else if(e.name == "InvalidStateError"){
             blob = new Blob( [arr.buffer], {type : "image/png"});
         }
     } finally {
         let files = new window.File([blob], "test.png", {type: "png"})
-        callback(files);
+        return files;
     }
 }
-var callback = function(files) {
+function callback(files) {
     let blobdown = document.createElement('a');
     blobdown.download = "test.png";
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
+    //alert(blobdown.href);
     blobdown.click();
 
     // 下载完成移除元素，并且重现滑动加载
-    document.body.removeChild(blobdown);
+    //document.body.removeChild(blobdown);
     htmlLazyLoad()
 };
 
