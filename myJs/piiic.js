@@ -19,6 +19,7 @@ function eventLoad() {
     scrollInit();
 
     $("#getImg").click(function(){
+        debugger;
         getImg();
     })
 }
@@ -153,7 +154,6 @@ function containerInit() {
 
 // 因为使用a标签下载b64太长，所以只能够转为blob文件进行下载
 function getImg() {
-    console.log("test")
     html2canvas($('#piiic-container'), {
         onrendered: function(canvas) {
             //Canvas2Image.saveAsImage(canvas)
@@ -161,7 +161,6 @@ function getImg() {
             let img = document.createElement("img")
             img.src = base64ImgSrc;
             document.body.appendChild(img);*/
-            console.log("finish")
             var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 
             // 转为file并且下载
@@ -210,9 +209,14 @@ function callback(files) {
     blobdown.download = "test.png";
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
-    alert(blobdown.href);
-    blobdown.click();
 
+    var agent = navigator.userAgent;
+    if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1) {
+        window.location.href = blobdown.href;
+    } else {
+        blobdown.click();
+    }
+    
     // 下载完成移除元素，并且重现滑动加载
     //document.body.removeChild(blobdown);
 };
