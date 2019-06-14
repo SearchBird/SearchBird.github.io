@@ -180,24 +180,11 @@ function getImg() {
                 webview.getSettings().setJavaScriptEnabled(true);
                 webview.getSettings().setSupportMultipleWindows(true);
                 webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-                /*var img = document.createElement("img");
-                img.src = url;*/
+                var img = document.createElement("img");
+                img.src = url;
 
-                webview.android.setDownloadListener(new android.webkit.DownloadListener({
-                    onDownloadStart(url, userAgent, contentDisposition, mimetype, contentLength)
-                    {
-                        const androidApp = app.android;
-                        if (androidApp.foregroundActivity === androidApp.startActivity) {
-                            const context = utils.ad.getApplicationContext();
-                            let intent = new android.content.Intent(android.content.Intent.ACTION_VIEW);
-                            intent.setData(android.net.Uri.parse(url));
-                            androidApp.foregroundActivity.startActivity(intent);
-                        }
-                    }
-                }));
-
-
-                //document.body.appendChild(canvas);//document.body.appendChild(img);
+                //document.body.appendChild(canvas);
+                document.body.appendChild(img);
             } else {
                 var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
                 callback(dataURIToBlob(url));
