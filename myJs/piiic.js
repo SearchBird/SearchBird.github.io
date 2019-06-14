@@ -19,7 +19,6 @@ function eventLoad() {
     scrollInit();
 
     $("#getImg").click(function(){
-        debugger;
         getImg();
     })
 }
@@ -212,11 +211,12 @@ function callback(files) {
 
     var agent = navigator.userAgent;
     if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1) {
+        alert("android")
         window.location.href = blobdown.href;
     } else {
         blobdown.click();
     }
-    
+
     // 下载完成移除元素，并且重现滑动加载
     //document.body.removeChild(blobdown);
 };
