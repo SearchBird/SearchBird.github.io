@@ -163,7 +163,14 @@ function getImg() {
             var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 
             // 转为file并且下载
-            callback(dataURIToBlob(url));
+            var agent = navigator.userAgent;
+            if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+                var img = document.createElement("img");
+                img.src = url;
+                document.body.appendChild(img);
+            } else {
+                callback(dataURIToBlob(url));
+            }
            /* var link = document.createElement('a');
             link.download = 'my-image-name.jpg';
             link.href = url;
@@ -209,7 +216,6 @@ function callback(files) {
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
     blobdown.click();
-
 
     // 下载完成移除元素，并且重现滑动加载
     //document.body.removeChild(blobdown);
