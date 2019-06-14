@@ -176,13 +176,10 @@ function getImg() {
 
             // 转为file并且下载
             var agent = navigator.userAgent;
-            debugger ;
-            alert(agent);
             if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
                 var img = document.createElement("img");
                 img.src = url;
-                document.body.appendChild(img);
-                alert("我好了")
+                document.body.appendChild(canvas);//document.body.appendChild(img);
             } else {
                 callback(dataURIToBlob(url));
             }
