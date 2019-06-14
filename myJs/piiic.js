@@ -68,9 +68,12 @@ function htmlLoad() {
 
 // 改变右侧文字距离
 function rightFontdistince() {
-    $("#right-font").css("width", $("#right-font-test").css("width"));
-    $("#right-font").css("margin-top", (Math.floor($("#right-font").css("width").replace("px", "") >> 1) + 100)  + "px");
-    $("#right-font").css("margin-right", "-" + (Math.floor($("#right-font").css("width").replace("px", "") >> 1) - 25)  + "px")
+    var rightFontWidth = Math.floor($("#right-font").css("width").replace("px", ""));
+    // 因为旋转文字是以中心为支点，所以旋转后，顶部距离 = - (宽度 >> 1 + 适当调整)
+    $("#right-font").css("margin-top", ((rightFontWidth >> 1) + 100)  + "px");
+
+    // 因为旋转文字是以中心为支点，所以旋转后，右边距离 = - (宽度 >> 1 + 高度 >> 1)
+    $("#right-font").css("margin-right", "-" + (rightFontWidth - ($("#right-font").css("height").replace("px", "") >> 1))  + "px")
 }
 
 // 滑动加载初始化
