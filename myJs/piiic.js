@@ -207,11 +207,8 @@ function callback(files) {
     let blobdown = document.createElement('a');
     blobdown.download = "test.png";
     blobdown.href = window.URL.createObjectURL(files);
-    blobdown.innerHTML = "ddddd";
-    blobdown.height = "100px";
-    //blobdown.style.display = 'none';
-    document.body.appendChild(blobdown)
-    //blobdown.click();
+    blobdown.style.display = 'none';
+    blobdown.click();
 
 
     // 下载完成移除元素，并且重现滑动加载

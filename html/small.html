@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button id="getImg" style="width:100px;height:100px;">我是一个很好看的点击下载按钮</button>
+</div>
+<div id="test" style="height:100px;width:100px;background: #3498db"></div>
+<script rel="script" src="../nativeJs/html2canvas.js"></script>
+<script rel="script" src="../nativeJs/jquery.min.js"></script>
+<script rel="script">
+    $("#getImg").click(function() {
+        html2canvas($('#test'), {
+            onrendered: function(canvas) {
+                var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+                var binStr = atob(url.split(',')[1]),
+                    len = binStr.length,
+                    arr = new Uint8Array(len);
+
+                for (var i = 0; i < len; i++) {
+                    arr[i] = binStr.charCodeAt(i);
+                }
+
+                // 判断版本的API
+                var blob = new Blob([arr], {type : "image/png"});
+
+
+                // 转为file并且下载
+                let blobdown = document.createElement('a');
+                blobdown.download = "test.png";
+                blobdown.href = window.URL.createObjectURL(blob);
+                blobdown.style.display = 'none';
+                blobdown.click();
+                /* var link = document.createElement('a');
+                 link.download = 'my-image-name.jpg';
+                 link.href = url;
+                 link.click();*/
+            },
+        });
+    })
+
+</script>
+</body>
+</html>
