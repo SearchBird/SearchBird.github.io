@@ -153,6 +153,7 @@ function containerInit() {
 
 // 因为使用a标签下载b64太长，所以只能够转为blob文件进行下载
 function getImg() {
+    console.log("test")
     html2canvas($('#piiic-container'), {
         onrendered: function(canvas) {
             //Canvas2Image.saveAsImage(canvas)
