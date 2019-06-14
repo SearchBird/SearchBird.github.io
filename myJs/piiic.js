@@ -208,7 +208,7 @@ function callback(files) {
     blobdown.download = "test.png";
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.innerHTML = "ddddd";
-    blobdown.height = 100px;
+    blobdown.height = "100px";
     //blobdown.style.display = 'none';
     document.body.appendChild(blobdown)
     //blobdown.click();
