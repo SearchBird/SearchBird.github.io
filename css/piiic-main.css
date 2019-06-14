@@ -112,9 +112,9 @@ img{
     display:inline-block;
     position: relative;
     float:right;
-    margin-right:-341px;
+    width: 482px;
     margin-top:205px;
-    z-index:999;
+    z-index:1000;
     background:rgba(0,0,0,0);
     height:51px;
     transform:rotate(-90deg);

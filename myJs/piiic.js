@@ -3,7 +3,7 @@
 $(function() {
 
     // 解决浏览器兼容
-    compatibleLoad();
+    //compatibleLoad();
     // 加载其他html文件
     htmlLoad();
     // 样式初始化
@@ -24,7 +24,7 @@ function eventLoad() {
 }
 
 // 解决浏览器兼容
-function compatibleLoad() {
+/*function compatibleLoad() {
     var userAgent = navigator.userAgent;
     var isEdge = userAgent.indexOf("Edge") > -1;
     var isQQ = userAgent.indexOf('QQBrowser') > -1;
@@ -40,7 +40,7 @@ function compatibleLoad() {
     if(isFF) {
         $("#right-font").css("margin-right", "-347px;")
     }
-}
+}*/
 
 // 样式初始化
 function cssLoad(){
@@ -54,6 +54,8 @@ function cssLoad(){
     attackScaleSizeInit();
     // 将文件改为b64格式，便于下载
     imgB64();
+    // 改变右侧文字距离
+    rightFontdistince();
 }
 
 // 加载其他html文件
@@ -62,6 +64,13 @@ function htmlLoad() {
     syncHtml();
     // 初始化高亮
     highLightInit();
+}
+
+// 改变右侧文字距离
+function rightFontdistince() {
+    $("#right-font").css("width", $("#right-font-test").css("width"));
+    $("#right-font").css("margin-top", (Math.floor($("#right-font").css("width").replace("px", "") >> 1) + 100)  + "px");
+    $("#right-font").css("margin-right", "-" + (Math.floor($("#right-font").css("width").replace("px", "") >> 1) - 25)  + "px")
 }
 
 // 滑动加载初始化
