@@ -1,3 +1,4 @@
+"use strict";
 /**
  * 反色闭包对象
  * @param colorStr

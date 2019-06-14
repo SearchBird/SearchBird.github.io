@@ -1,3 +1,4 @@
+"use strict";
 // 全局初始化
 $(function() {
 
@@ -74,7 +75,7 @@ function scrollInit() {
 }
 
 function attackScaleSizeInit() {
-    $attackScale = $(".attack-scale");
+    var $attackScale = $(".attack-scale");
     var sizeFlag = $.trim($attackScale.html()).length < 4;
     if(sizeFlag) {
         $attackScale.css("font-size", "17px");
@@ -98,7 +99,7 @@ function distanceInit() {
 }
 
 function imgOnload() {
-    $img = $("img");
+    var $img = $("img");
 
     $img.lazyload({
         effect : "fadeIn"
