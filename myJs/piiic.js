@@ -177,12 +177,31 @@ function getImg() {
             // 转为file并且下载
             var agent = navigator.userAgent;
             if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-                var img = document.createElement("img");
-                img.src = url;
-                document.body.appendChild(canvas);//document.body.appendChild(img);
+                webview.getSettings().setJavaScriptEnabled(true);
+                webview.getSettings().setSupportMultipleWindows(true);
+                webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+                /*var img = document.createElement("img");
+                img.src = url;*/
+
+                webview.android.setDownloadListener(new android.webkit.DownloadListener({
+                    onDownloadStart(url, userAgent, contentDisposition, mimetype, contentLength)
+                    {
+                        const androidApp = app.android;
+                        if (androidApp.foregroundActivity === androidApp.startActivity) {
+                            const context = utils.ad.getApplicationContext();
+                            let intent = new android.content.Intent(android.content.Intent.ACTION_VIEW);
+                            intent.setData(android.net.Uri.parse(url));
+                            androidApp.foregroundActivity.startActivity(intent);
+                        }
+                    }
+                }));
+
+
+                //document.body.appendChild(canvas);//document.body.appendChild(img);
             } else {
+                var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
                 callback(dataURIToBlob(url));
-            }
+            //}
            /* var link = document.createElement('a');
             link.download = 'my-image-name.jpg';
             link.href = url;
@@ -225,7 +244,7 @@ function dataURIToBlob(dataURI) {
 function callback(files) {
     let blobdown = document.createElement('a');
     blobdown.download = "test.png";
-    blobdown.href = window.URL.createObjectURL(files);
+    blobdown.href = window.URL.createObjectURL(files).replace("blob:","");
     blobdown.style.display = 'none';
     blobdown.click();
 
