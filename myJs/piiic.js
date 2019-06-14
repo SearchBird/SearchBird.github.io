@@ -201,12 +201,13 @@ function getImg() {
             } else {
                 var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
                 callback(dataURIToBlob(url));
-            //}
-           /* var link = document.createElement('a');
-            link.download = 'my-image-name.jpg';
-            link.href = url;
-            link.click();*/
-        },
+                //}
+                /* var link = document.createElement('a');
+                 link.download = 'my-image-name.jpg';
+                 link.href = url;
+                 link.click();*/
+            }
+        }
     });
 }
 function dataURIToBlob(dataURI) {
