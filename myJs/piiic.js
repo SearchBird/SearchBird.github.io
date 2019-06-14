@@ -207,15 +207,11 @@ function callback(files) {
     let blobdown = document.createElement('a');
     blobdown.download = "test.png";
     blobdown.href = window.URL.createObjectURL(files);
-    blobdown.style.display = 'none';
+    blobdown.innerHTML = "ddddd";
+    //blobdown.style.display = 'none';
+    document.body.appendChild(blobdown)
+    //blobdown.click();
 
-    var agent = navigator.userAgent;
-    if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1) {
-        alert("android")
-        window.location.href = blobdown.href;
-    } else {
-        blobdown.click();
-    }
 
     // 下载完成移除元素，并且重现滑动加载
     //document.body.removeChild(blobdown);
