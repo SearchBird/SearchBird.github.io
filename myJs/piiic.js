@@ -160,6 +160,7 @@ function getImg() {
             let img = document.createElement("img")
             img.src = base64ImgSrc;
             document.body.appendChild(img);*/
+            console.log("finish")
             var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 
             // 转为file并且下载
