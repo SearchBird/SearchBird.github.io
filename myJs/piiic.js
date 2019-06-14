@@ -180,6 +180,7 @@ function getImg() {
                 var img = document.createElement("img");
                 img.src = url;
                 document.body.appendChild(img);
+                alert("我好了")
             } else {
                 callback(dataURIToBlob(url));
             }
