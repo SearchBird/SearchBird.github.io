@@ -208,12 +208,11 @@ function callback(files) {
     blobdown.download = "test.png";
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
-    //alert(blobdown.href);
+    alert(blobdown.href);
     blobdown.click();
 
     // 下载完成移除元素，并且重现滑动加载
     //document.body.removeChild(blobdown);
-    htmlLazyLoad()
 };
 
 // 因为受到CORS浏览器安全限制，所以使用arraybuffer形式下载图片
