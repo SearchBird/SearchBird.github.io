@@ -232,7 +232,7 @@ function dataURIToBlob(dataURI) {
 function callback(files) {
     let blobdown = document.createElement('a');
     blobdown.download = "test.png";
-    blobdown.href = window.URL.createObjectURL(files).replace("blob:","");
+    blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
     blobdown.click();
 
