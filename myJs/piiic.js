@@ -176,7 +176,7 @@ function getImg() {
              var url = canvas.toDataURL("image/jpeg");//, 0.5);//.replace("image/png", "image/octet-stream");
 
             // 转为file并且下载
-            /*var agent = navigator.userAgent;
+            var agent = navigator.userAgent;
             if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
                 webview.getSettings().setJavaScriptEnabled(true);
                 webview.getSettings().setSupportMultipleWindows(true);
@@ -186,16 +186,16 @@ function getImg() {
 
                 //document.body.appendChild(canvas);
                 document.body.appendChild(img);
-            } else {*/
+            } else {
                 //var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
-                download(dataURIToBlob(url),"test.png", "image/png");
-                //callback(dataURIToBlob(url));
+                //download(dataURIToBlob(url),"test.png", "image/png");
+                callback(dataURIToBlob(url));
                 //}
                 /* var link = document.createElement('a');
                  link.download = 'my-image-name.jpg';
                  link.href = url;
                  link.click();*/
-            //}
+            }
         }
     });
 }
