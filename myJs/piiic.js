@@ -172,7 +172,8 @@ function getImg() {
             let img = document.createElement("img")
             img.src = base64ImgSrc;
             document.body.appendChild(img);*/
-            var url = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            //let quality = $("#jpgQuality").getValue(),
+             var url = canvas.toDataURL("image/jpeg");//, 0.5);//.replace("image/png", "image/octet-stream");
 
             // 转为file并且下载
             var agent = navigator.userAgent;
@@ -186,8 +187,9 @@ function getImg() {
                 //document.body.appendChild(canvas);
                 document.body.appendChild(img);
             } else {
-                var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
-                callback(dataURIToBlob(url));
+                //var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
+                download(dataURIToBlob(url),"test.png", "image/png");
+                //callback(dataURIToBlob(url));
                 //}
                 /* var link = document.createElement('a');
                  link.download = 'my-image-name.jpg';
@@ -209,7 +211,7 @@ function dataURIToBlob(dataURI) {
     // 判断版本的API
     var blob;
     try{
-        blob = new Blob([arr], {type : "image/png"});
+        blob = new Blob([arr], {type : "image/jpeg"});
     }
     catch(e){
         window.BlobBuilder = window.BlobBuilder ||
@@ -219,19 +221,19 @@ function dataURIToBlob(dataURI) {
         if(e.name == 'TypeError' && window.BlobBuilder){
             var bb = new BlobBuilder();
             bb.append([arr.buffer]);
-            blob = bb.getBlob("image/png");
+            blob = bb.getBlob("image/jpeg");
         }
         else if(e.name == "InvalidStateError"){
-            blob = new Blob( [arr.buffer], {type : "image/png"});
+            blob = new Blob( [arr.buffer], {type : "image/jpeg"});
         }
     } finally {
-        let files = new window.File([blob], "test.png", {type: "png"})
+        let files = new window.File([blob], "test.jpg", {type: "jpeg"})
         return files;
     }
 }
 function callback(files) {
     let blobdown = document.createElement('a');
-    blobdown.download = "test.png";
+    blobdown.download = "test.jpg";
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
     blobdown.click();
@@ -274,7 +276,7 @@ function image2base64(imgObj, type) {
             }
             var data = binaryString.join('');
             var base64 = window.btoa(data);
-            dataUrl = "data:image/png;base64," + base64;
+            dataUrl = "data:image/jpg;base64," + base64;
             //dataUrl = "data:" + (outputFormat || "image/png") + ";base64," + base64;
             if(type == 1) {
                 imgObj.attr('src', dataUrl);
