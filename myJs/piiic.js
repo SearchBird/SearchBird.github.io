@@ -56,6 +56,8 @@ function cssLoad(){
     imgB64();
     // 改变右侧文字距离
     rightFontdistince();
+    // 判断浏览器类型
+    typeOfAgent();
 }
 
 // 加载其他html文件
@@ -163,6 +165,13 @@ function containerInit() {
     $("#background-body").css("height", (globalDivHeight[globalDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 630) + "px");
 }
 
+function typeOfAgent() {
+    agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
+    if (agentType) {
+        $("#getImg").innerHTML("转换成图片");
+    }
+}
+
 // 因为使用a标签下载b64太长，所以只能够转为blob文件进行下载
 function getImg() {
     html2canvas($('#piiic-container'), {
@@ -178,7 +187,7 @@ function getImg() {
             // 转为file并且下载
             var platform = navigator.platform,
                 agent = navigator.userAgent;
-            if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1) {
+            if(agentType) {
                 /*webview.getSettings().setJavaScriptEnabled(true);
                 webview.getSettings().setSupportMultipleWindows(true);
                 webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);*/
