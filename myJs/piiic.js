@@ -253,9 +253,12 @@ function callback(files) {
 
 // 因为受到CORS浏览器安全限制，所以使用arraybuffer形式下载图片
 function imgB64() {
-    var imgList = $("#piiic-container img").each(function(index, value) {
+    $("#piiic-container img").each(function(index, value) {
         image2base64($(value), 1);
     });
+    $(divBackgroundArr).each(function (index, value) {
+        image2base64($(value));
+    })
 }
 
 // 传入一个jq对象
