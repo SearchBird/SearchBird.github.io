@@ -178,9 +178,9 @@ function getImg() {
             // 转为file并且下载
             var agent = navigator.userAgent;
             if(agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-                webview.getSettings().setJavaScriptEnabled(true);
+                /*webview.getSettings().setJavaScriptEnabled(true);
                 webview.getSettings().setSupportMultipleWindows(true);
-                webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+                webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);*/
                 var img = document.createElement("img");
                 img.src = url;
 
