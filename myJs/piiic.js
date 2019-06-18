@@ -168,7 +168,7 @@ function containerInit() {
 function typeOfAgent() {
     agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
     if (agentType) {
-        $("#getImg").innerHTML("转换成图片");
+        $("#getImg").html("转成图片");
     }
 }
 
