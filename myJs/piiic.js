@@ -166,6 +166,8 @@ function containerInit() {
 }
 
 function typeOfAgent() {
+    var platform = navigator.platform,
+        agent = navigator.userAgent;
     agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
     if (agentType) {
         $("#getImg").html("转成图片");
@@ -185,8 +187,6 @@ function getImg() {
              var url = canvas.toDataURL("image/jpeg");//, 0.5);//.replace("image/png", "image/octet-stream");
 
             // 转为file并且下载
-            var platform = navigator.platform,
-                agent = navigator.userAgent;
             if(agentType) {
                 /*webview.getSettings().setJavaScriptEnabled(true);
                 webview.getSettings().setSupportMultipleWindows(true);
