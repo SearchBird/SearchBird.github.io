@@ -202,7 +202,6 @@ function getImg() {
                 document.body.removeChild(container);
             } else {
                 //var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
-                //download(dataURIToBlob(url),"test.png", "image/png");
 
                 callback(dataURIToBlob(url));
                 /* var link = document.createElement('a');
