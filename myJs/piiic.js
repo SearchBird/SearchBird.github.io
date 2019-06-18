@@ -178,7 +178,6 @@ function typeOfAgent() {
 function getImg() {
     html2canvas($('#piiic-container'), {
         onrendered: function(canvas) {
-            //Canvas2Image.saveAsImage(canvas)
             /*let base64ImgSrc = canvas.toDataURL("image/png")
             let img = document.createElement("img")
             img.src = base64ImgSrc;
@@ -250,15 +249,10 @@ function callback(files) {
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
     blobdown.click();
-
-    // 下载完成移除元素，并且重现滑动加载
-    //document.body.removeChild(blobdown);
 };
 
 // 因为受到CORS浏览器安全限制，所以使用arraybuffer形式下载图片
 function imgB64() {
-    //image2base64($("#background-header"));
-    //image2base64($("#background-body"));
     var imgList = $("#piiic-container img").each(function(index, value) {
         image2base64($(value), 1);
     });
