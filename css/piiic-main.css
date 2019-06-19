@@ -238,3 +238,32 @@ canvas{
 #toTop:hover{
     cursor:pointer;
 }
+
+
+/*分享按钮样式*/
+.black-curtain{
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 1004;
+    background: rgba(0,0,0,0.5);
+    top:0;
+}
+.share-outter {
+    width: 500px;
+    height: 320px;
+    position: fixed;
+    z-index: 1006;
+    background: white;
+    right: calc(50% - 250px);
+    top: calc(50% - 160px);
+}
+.share-inner{
+    width: 390px;
+    height: 280px;
+    position: fixed;
+    z-index: 1007;
+    background: white;
+    right: calc(50% - 195px);
+    top: calc(50% - 140px);
+}

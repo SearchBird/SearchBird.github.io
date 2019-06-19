@@ -22,25 +22,6 @@ function eventLoad() {
 
 }
 
-// 解决浏览器兼容
-/*function compatibleLoad() {
-    var userAgent = navigator.userAgent;
-    var isEdge = userAgent.indexOf("Edge") > -1;
-    var isQQ = userAgent.indexOf('QQBrowser') > -1;
-    var isFF = userAgent.indexOf("Firefox") > -1;
-    if (isEdge) {
-        $("#right-font").css("margin-right","-324px");
-        changeFont();
-    }
-    if (isQQ) {
-        changeFont();
-        $("#right-font").css("margin-right", "-343px");
-    }
-    if(isFF) {
-        $("#right-font").css("margin-right", "-347px;")
-    }
-}*/
-
 // 样式初始化
 function cssLoad(){
     // 初始化图片
@@ -136,16 +117,27 @@ function clickInit() {
     $("#toTop").click(function() {
         window.location.href = "#getImg";
     })
+    $("#share").click(function(){
+        $.ajax({
+            url: 'share.html',
+            type: 'get',
+            async: false,
+            success: function (res) {
+                $("#share-curtain").html($(res));
+            }
+        });
+
+    })
 }
 
 // 通过遍历做缓存
 function calculaHeight(){
     var divInitHeight = 1000;
-    globalDivHeight.push(divInitHeight);
-    for (var i = -1;i ++ < globalDiv.length - 1;){
-        var $globalDiv = $(globalDiv[i]);
-        divInitHeight += $globalDiv.outerHeight(true);
-        globalDivHeight.push(divInitHeight);
+    globalPiiicContentDivHeight.push(divInitHeight);
+    for (var i = -1;i ++ < globalPiiicContentDiv.length - 1;){
+        var $globalPiiicContentDiv = $(globalPiiicContentDiv[i]);
+        divInitHeight += $globalPiiicContentDiv.outerHeight(true);
+        globalPiiicContentDivHeight.push(divInitHeight);
     }
 }
 // 利用缓存中数据做绑定
@@ -171,7 +163,7 @@ function syncHtml(synObj) {
 }
 
 function containerInit() {
-    $("#background-body").css("height", (globalDivHeight[globalDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 630) + "px");
+    $("#background-body").css("height", (globalPiiicContentDivHeight[globalPiiicContentDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 630) + "px");
 }
 
 function typeOfAgent() {
@@ -310,7 +302,26 @@ function image2base64(imgObj, type) {
 }
 
 
-//递归将要转换的节点中的所有图片的src全部转为base64
+// 解决浏览器兼容
+/*function compatibleLoad() {
+    var userAgent = navigator.userAgent;
+    var isEdge = userAgent.indexOf("Edge") > -1;
+    var isQQ = userAgent.indexOf('QQBrowser') > -1;
+    var isFF = userAgent.indexOf("Firefox") > -1;
+    if (isEdge) {
+        $("#right-font").css("margin-right","-324px");
+        changeFont();
+    }
+    if (isQQ) {
+        changeFont();
+        $("#right-font").css("margin-right", "-343px");
+    }
+    if(isFF) {
+        $("#right-font").css("margin-right", "-347px;")
+    }
+}*/
+
+//递归将要转换的节点中的所有图片的src全部转为base64，递归太傻，为什么要吃栈
 /*function image2base64(s) {
     src = $("#piiic-container img").eq(s).attr('src');
     var base64 = getBase64ByUrl(src);//getBase64Image(image);

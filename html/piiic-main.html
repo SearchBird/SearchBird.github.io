@@ -10,9 +10,12 @@
     <link type="text/css" rel="stylesheet" href="../css/gift.css"/>
     <link type="text/css" rel="stylesheet" href="../css/skill.css"/>
     <link type="text/css" rel="stylesheet" href="../css/gist.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/share.css"/>
     <script rel="script">
-        var globalDiv = ["#preface", "#gift", "#skill", "#gist"],
-            globalDivHeight = [],
+
+        var globalDiv = ["#preface", "#gift", "#skill", "#gist", "#top-list-botton"],
+            globalPiiicContentDiv = ["#preface", "#gift", "#skill", "#gist"], // 放置需要加载的长图的div id，会绑定相应的滑动展示动作
+            globalPiiicContentDivHeight = [],
             globalLock = [true, true, true, true],
             agentType = false,
             divBackgroundArr = [".sk-test-title-img", ".sk-totalTest-title-img", ".sk-logistics-title-img"]
@@ -25,8 +28,8 @@
     <script rel="script" src="../myJs/preface.js"></script>
 </head>
 <body>
-    <div>
-        <button id="getImg" style="width:100px;height:100px;">点击下载</button>
+    <div id="top-list-botton">
+
     </div>
 
     <div id="piiic-container" class="piiic-main-container">
@@ -164,6 +167,8 @@
         <div id="toTop">ToTop</div>
 
     </div>
+
+    <div id="share-curtain"></div>
 </body>
 
 </html>

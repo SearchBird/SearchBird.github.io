@@ -77,9 +77,9 @@ function htmlLazyLoad() {
         if(currentHeight > globalDivHeight[i])
             $(globalDiv[i]).css("opacity" , "1");
     }*/
-    for(var i = globalDiv.length;i -- >0;) {
-        var $obj = $(globalDiv[i]);
-        if(scrollTop > globalDivHeight[i + 1] || currentHeight < globalDivHeight[i]){
+    for(var i = globalPiiicContentDiv.length;i -- >0;) {
+        var $obj = $(globalPiiicContentDiv[i]);
+        if(scrollTop > globalPiiicContentDivHeight[i + 1] || currentHeight < globalPiiicContentDivHeight[i]){
 
             // 由于使用animate会让css失去控制，需要停止animate的动作
             $obj.stop().css("opacity" , "0");
