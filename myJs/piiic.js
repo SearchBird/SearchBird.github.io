@@ -17,9 +17,10 @@ $(function() {
 function eventLoad() {
     // 滑动加载初始化
     scrollInit();
-
+    // 点击初始化
     clickInit();
-
+    // 悬浮初始化
+    hoverInit();
 }
 
 // 样式初始化
@@ -66,6 +67,32 @@ function scrollInit() {
     scrollData();
     // 初始化容器高度
     containerInit();
+}
+
+function hoverInit() {
+    $("#toTop").hover(function(){
+        for(var i = 7;i -- > 1;){
+            $(".toTop-inner" + i).animate( { opacity : "1"},"slow");
+            $("#toTop").append('<div class="toTop-inner1 move"></div>')
+                        .append('<div class="toTop-inner3 move"></div>')
+                        .append('<div class="toTop-inner5 move"></div>');
+            $(".move").each(function(index, value){
+                if(index == 0)
+                    $(value).animate({height:0},"fast")
+                if(index == 1)
+                    $(value).animate({height:0,left:0,bottom:0},"fast")
+                if(index == 2)
+                    $(value).animate({height:0,left:0,bottom:0},"fast")
+            })
+        }
+    },function(){
+        for(var i = 7;i -- > 1;){
+            $(".toTop-inner" + i).animate( { opacity : "0.7"},"slow");
+            $(".move").each(function(index, value) {
+                $(value).stop().remove();
+            })
+        }
+    })
 }
 
 function attackScaleSizeInit() {
