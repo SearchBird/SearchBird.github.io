@@ -221,3 +221,20 @@ canvas{
     position:absolute;
     z-index:999;
 }
+
+#toTop{
+    display: block;
+    width:100px;
+    height:100px;
+    position: fixed;
+    bottom: 8%;
+    right:10%;
+    background: white;
+    z-index: 1002;
+    font-size: 18px;
+    line-height: 100px;
+    text-align: center;
+}
+#toTop:hover{
+    cursor:pointer;
+}

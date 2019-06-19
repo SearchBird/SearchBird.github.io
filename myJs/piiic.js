@@ -18,9 +18,8 @@ function eventLoad() {
     // 滑动加载初始化
     scrollInit();
 
-    $("#getImg").click(function(){
-        getImg();
-    })
+    clickInit();
+
 }
 
 // 解决浏览器兼容
@@ -127,6 +126,16 @@ function differenceOnload(){
         // 反色高亮
         $difference.css("background-color", reversor.highLight(reversor.parse(true)));
     });
+}
+
+function clickInit() {
+    $("#getImg").click(function(){
+        getImg();
+    })
+
+    $("#toTop").click(function() {
+        window.location.href = "#getImg";
+    })
 }
 
 // 通过遍历做缓存
@@ -299,6 +308,7 @@ function image2base64(imgObj, type) {
 
     xhr.send();
 }
+
 
 //递归将要转换的节点中的所有图片的src全部转为base64
 /*function image2base64(s) {
