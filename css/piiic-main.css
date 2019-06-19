@@ -224,12 +224,18 @@ canvas{
 
 /*置顶按钮*/
 #toTop{
+    transform-origin: 50% 100%;
+    -moz-transform-origin:50% 100%;
+    -webkit-transform-origin:50% 100%;
+    -mz-transform-origin:50% 100%;
     display: block;
     /*width:100px;
     height:75px;*/
     position: fixed;
     bottom: 10%;
-    right:15%;
+    right: calc(15% - 100px);
+    width: 100px;
+    height: 100px;
     /*background: rgba(255,255,255,0.7);*/
     z-index: 1002;
     font-size: 20px;

@@ -70,9 +70,10 @@ function scrollInit() {
 }
 
 function hoverInit() {
+    clickFlag.toTopHoverLock = true;
     $("#toTop").hover(function(){
         for(var i = 7;i -- > 1;){
-            $(".toTop-inner" + i).animate( { opacity : "1"},"slow");
+            $(".toTop-inner" + i).animate( { opacity : "1"},"normal");
             $("#toTop").append('<div class="toTop-inner1 move"></div>')
                         .append('<div class="toTop-inner3 move"></div>')
                         .append('<div class="toTop-inner5 move"></div>');
@@ -87,7 +88,7 @@ function hoverInit() {
         }
     },function(){
         for(var i = 7;i -- > 1;){
-            $(".toTop-inner" + i).animate( { opacity : "0.7"},"slow");
+            $(".toTop-inner" + i).animate( { opacity : "0.7"},"normal");
             $(".move").each(function(index, value) {
                 $(value).stop().remove();
             })
@@ -141,24 +142,88 @@ function clickInit() {
         getImg();
     })
 
+    clickFlag.toTopFlag = true;
     $("#toTop").click(function() {
-        window.location.href = "#getImg";
-        $(".move").each(function(index, value) {
-            $(value).stop().remove();
-        })
-        $("#toTop").append('<div class="toTop-inner1 move"></div>')
-            .append('<div class="toTop-inner3 move"></div>')
-            .append('<div class="toTop-inner5 move"></div>');
-        $(".move").each(function(index, value){
-            if(index == 0)
-                $(value).animate({height:0},"fast")
-            if(index == 1)
-                $(value).animate({height:0,left:0,bottom:0},"fast")
-            if(index == 2)
-                $(value).animate({height:0,left:0,bottom:0},"fast")
-        })
+        //window.location.href = "#getImg";
+        if(clickFlag.toTopFlag) {
+            clickFlag.toTopFlag = false;
+            $('html,body').animate({scrollTop: '0px'}, 300, function(){
+                clickFlag.toTopFlag = true;
+            });
+            $(".move").each(function(index, value) {
+                $(value).stop().remove();
+            })
+            $("#toTop").append('<div class="toTop-inner1 move"></div>')
+                .append('<div class="toTop-inner3 move"></div>')
+                .append('<div class="toTop-inner5 move"></div>');
+            $(".move").each(function(index, value){
+                if(index == 0)
+                    $(value).animate({height:0},"fast")
+                if(index == 1)
+                    $(value).animate({height:0,left:0,bottom:0},"fast")
+                if(index == 2)
+                    $(value).animate({height:0,left:0,bottom:0},"fast")
+            })
+        }
+    });
 
+    // 点击旋转彩蛋
+    $("#toTop").mousedown(function(event){
+        var flag = false;
+        stopFun = setTimeout(function() {//down 1s，才运行。
+            flag = true;
+            $("#toTop").css({
+                'transition': 'all 4s',
+                '-webkit-transition': 'all 4s', /* Safari */
+                '-moz-transition' : 'all 4s', /* Firefox 4 */
+                '-ms-transition' : 'all 4s',
+                '-o-transition' : 'all 4s',
+                "transform" : "rotate(360deg)",
+                "-moz-transform": "rotate(360deg)",
+                "-webkit-transform": "rotate(360deg)",
+                "-ms-transform": "rotate(360deg)",
+                "-o-transform": "rotate(360deg)"
+            });
+            var domToTop = document.getElementById("toTop");
+            domToTop.addEventListener("transitionend", function(){
+                $("#toTop").css({
+                    'transition': 'all 0s', /* Safari */
+                    "transform": "rotate(0deg)",
+                })
+            }, false);
+            domToTop.addEventListener("mozTransitionEnd", function(){
+                $("#toTop").css({
+                    '-moz-transition': 'all 0s', /* Safari */
+                    "-moz-transform": "rotate(0deg)",
+                })
+            }, false);
+            domToTop.addEventListener("webkitTransitionEnd", function(){
+                $("#toTop").css({
+                    '-webkit-transition': 'all 0s', /* Safari */
+                    "-webkit-transform": "rotate(0deg)",
+                })
+            }, false);
+            domToTop.addEventListener("msTransitionEnd", function(){
+                $("#toTop").css({
+                    '-ms-transition': 'all 0s', /* Safari */
+                    "-ms-transform": "rotate(0deg)",
+                })
+            }, false);
+            domToTop.addEventListener("oTransitionEnd", function(){
+                $("#toTop").css({
+                    '-o-transition': 'all 0s', /* Safari */
+                    "-o-transform": "rotate(0deg)",
+                })
+            }, false);
+        }, 1000);
+        $("#toTop").mouseup(function() {//鼠标up时，判断down了多久，不足一秒，不执行down的代码。
+            if (!flag) {
+                clearTimeout(stopFun);
+            }
+        });
     })
+
+
     $("#share").click(function(){
         $.ajax({
             url: 'share.html',
