@@ -267,3 +267,10 @@ canvas{
     right: calc(50% - 195px);
     top: calc(50% - 140px);
 }
+.close{
+    position: absolute;
+    z-index: 1007;
+    right:10px;
+    top:10px;
+    cursor:pointer;
+}

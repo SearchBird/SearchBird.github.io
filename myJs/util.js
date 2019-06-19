@@ -97,3 +97,14 @@ function htmlLazyLoad() {
         }
     }
 }
+
+function close(objectId, closeId, closeType) {
+    var $id = $(closeId);
+    $id.click(function() {
+        if(closeType == 0) {
+            $(objectId).empty();
+        } else if(closeType == 1) {
+            $(object).remove();
+        }
+    })
+}
