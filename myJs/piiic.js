@@ -143,6 +143,21 @@ function clickInit() {
 
     $("#toTop").click(function() {
         window.location.href = "#getImg";
+        $(".move").each(function(index, value) {
+            $(value).stop().remove();
+        })
+        $("#toTop").append('<div class="toTop-inner1 move"></div>')
+            .append('<div class="toTop-inner3 move"></div>')
+            .append('<div class="toTop-inner5 move"></div>');
+        $(".move").each(function(index, value){
+            if(index == 0)
+                $(value).animate({height:0},"fast")
+            if(index == 1)
+                $(value).animate({height:0,left:0,bottom:0},"fast")
+            if(index == 2)
+                $(value).animate({height:0,left:0,bottom:0},"fast")
+        })
+
     })
     $("#share").click(function(){
         $.ajax({
