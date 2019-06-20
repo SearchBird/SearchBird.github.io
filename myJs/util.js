@@ -108,3 +108,34 @@ function close(objectId, closeId, closeType) {
         }
     })
 }
+
+// 移除监听需要使用共函数，共函数不能带参，所以不适合绑定然后移除的操作，只能够用锁
+function tranfromEndCss(domObj, $jq, endObjArr, otherCallback) {
+    domObj.addEventListener("transitionend", function(){
+        $jq.css(endObjArr[0]);
+        otherCallbackFun(otherCallback, domObj);
+    }, false);
+    domObj.addEventListener("mozTransitionEnd", function(){
+        $jq.css(endObjArr[1]);
+        otherCallbackFun(otherCallback, domObj);
+    }, false);
+    domObj.addEventListener("webkitTransitionEnd", function(){
+        $jq.css(endObjArr[2]);
+        otherCallbackFun(otherCallback, domObj);
+    }, false);
+    domObj.addEventListener("msTransitionEnd", function(){
+        $jq.css(endObjArr[3]);
+        otherCallbackFun(otherCallback, domObj);
+    }, false);
+    domObj.addEventListener("oTransitionEnd", function(){
+        $jq.css(endObjArr[4]);
+        otherCallbackFun(otherCallback, domObj);
+    }, false);
+}
+
+function otherCallbackFun(otherCallback, domObj) {
+    if(otherCallback) {
+        var dom = domObj;
+        otherCallback();
+    }
+}

@@ -74,18 +74,18 @@ function hoverInit() {
     $("#toTop").hover(function(){
         for(var i = 7;i -- > 1;){
             $(".toTop-inner" + i).animate( { opacity : "1"},"normal");
-            $("#toTop").append('<div class="toTop-inner1 move"></div>')
-                        .append('<div class="toTop-inner3 move"></div>')
-                        .append('<div class="toTop-inner5 move"></div>');
-            $(".move").each(function(index, value){
-                if(index == 0)
-                    $(value).animate({height:0},"fast")
-                if(index == 1)
-                    $(value).animate({height:0,left:0,bottom:0},"fast")
-                if(index == 2)
-                    $(value).animate({height:0,left:0,bottom:0},"fast")
-            })
         }
+        $("#toTop").append('<div class="toTop-inner1 move"></div>')
+            .append('<div class="toTop-inner3 move"></div>')
+            .append('<div class="toTop-inner5 move"></div>');
+        $(".move").each(function(index, value){
+            if(index == 0)
+                $(value).animate({height:0},"fast")
+            if(index == 1)
+                $(value).animate({height:0,left:0,bottom:0},"fast")
+            if(index == 2)
+                $(value).animate({height:0,left:0,bottom:0},"fast")
+        })
     },function(){
         for(var i = 7;i -- > 1;){
             $(".toTop-inner" + i).animate( { opacity : "0.7"},"normal");
@@ -168,56 +168,92 @@ function clickInit() {
     });
 
     // 点击旋转彩蛋
+    clickFlag.bonusFlag = false;
+    clickFlag.bonusListenerFlag = false;
     $("#toTop").mousedown(function(event){
-        var flag = false;
         stopFun = setTimeout(function() {//down 1s，才运行。
-            flag = true;
-            $("#toTop").css({
-                'transition': 'all 4s',
-                '-webkit-transition': 'all 4s', /* Safari */
-                '-moz-transition' : 'all 4s', /* Firefox 4 */
-                '-ms-transition' : 'all 4s',
-                '-o-transition' : 'all 4s',
-                "transform" : "rotate(360deg)",
-                "-moz-transform": "rotate(360deg)",
-                "-webkit-transform": "rotate(360deg)",
-                "-ms-transform": "rotate(360deg)",
-                "-o-transform": "rotate(360deg)"
-            });
-            var domToTop = document.getElementById("toTop");
-            domToTop.addEventListener("transitionend", function(){
-                $("#toTop").css({
-                    'transition': 'all 0s', /* Safari */
-                    "transform": "rotate(0deg)",
-                })
-            }, false);
-            domToTop.addEventListener("mozTransitionEnd", function(){
-                $("#toTop").css({
-                    '-moz-transition': 'all 0s', /* Safari */
-                    "-moz-transform": "rotate(0deg)",
-                })
-            }, false);
-            domToTop.addEventListener("webkitTransitionEnd", function(){
-                $("#toTop").css({
-                    '-webkit-transition': 'all 0s', /* Safari */
-                    "-webkit-transform": "rotate(0deg)",
-                })
-            }, false);
-            domToTop.addEventListener("msTransitionEnd", function(){
-                $("#toTop").css({
-                    '-ms-transition': 'all 0s', /* Safari */
-                    "-ms-transform": "rotate(0deg)",
-                })
-            }, false);
-            domToTop.addEventListener("oTransitionEnd", function(){
-                $("#toTop").css({
-                    '-o-transition': 'all 0s', /* Safari */
-                    "-o-transform": "rotate(0deg)",
-                })
-            }, false);
+            if(!clickFlag.bonusFlag) {
+                clickFlag.bonusFlag = true;
+                for (var i = 7; i-- > 1;) {
+                    var $topInner = $(".toTop-inner" + i);
+                    $topInner.css({
+                        'transition': 'all 4s',
+                        '-webkit-transition': 'all 4s', /* Safari */
+                        '-moz-transition': 'all 4s', /* Firefox 4 */
+                        '-ms-transition': 'all 4s',
+                        '-o-transition': 'all 4s',
+                        "border-left-color": "rgba(187,52,65,1)",
+                        "color": "rgba(187,52,65,1)"
+                    });
+                }
+                var $toTop = $("#toTop");
+                $toTop.css({
+                    'transition': 'all 4s',
+                    '-webkit-transition': 'all 4s', /* Safari */
+                    '-moz-transition': 'all 4s', /* Firefox 4 */
+                    '-ms-transition': 'all 4s', /* ie10 */
+                    '-o-transition': 'all 4s', /* Opera */
+                    "transform": "rotate(360deg)",
+                    "-moz-transform": "rotate(360deg)",
+                    "-webkit-transform": "rotate(360deg)",
+                    "-ms-transform": "rotate(360deg)",
+                    "-o-transform": "rotate(360deg)",
+                });
+
+                // 使用锁，绑定只有一次监听
+                if(!clickFlag.bonusListenerFlag) {
+                    clickFlag.bonusListenerFlag = true;
+                    for (var i = 7; i-- > 1;) {
+                        var $topInner = $(".toTop-inner" + i);
+                        tranfromEndCss(document.getElementsByClassName("toTop-inner" + i)[0], $topInner, [
+                            {
+                                'transition': 'all 1s',
+                                "border-left-color": "rgba(255,255,255,0.7)",
+                                "color": "rgba(255,255,255,0.7)"
+                            }, {
+                                '-moz-transition': 'all 1s', /* Firefox */
+                                "border-left-color": "rgba(255,255,255,0.7)",
+                                "color": "rgba(255,255,255,0.7)"
+                            }, {
+                                '-webkit-transition': 'all 1s', /* Safari Chrome */
+                                "border-left-color": "rgba(255,255,255,0.7)",
+                                "color": "rgba(255,255,255,0.7)"
+                            }, {
+                                '-ms-transition': 'all 1s', /* ie10 */
+                                "border-left-color": "rgba(255,255,255,0.7)",
+                                "color": "rgba(255,255,255,0.7)"
+                            }, {
+                                '-o-transition': 'all 1s', /* Opera */
+                                "border-left-color": "rgba(255,255,255,0.7)",
+                                "color": "rgba(255,255,255,0.7)"
+                            }
+                        ], i == 1?function () {
+                            clickFlag.bonusFlag = false;
+                        }: null)
+                    }
+                    tranfromEndCss(document.getElementById("toTop"), $toTop, [
+                        {
+                            'transition': 'all 0s', /* Firefox */
+                            "transform": "rotate(0deg)",
+                        }, {
+                            '-moz-transition': 'all 0s', /* Safari Chrome */
+                            "-moz-transform": "rotate(0deg)",
+                        }, {
+                            '-webkit-transition': 'all 0s', /* Safari */
+                            "-webkit-transform": "rotate(0deg)",
+                        }, {
+                            '-ms-transition': 'all 0s', /* ie10 */
+                            "-ms-transform": "rotate(0deg)",
+                        }, {
+                            '-o-transition': 'all 0s', /* Opera */
+                            "-o-transform": "rotate(0deg)",
+                        }
+                    ])
+                }
+            }
         }, 1000);
         $("#toTop").mouseup(function() {//鼠标up时，判断down了多久，不足一秒，不执行down的代码。
-            if (!flag) {
+            if (!clickFlag.bonusFlag) {
                 clearTimeout(stopFun);
             }
         });
