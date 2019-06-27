@@ -47,10 +47,26 @@ $(".toolist-btn-middle").each(function(index, value) {
 
 $(".piiic-toolist-btn").each(function(index, value) {
     var $this = $(value);
+    $this.hover(function(){
+        var $red = $this.find(".toolist-btn-light-red");
+        if($red) {
+            $red.removeClass("toolist-btn-light-red");
+            $red.addClass("toolist-btn-light-green")
+        }
+    }, function(){
+        var $green = $this.find(".toolist-btn-light-green");
+        if($green) {
+            $green.removeClass("toolist-btn-light-green")
+            $green.addClass("toolist-btn-light-red");
+        }
+    })
     $this.click(function() {
         if(!clickFlag.downloadAnimateFlag) {
             clickFlag.downloadAnimateFlag = true;
             var $word = $this.find(".piiic-toolist-btn-function");
+            var $light = $this.find(".toolist-btn-light");
+            $light.removeClass();
+            $light.addClass("toolist-btn-light-blue");
             $word.animate({opacity: "0"}, 300,
                 function () {
                     var $right = $this.find(".piiic-toolist-btn-move-right");
@@ -95,6 +111,7 @@ $(".piiic-toolist-btn").each(function(index, value) {
                             globalObj.$right = $right;
                             globalObj.$middle = $middle;
                             globalObj.$word = $word;
+                            globalObj.$light = $light;
                             clickFlag.downloadAnimateFlag = true;
                             if(clickFlag.completeDownloadFlag) {
                                 callbackClickAnimate(globalObj);
@@ -144,12 +161,15 @@ function callbackClickAnimate(globalObj) {
                 clickFlag.downloadAnimateFlag = false;
                 clickFlag.completeDownloadFlag = false;
                 clickFlag.downloadStarFlag = false;
+                globalObj.$light.removeClass().addClass("toolist-btn-light").addClass("toolist-btn-light-red");
+
+                globalObj.$light = null;
+                globalObj.$middle = null;
+                globalObj.$left = null;
+                globalObj.$right = null;
+                globalObj.$word = null;
             })
         }
     );
 
-    globalObj.$middle = null;
-    globalObj.$left = null;
-    globalObj.$right = null;
-    globalObj.$word = null;
 }
