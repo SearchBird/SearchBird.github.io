@@ -141,7 +141,11 @@ function differenceOnload(){
 
 function clickInit() {
     $("#getImg").click(function(){
-        getImg();
+        if(!clickFlag.downloadStarFlag) {
+            clickFlag.downloadStarFlag = true;
+            getImg();
+        }
+
     })
 
     clickFlag.toTopFlag = true;
@@ -348,8 +352,9 @@ function getImg() {
                 alertImgComplete();
             } else {
                 //var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
-                var _stars = new Stars({stars:100});
+                //var _stars = new Stars({stars:100});
                 callback(dataURIToBlob(url));
+                alertImgComplete();
                 /* var link = document.createElement('a');
                  link.download = 'my-image-name.jpg';
                  link.href = url;
@@ -448,7 +453,10 @@ function image2base64(imgObj, type) {
 }
 
 function alertImgComplete() {
-
+    clickFlag.completeDownloadFlag = true;
+    if(clickFlag.downloadAnimateFlag) {
+        callbackClickAnimate(globalObj);
+    }
 }
 
 // 解决浏览器兼容

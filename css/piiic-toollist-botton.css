@@ -79,8 +79,11 @@
     top:0;
     height:40px;
     width:2px;
-    background:rebeccapurple;
-    box-shadow: 0 0 11px #FFF;
+    background: linear-gradient(90deg,red, #FFF 50%, red 100%);
+    background: -webkit-linear-gradient(90deg,red, #FFF 50%, red 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg,red, #FFF 50%, red 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg,red, #FFF 50%, red 100%); /* Firefox 3.6 - 15 */
+    box-shadow: 0 0 11px red;
 }
 .toolist-btn-middle{
     height:10px;
@@ -88,7 +91,7 @@
     position:absolute;
     top:45px;
     left:30px;
-    background: #007DBB;
+    background: #3b8bbb;
     z-index: -1;
 }
 .piiic-toolist-btn-function{
