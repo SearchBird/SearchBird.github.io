@@ -10,6 +10,8 @@ $(function() {
     cssLoad();
     // 动作初始化
     eventLoad();
+    // 动画兼容
+    requestAnimationFrameInit();
 
 });
 
@@ -314,7 +316,7 @@ function typeOfAgent() {
         agent = navigator.userAgent;
     agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
     if (agentType) {
-        $("#getImg").html("转成图片");
+        $("#getImg .word-ch").html("转成图片");
     }
 }
 
@@ -340,12 +342,13 @@ function getImg() {
                 $img.attr("src", url);
                 $img.css("display","block").css("margin","auto");
                 document.body.appendChild(img);
-
                 var container = document.getElementById("piiic-container");
+
                 document.body.removeChild(container);
+                alertImgComplete();
             } else {
                 //var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
-
+                var _stars = new Stars({stars:100});
                 callback(dataURIToBlob(url));
                 /* var link = document.createElement('a');
                  link.download = 'my-image-name.jpg';
@@ -444,6 +447,9 @@ function image2base64(imgObj, type) {
     xhr.send();
 }
 
+function alertImgComplete() {
+
+}
 
 // 解决浏览器兼容
 /*function compatibleLoad() {

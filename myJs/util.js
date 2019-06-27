@@ -114,23 +114,23 @@ function tranfromEndCss(domObj, $jq, endObjArr, otherCallback) {
     domObj.addEventListener("transitionend", function(){
         $jq.css(endObjArr[0]);
         otherCallbackFun(otherCallback, domObj);
-    }, false);
+    }.bind(this), false);
     domObj.addEventListener("mozTransitionEnd", function(){
         $jq.css(endObjArr[1]);
         otherCallbackFun(otherCallback, domObj);
-    }, false);
+    }.bind(this), false);
     domObj.addEventListener("webkitTransitionEnd", function(){
         $jq.css(endObjArr[2]);
         otherCallbackFun(otherCallback, domObj);
-    }, false);
+    }.bind(this), false);
     domObj.addEventListener("msTransitionEnd", function(){
         $jq.css(endObjArr[3]);
         otherCallbackFun(otherCallback, domObj);
-    }, false);
+    }.bind(this), false);
     domObj.addEventListener("oTransitionEnd", function(){
         $jq.css(endObjArr[4]);
         otherCallbackFun(otherCallback, domObj);
-    }, false);
+    }.bind(this), false);
 }
 
 function otherCallbackFun(otherCallback, domObj) {
@@ -138,4 +138,34 @@ function otherCallbackFun(otherCallback, domObj) {
         var dom = domObj;
         otherCallback();
     }
+}
+
+// 动画兼容
+function requestAnimationFrameInit() {
+    window.requestAnimationFrame=window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+
+        function (callback, element) {
+            var start,
+                finish;
+
+            window.setTimeout(function () {
+                start = +new Date();
+                callback(start);
+                finish = +new Date();
+
+                self.timeout = 1000 / 60 - (finish - start);
+
+            }, self.timeout);
+        };
+    window.cancelNextRequestAnimationFrame = window.cancelRequestAnimationFrame
+        || window.webkitCancelAnimationFrame
+        || window.webkitCancelRequestAnimationFrame
+        || window.mozCancelRequestAnimationFrame
+        || window.oCancelRequestAnimationFrame
+        || window.msCancelRequestAnimationFrame
+        || clearTimeout;
 }

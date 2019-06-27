@@ -11,9 +11,10 @@
     <link type="text/css" rel="stylesheet" href="../css/skill.css"/>
     <link type="text/css" rel="stylesheet" href="../css/gist.css"/>
     <link type="text/css" rel="stylesheet" href="../css/share.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/piiic-toollist-botton.css"/>
     <script rel="script">
 
-        var globalDiv = ["#preface", "#gift", "#skill", "#gist", "#top-list-botton"],
+        var globalDiv = ["#preface", "#gift", "#skill", "#gist", "#piiic-toollist-botton"],
             globalPiiicContentDiv = ["#preface", "#gift", "#skill", "#gist"], // 放置需要加载的长图的div id，会绑定相应的滑动展示动作
             globalPiiicContentDivHeight = [],
             globalLock = [true, true, true, true],
@@ -29,8 +30,11 @@
     <script rel="script" src="../myJs/piiic.js"></script>
 </head>
 <body>
-    <div id="top-list-botton">
+    <div id="piiic-header">
+        <div id="top-navbar-botton"></div>
+        <div id="piiic-toollist-botton">
 
+        </div>
     </div>
 
     <div id="piiic-container" class="piiic-main-container">
@@ -165,17 +169,17 @@
             </div>
         </div>
 
-        <div id="toTop">
-            <div class="toTop-inner1"></div>
-            <div class="toTop-inner2"></div>
-            <div class="toTop-inner3"></div>
-            <div class="toTop-inner4"></div>
-            <div class="toTop-inner5"></div>
-            <div class="toTop-inner6">
-                TO TOP
-            </div>
-        </div>
+    </div>
 
+    <div id="toTop">
+        <div class="toTop-inner1"></div>
+        <div class="toTop-inner2"></div>
+        <div class="toTop-inner3"></div>
+        <div class="toTop-inner4"></div>
+        <div class="toTop-inner5"></div>
+        <div class="toTop-inner6">
+            TO TOP
+        </div>
     </div>
 
     <div id="share-curtain"></div>
