@@ -8,10 +8,10 @@ $(function() {
     htmlLoad();
     // 样式初始化
     cssLoad();
-    // 动作初始化
-    eventLoad();
     // 动画兼容
     requestAnimationFrameInit();
+    // 动作初始化
+    eventLoad();
 
 });
 
@@ -23,6 +23,8 @@ function eventLoad() {
     clickInit();
     // 悬浮初始化
     hoverInit();
+    // 按钮动画、点击事件加载
+    piiic_toolist_bottom_eventInit();
 }
 
 // 样式初始化
@@ -267,15 +269,17 @@ function clickInit() {
 
 
     $("#share").click(function(){
-        $.ajax({
-            url: 'share.html',
-            type: 'get',
-            async: false,
-            success: function (res) {
-                $("#share-curtain").html($(res));
-            }
-        });
-
+        if(!clickFlag.shareStarFlag) {
+            clickFlag.shareStarFlag = true;
+            $.ajax({
+                url: 'share.html',
+                type: 'get',
+                async: false,
+                success: function (res) {
+                    $("#share-curtain").html($(res));
+                }
+            });
+        }
     })
 }
 
@@ -454,8 +458,8 @@ function image2base64(imgObj, type) {
 
 function alertImgComplete() {
     clickFlag.completeDownloadFlag = true;
-    if(clickFlag.downloadAnimateFlag) {
-        callbackClickAnimate(globalObj);
+    if(!clickFlag.downloadAnimateFlag) {
+        callbackClickAnimate(2);
     }
 }
 

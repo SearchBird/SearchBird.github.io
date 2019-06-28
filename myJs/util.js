@@ -98,17 +98,6 @@ function htmlLazyLoad() {
     }
 }
 
-function close(objectId, closeId, closeType) {
-    var $id = $(closeId);
-    $id.click(function() {
-        if(closeType == 0) {
-            $(objectId).empty();
-        } else if(closeType == 1) {
-            $(object).remove();
-        }
-    })
-}
-
 // 移除监听需要使用共函数，共函数不能带参，所以不适合绑定然后移除的操作，只能够用锁
 function tranfromEndCss(domObj, $jq, endObjArr, otherCallback) {
     domObj.addEventListener("transitionend", function(){

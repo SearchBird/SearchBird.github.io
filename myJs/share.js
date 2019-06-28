@@ -2,8 +2,17 @@ var _title,_source,_sourceUrl,_pic,_showcount,_desc,_summary,_site,
     _url = 'http://searchbird.github.io/html/piiic-main',
     _pic = 'https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/shareimg.jpg';
 
-
-close("#share-curtain","#share-close",0);
+shareClose();
+function shareClose() {
+    var $id = $("#share-close");
+    $id.click(function() {
+        $("#share-curtain").empty();
+        clickFlag.completeShareFlag = true;
+        if(!clickFlag.shareAnimateFlag) {
+            callbackClickAnimate(1)
+        }
+    })
+}
 
 //分享至微信 css控制二维码隐藏和出现
 //分享到新浪微博
