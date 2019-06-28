@@ -198,7 +198,7 @@ function callbackClickAnimate(type) {
                 "-ms-transform": "rotate(-90deg)",
                 "-o-transform": "rotate(-90deg)",
             })
-            $word.animate({opacity: "1"}, 800, function () {
+            $word.animate({opacity: "1"}, 820, function () {
                 if(type == 1){
                     clickFlag.shareStartAnimateFlag = false;
                     clickFlag.completeShareFlag = false;
