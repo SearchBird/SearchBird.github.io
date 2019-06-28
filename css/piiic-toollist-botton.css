@@ -1,7 +1,6 @@
 .toolist-line{
     margin:0 auto;
     width:1024px;
-    cursor: pointer;
 }
 .piiic-toolist-btn{
     position:relative;
@@ -10,6 +9,7 @@
     display: inline-block;
     margin-top:20px;
     margin-right:20px;
+    cursor: pointer;
 }
 .toolist-btn-top{
     width:191px;
