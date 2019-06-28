@@ -137,9 +137,11 @@ function clickToolistAnimate($this, type) {
                     '-ms-transition': 'none',
                     '-o-transition': 'none',
                 })
-                $middle.animate({width: "150px", left: "30px"}, 300);
                 $left.animate({left: "0px"}, 300);
-                $right.animate({right: "53px"}, 300, function () {
+                $right.animate({right: "53px"}, 300);
+
+                // 延迟20ms防止多次点击
+                $middle.animate({width: "150px", left: "30px"}, 320, function () {
                     // 动画完毕
                     globalObj.$left = $left;
                     globalObj.$right = $right;
@@ -198,6 +200,8 @@ function callbackClickAnimate(type) {
                 "-ms-transform": "rotate(-90deg)",
                 "-o-transform": "rotate(-90deg)",
             })
+
+            // 延迟20ms防止多次点击
             $word.animate({opacity: "1"}, 820, function () {
                 if(type == 1){
                     clickFlag.shareStartAnimateFlag = false;
