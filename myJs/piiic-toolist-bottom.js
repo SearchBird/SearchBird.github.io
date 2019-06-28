@@ -122,7 +122,8 @@ function clickToolistAnimate($this, type) {
                 "-o-transform": "rotate(0deg)",
             })
 
-            setTimeout(function () {
+
+            $(document.createElement("div")).animate({width:"10px"}, 1020, function () {
                 $right.css({
                     'transition': 'none',
                     '-webkit-transition': 'none',
@@ -162,7 +163,7 @@ function clickToolistAnimate($this, type) {
                         }
                     }
                 });
-            }, 1000);
+            });
         }
     )
 }
