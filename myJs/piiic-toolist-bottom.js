@@ -47,18 +47,18 @@ function piiic_toolist_bottom_eventInit() {
     })
 
     $(".piiic-toolist-btn").each(function (index, value) {
-        this.$this = $(value);
-        this.$thisId = this.$this.attr("id");
+        var $this = $(value);
+        var $thisId = $this.attr("id");
 
         // 设置悬浮动画
-        setHoverAnimate(this.$this);
+        setHoverAnimate($this);
 
         // 开策略
-        this.$this.click(function() {
-            if (this.$thisId == "getImg") {  // 下载图片或者转换图片，异步处理
-                getImgClickAnimateFun(this.$this);
-            } else if (this.$thisId == "share") {  // 分享功能，异步处理
-                shareClickAnimateFun(this.$this);
+        $this.click(function() {
+            if ($thisId == "getImg") {  // 下载图片或者转换图片，异步处理
+                getImgClickAnimateFun($this);
+            } else if ($thisId == "share") {  // 分享功能，异步处理
+                shareClickAnimateFun($this);
             }
         })
     })
@@ -143,22 +143,29 @@ function clickToolistAnimate($this, type) {
 
                 // 延迟20ms防止多次点击
                 $middle.animate({width: "150px", left: "30px"}, 320, function () {
-                    // 动画完毕
-                    globalObj.$left = $left;
-                    globalObj.$right = $right;
-                    globalObj.$middle = $middle;
-                    globalObj.$word = $word;
-                    globalObj.$light = $light;
+                    // 动画完毕，然后作区别
                     if(type == 1) {
+                        var shareObj = {};
+                        shareObj.$left = $left;
+                        shareObj.$right = $right;
+                        shareObj.$middle = $middle;
+                        shareObj.$word = $word;
+                        shareObj.$light = $light;
+                        globalObj.shareObj = shareObj;
                         clickFlag.shareAnimateFlag = false;
                         if(clickFlag.completeShareFlag){
-                            clickFlag.shareCompleteAnimateFlag = true;
                             callbackClickAnimate(type);
                         }
                     } else if(type == 2) {
+                        var downloadObj = {};
+                        downloadObj.$left = $left;
+                        downloadObj.$right = $right;
+                        downloadObj.$middle = $middle;
+                        downloadObj.$word = $word;
+                        downloadObj.$light = $light;
+                        globalObj.downloadObj = downloadObj;
                         clickFlag.downloadAnimateFlag = false;
                         if(clickFlag.completeDownloadFlag) {
-                            clickFlag.downloadCompleteAnimateFlag = true;
                             callbackClickAnimate(type);
                         }
                     }
@@ -169,10 +176,25 @@ function clickToolistAnimate($this, type) {
 }
 
 function callbackClickAnimate(type) {
-    var $left = globalObj.$left;
-    var $right = globalObj.$right;
-    var $middle = globalObj.$middle;
-    var $word = globalObj.$word;
+    var $left;
+    var $right;
+    var $middle;
+    var $word;
+    var $light;
+    if(type == 1){
+        $left = globalObj.shareObj.$left;
+        $right = globalObj.shareObj.$right;
+        $middle = globalObj.shareObj.$middle;
+        $word = globalObj.shareObj.$word;
+        $light = globalObj.shareObj.$light;
+    } else if(type == 2) {
+        $left = globalObj.downloadObj.$left;
+        $right = globalObj.downloadObj.$right;
+        $middle = globalObj.downloadObj.$middle;
+        $word = globalObj.downloadObj.$word;
+        $light = globalObj.downloadObj.$light
+    }
+
     $left.animate({left: "55px"}, 800);
     $right.animate({right: "107px"}, 800);
     $middle.animate({width: "10px", left: "101px"}, 800,
@@ -204,23 +226,20 @@ function callbackClickAnimate(type) {
 
             // 延迟20ms防止多次点击
             $word.animate({opacity: "1"}, 820, function () {
+                // 去掉blue,然后加上red,green
+                $light.removeClass().addClass("toolist-btn-light").addClass("toolist-btn-light-red");
                 if(type == 1){
                     clickFlag.shareStartAnimateFlag = false;
                     clickFlag.completeShareFlag = false;
                     clickFlag.shareStarFlag = false;
+                    globalObj.shareObj = null;
                 }
                 else if(type == 2) {
                     clickFlag.donloadStartAnimateFlag = false;
                     clickFlag.completeDownloadFlag = false;
                     clickFlag.downloadStarFlag = false;
+                    globalObj.downloadObj = null;
                 }
-                globalObj.$light.removeClass().addClass("toolist-btn-light").addClass("toolist-btn-light-red");
-
-                globalObj.$light = null;
-                globalObj.$middle = null;
-                globalObj.$left = null;
-                globalObj.$right = null;
-                globalObj.$word = null;
             })
         }
     );

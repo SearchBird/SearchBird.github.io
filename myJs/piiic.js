@@ -324,7 +324,7 @@ function typeOfAgent() {
         agent = navigator.userAgent;
     agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
     if (agentType) {
-        $("#getImg .word-ch").html("转成图片");
+        $("#getImg").find(".word").html("转图 IMG");
     }
 }
 
