@@ -63,7 +63,7 @@ function reversalColor(colorStr){
 
 // 因为监听原因，而且某些鼠标信号会输入多次，导致方法会重复调用多次，所以animate绑定时候会出现多个animate绑定导致页面不断地闪烁，而且animate是异步，需要使用锁进行同步控制
 function htmlLazyLoad() {
-    let $window = $(window),
+    var $window = $(window),
         scrollTop = $window.scrollTop(),
         windowHeight = $window.height(),
         scrollHeight = $(document).height();

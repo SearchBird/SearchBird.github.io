@@ -296,7 +296,7 @@ function calculaHeight(){
 // 利用缓存中数据做绑定
 function scrollData(){
     $(window).scroll(function () {
-            htmlLazyLoad();
+        htmlLazyLoad();
     });
 }
 
@@ -330,6 +330,9 @@ function typeOfAgent() {
 
 // 因为使用a标签下载b64太长，所以只能够转为blob文件进行下载
 function getImg() {
+    $("#main-content").children().each(function(index, value) {
+        $(value).css("opacity","1");
+    })
     html2canvas($('#piiic-container'), {
         onrendered: function(canvas) {
             /*let base64ImgSrc = canvas.toDataURL("image/png")
