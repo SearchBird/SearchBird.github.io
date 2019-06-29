@@ -89,7 +89,7 @@ function htmlLazyLoad() {
         } else {
             //$obj.css("opacity" , "1");
             if(globalLock[i]) {
-                $obj.animate({opacity: 1}, 1000, function () {
+                $obj.animate({opacity: 1}, 500, function () {
                     globalLock[i] = true;
                 });
                 globalLock[i] = false;
