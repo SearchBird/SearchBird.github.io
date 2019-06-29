@@ -4,6 +4,7 @@
 
 .gs-content-lefttop{
     position: relative;
+    top:-75px;
 }
 .gs-content-lefttop .line1{
     position: absolute;
@@ -27,6 +28,8 @@
 }
 .gs-content-rightbottom{
     position: relative;
+    bottom: 167px;
+    right: -30px;
 }
 .gs-content-rightbottom .line1{
     position: absolute;
@@ -51,9 +54,8 @@
 }
 
 .gs-content-word{
-    position:relative;
-    top: 100px;
-    left: 45px;
+    margin-top: 80px;
+    margin-left: 45px;
 }
 .gs-content-word-title{
     font-style: italic;

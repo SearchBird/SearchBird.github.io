@@ -1,66 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
     <style>
-        *{padding:0;margin: 0}
-        .outer{width: 100px;height: 100px;overflow:hidden;position: relative;}
-        .inner{
-            height:100px;list-style-type:none;width: 400px;
+        #w{
+            background: black;
+            width:100%;
+            height:100%;
         }
-        .inner:after{height: 0;content: '';clear: both;visibility: hidden;}
-        .inner li{float: left;width: 100px;height: 100px}
-        li:nth-child(1){background: red}
-        li:nth-child(2){background: black}
-        li:nth-child(3){background: yellow}
-        li:nth-child(4){background: green}
+        article{
+            width:40%;
+            height:1200px;
+            margin:0 auto;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        #a{
+            background:white;
+            position: absolute;
+            width:500%;
+            height:100%;
+            margin-left:-150%;
+            top:-10px;
+            -webkit-filter: blur(0px);
+            z-index: -1;
+        }
     </style>
 </head>
+
 <body>
-<div class="outer">
-    <ul class="inner">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+<div id="w">
+    <article>
+        <p>123123123123</p>
+        <p>123123123123</p>
+        <p>123123123123</p>
+
+        <div id="a">  </div>
+    </article>
 </div>
 
-<button>下一步</button>
-<script type="text/javascript">
-    var start = null;
-    var element = document.querySelector('.inner')
-    element.style.position = 'absolute';
-    var cur=0,mm=100,timeid
-    function step(timestamp) {
-        if (!start) start = timestamp;
-        var progress = timestamp - start;
-        if(cur==3){
-            element.style.left=0;
-        }else{
-            element.style.left = -Math.min(progress / 10+cur*100, (cur+1)*100) + 'px';
-        }
-
-        if (progress < 1000) {
-            timeid=window.requestAnimationFrame(step);
-        }else{
-            cur=cur<3?cur+1:0
-            window.cancelAnimationFrame(timeid)
-            timeid=null
-            start=null
-            setTimeout(auto,1000)
-        }
-    }
-    var btn=document.querySelector('button')
-    btn.onclick=function(){
-        auto()
-    }
-    function auto(){
-        if(!timeid){
-            console.log(cur)
-            timeid=window.requestAnimationFrame(step);
-        }
-    }
-</script>
 </body>
 </html>
