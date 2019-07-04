@@ -401,7 +401,7 @@ canvas{
     z-index:1;
     overflow: hidden;
     width:944px;
-    box-shadow: 5px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
 }
 #gift::after{
     z-index:-1;
@@ -422,7 +422,7 @@ canvas{
     z-index:1;
     overflow: hidden;
     width:944px;
-    box-shadow: 5px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
 }
 #skill:after{
     z-index:-1;
@@ -443,7 +443,7 @@ canvas{
     z-index:1;
     overflow: hidden;
     width:944px;
-    box-shadow: 5px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
 }
 #preface:after{
     z-index:-1;
@@ -475,5 +475,105 @@ canvas{
     position: relative;
     z-index:1;
     width:944px;
-    box-shadow: 5px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.nest-1{
+    transform:rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform:rotate(90deg);     /* IE 9 */
+    width: 90px;
+    height: 70px;
+    opacity:0.7;
+    border-left: 8px solid rgb(0,0,0);
+    border-bottom: 8.6px solid transparent;
+    border-top: 8.6px solid transparent;
+    position:absolute;
+    left: 0;
+    bottom: -16px;
+}
+.nest-2{
+    transform:rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -ms-transform:rotate(30deg);     /* IE 9 */
+    width: 90px;
+    height: 70px;
+    opacity:0.7;
+    border-left: 8px solid rgb(0,0,0);
+    border-bottom: 8.6px solid transparent;
+    border-top: 8.6px solid transparent;
+    position:absolute;
+    left: -14px;
+    bottom: -24px;
+}
+.nest-3{
+    transform:rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -ms-transform:rotate(-30deg);     /* IE 9 */
+    width: 90px;
+    height: 70px;
+    opacity:0.7;
+    border-left: 8px solid rgb(0,0,0);
+    border-bottom: 8.6px solid transparent;
+    border-top: 8.6px solid transparent;
+    position:absolute;
+    left: -14px;
+    bottom: -40px;
+}
+.nest-4{
+    transform:rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform:rotate(-90deg);     /* IE 9 */
+    width: 90px;
+    height: 70px;
+    opacity:0.7;
+    border-left: 8px solid rgb(0,0,0);
+    border-bottom: 8.6px solid transparent;
+    border-top: 8.6px solid transparent;
+    position:absolute;
+    left: 0;
+    bottom: -48px;
+}
+.nest-5{
+    transform:rotate(-150deg);
+    -moz-transform: rotate(-150deg);
+    -webkit-transform: rotate(-150deg);
+    -ms-transform:rotate(-150deg);     /* IE 9 */
+    width: 90px;
+    height: 70px;
+    border-left: 8px solid rgb(0,0,0);
+    border-bottom: 8.6px solid transparent;
+    border-top: 8.6px solid transparent;
+    position:absolute;
+    left: 14px;
+    bottom: -40px;
+}
+.nest-6{
+    transform:rotate(-210deg);
+    -moz-transform: rotate(-210deg);
+    -webkit-transform: rotate(-210deg);
+    -ms-transform:rotate(-210deg);     /* IE 9 */
+    width: 90px;
+    height: 70px;
+    border-left: 8px solid rgb(0,0,0);
+    border-bottom: 8.6px solid transparent;
+    border-top: 8.6px solid transparent;
+    position:absolute;
+    left: 14px;
+    bottom: -24px;
+}
+
+.nest-weixin{
+    top:100px;
+}
+.nest-weibo{
+}
+.nest-qq{
+}
+.nest-qqspace{
 }
