@@ -133,12 +133,15 @@ function imgOnload() {
 }
 
 function differenceOnload(){
+    var highLightColor;
     $(".difference").each(function(index, value) {
         var $difference = $(value),
             reversor = new reversalColor($difference.css("background-color"));
         // 反色高亮
-        $difference.css("background-color", reversor.highLight(reversor.parse(true)));
+        highLightColor = reversor.highLight(reversor.parse(true));
+        $difference.css("background-color", highLightColor);
     });
+    document.styleSheets[0].addRule('::-webkit-scrollbar-thumb', 'background:' + highLightColor);
 }
 
 function clickInit() {

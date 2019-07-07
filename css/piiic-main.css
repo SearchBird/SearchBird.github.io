@@ -23,7 +23,7 @@
 }
 #piiic-toollist-botton::after{
     z-index:-1;
-    background:rgba(255,255,255,0.3);
+    background:rgba(0,0,0,0.2);
     content: '';
     position: absolute;
     width:100%;
@@ -423,7 +423,7 @@ canvas{
     z-index:1;
     overflow: hidden;
     width:944px;
-    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.1);
 }
 #gift::after{
     z-index:-1;
@@ -432,7 +432,7 @@ canvas{
     width:100%;
     height:100%;
     top: 0; right: 0; bottom: 0; left: 0;
-    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.2) 30%);
+    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.1) 30%);
     /*background:rgba(202,5,0,0.1) -webkit-gradient(radial,60 80,91,134 50,50,from(rgba(202,5,0,0.1)),to(rgba(255,255,255,0.1)));*/
     -webkit-filter: blur(5px); /* Chrome, Opera */
     -moz-filter: blur(5px);
@@ -444,7 +444,7 @@ canvas{
     z-index:1;
     overflow: hidden;
     width:944px;
-    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.1);
 }
 #skill:after{
     z-index:-1;
@@ -453,7 +453,7 @@ canvas{
     width:100%;
     height:100%;
     top: 0; right: 0; bottom: 0; left: 0;
-    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.2) 30%);
+    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.1) 30%);
     -webkit-filter: blur(5px); /* Chrome, Opera */
     -moz-filter: blur(5px);
     -ms-filter: blur(5px);
@@ -465,7 +465,7 @@ canvas{
     z-index:1;
     overflow: hidden;
     width:944px;
-    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.1);
 }
 #preface:after{
     z-index:-1;
@@ -474,7 +474,7 @@ canvas{
     width:100%;
     height:100%;
     top: 0; right: 0; bottom: 0; left: 0;
-    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.2) 30%);
+    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.1) 30%);
     -webkit-filter: blur(5px); /* Chrome, Opera */
     -moz-filter: blur(5px);
     -ms-filter: blur(5px);
@@ -487,7 +487,7 @@ canvas{
     width:100%;
     height:100%;
     top: 0; right: 0; bottom: 0; left: 0;
-    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.2) 30%);
+    background:rgba(0,0,0,0.1) -webkit-radial-gradient(90% 40%,circle,rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.1) 30%);
     -webkit-filter: blur(5px); /* Chrome, Opera */
     -moz-filter: blur(5px);
     -ms-filter: blur(5px);
@@ -497,7 +497,7 @@ canvas{
     position: relative;
     z-index:1;
     width:944px;
-    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 11px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -601,10 +601,20 @@ canvas{
     height: .6em;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #BB3441;
     border-radius: .6em;
+}
+.scroll-change-color::-webkit-scrollbar-thumb{
+    background:red;
 }
 ::-webkit-scrollbar-track {
     border-radius: .6em;
     background-color: #666;
+}
+::-webkit-scrollbar-button:horizontal:decrement:hover{
+    background:red;
+}
+#top-navbar-botton{
+    height:50px;
+    background:rgba(0,0,0,0.6);
+    border-bottom:1px solid rgba(255,255,255,0.3);
 }
