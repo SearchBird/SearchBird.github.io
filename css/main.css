@@ -101,3 +101,7 @@ textarea {
     *display: inline;
     *zoom: 1;
 }
+
+.present{
+    box-shadow: inset -1px -6px 11px -7px #FFF;
+}

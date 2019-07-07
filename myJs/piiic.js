@@ -148,11 +148,13 @@ function differenceOnload(){
 
 function searchInputFocus() {
     $(".searchbox input").focus(function(){
+        clickFlag.searchFocus = true;
         var inputVal = $(".searchbox input").val();
         if(!inputVal || inputVal == "请输入干员名称,搜索长图")
             $(".searchbox input").val("");
     });
     $(".searchbox input").blur(function () {
+        clickFlag.searchFocus = false;
         if(!$(".searchbox input").val())
             $(".searchbox input").val("请输入干员名称,搜索长图")
     })

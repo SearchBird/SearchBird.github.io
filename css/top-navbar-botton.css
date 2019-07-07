@@ -26,7 +26,6 @@
 }
 .searchbox{
     margin-top:7px;
-    width:250px;
     border:1px solid white;
     height:35px;
     border-radius: 3px;
@@ -47,9 +46,14 @@
 }
 .searchbox input:focus{
     box-shadow: 0 0 14px #03a9f4;
-    animation :boxShineBlue 1s infinite alternate
+    animation :boxShineBlue 1s infinite alternate;
 }
 
 .search-piiic{
-
+    margin-left:5px;
+    border:2px solid #bbb;
+    border-radius: 3px;
+}
+#top-navbar-botton ul li.search-piiic:hover{
+    animation :boxShineSearch 1s infinite alternate;
 }
