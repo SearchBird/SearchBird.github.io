@@ -618,3 +618,61 @@ canvas{
     background:rgba(0,0,0,0.6);
     border-bottom:1px solid rgba(255,255,255,0.3);
 }
+
+
+@-moz-keyframes boxShine {
+    0% {
+        box-shadow: 0 0 10px #0caba8;
+    }
+    100% {
+        box-shadow: 0 0 200px #0caba8;
+    }
+}
+@-o-keyframes boxShine {
+    0% {
+        box-shadow: 0 0 10px #0caba8;
+    }
+    100% {
+        box-shadow: 0 0 200px #0caba8;
+    }
+}
+@keyframes boxShine {
+    /**/
+    /*bg shine*/
+
+    0% {
+        box-shadow: 0 0 10px #0caba8;
+    }
+    100% {
+        box-shadow: 0 0 200px #0caba8;
+    }
+}
+
+
+@-moz-keyframes boxShineBlue {
+    0% {
+        box-shadow: 0 0 10px #03a9f4;
+    }
+    100% {
+        box-shadow: 0 0 30px #03a9f4;
+    }
+}
+@-o-keyframes boxShineBlue {
+    0% {
+        box-shadow: 0 0 10px #03a9f4;
+    }
+    100% {
+        box-shadow: 0 0 30px #03a9f4;
+    }
+}
+@keyframes boxShineBlue {
+    /**/
+    /*bg shine*/
+
+    0% {
+        box-shadow: 0 0 10px #03a9f4;
+    }
+    100% {
+        box-shadow: 0 0 30px #03a9f4;
+    }
+}

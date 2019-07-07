@@ -1,0 +1,55 @@
+#top-navbar-botton ul{
+    margin:auto;
+    width:1024px;
+    height:100%;
+}
+#top-navbar-botton ul li{
+    text-align: center;
+    width:80px;
+    height:100%;
+    line-height: 50px;
+    float:left;
+    display:inline-block;
+    color:white;
+    font-size:18px;
+    cursor: pointer;
+}
+#top-navbar-botton ul li:hover{
+    animation :boxShine 1s infinite alternate
+}
+#top-navbar-botton ul li.searchli:hover{
+    animation:null;
+}
+#top-navbar-botton ul li.searchli{
+    width:252px;
+    margin-left:20px;
+}
+.searchbox{
+    margin-top:7px;
+    width:250px;
+    border:1px solid white;
+    height:35px;
+    border-radius: 3px;
+    box-shadow: inset -15px 2px 9px -14px #FFF, inset 5px -9px 10px -10px #FFF;
+}
+.searchbox input{
+    font-size: 14px;
+    color: #999;
+    display: block;
+    float: left;
+    width: 200px;
+    padding: 4px 0 4px 7px;
+    border: 0;
+    height: 33px;
+    line-height:33px;
+    border-radius: 3px;
+    background: 0 0;
+}
+.searchbox input:focus{
+    box-shadow: 0 0 14px #03a9f4;
+    animation :boxShineBlue 1s infinite alternate
+}
+
+.search-piiic{
+
+}

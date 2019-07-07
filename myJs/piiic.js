@@ -43,6 +43,8 @@ function cssLoad(){
     rightFontdistince();
     // 判断浏览器类型
     typeOfAgent();
+    // 绑定聚焦
+    searchInputFocus();
 }
 
 // 加载其他html文件
@@ -142,6 +144,18 @@ function differenceOnload(){
         $difference.css("background-color", highLightColor);
     });
     document.styleSheets[0].addRule('::-webkit-scrollbar-thumb', 'background:' + highLightColor);
+}
+
+function searchInputFocus() {
+    $(".searchbox input").focus(function(){
+        var inputVal = $(".searchbox input").val();
+        if(!inputVal || inputVal == "请输入干员名称,搜索长图")
+            $(".searchbox input").val("");
+    });
+    $(".searchbox input").blur(function () {
+        if(!$(".searchbox input").val())
+            $(".searchbox input").val("请输入干员名称,搜索长图")
+    })
 }
 
 function clickInit() {
