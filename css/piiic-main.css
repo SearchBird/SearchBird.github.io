@@ -397,6 +397,9 @@ canvas{
     font-weight: 600;
     font-size: 20px;
 }
+.close:hover{
+    color:rgba(255,255,255,1);
+}
 #gift{
     position: relative;
     z-index:1;
@@ -487,7 +490,6 @@ canvas{
     -ms-transform:rotate(90deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    opacity:0.7;
     border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
@@ -502,7 +504,6 @@ canvas{
     -ms-transform:rotate(30deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    opacity:0.7;
     border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
@@ -517,7 +518,6 @@ canvas{
     -ms-transform:rotate(-30deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    opacity:0.7;
     border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
@@ -532,7 +532,6 @@ canvas{
     -ms-transform:rotate(-90deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    opacity:0.7;
     border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
@@ -547,7 +546,6 @@ canvas{
     -ms-transform:rotate(-150deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    opacity:0.7;
     border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
@@ -562,7 +560,6 @@ canvas{
     -ms-transform:rotate(-210deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    opacity:0.7;
     border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;

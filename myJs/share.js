@@ -16,6 +16,14 @@ function shareClose() {
     })
 }
 
+$(".share-container li").each(function(index, value){
+    $(value).hover(function(){
+        $(value).css("opacity","1");
+    }, function () {
+        $(value).css("opacity","0.7");
+    })
+})
+
 //分享至微信 css控制二维码隐藏和出现
 //分享到新浪微博
 function shareToSinaWB(event){

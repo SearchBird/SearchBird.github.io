@@ -4,6 +4,7 @@
     width: 23px;
     height: 23px;
     margin-right: 85px;
+    opacity:0.7;
 }
 .share-container li a{
     display: inline-block;
