@@ -6,6 +6,8 @@ shareClose();
 function shareClose() {
     var $id = $("#share-close");
     $id.click(function() {
+        document.documentElement.style.overflow='auto';
+        document.body.style.overflow='auto';
         $("#share-curtain").empty();
         clickFlag.completeShareFlag = true;
         if(!clickFlag.shareAnimateFlag) {

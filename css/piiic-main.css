@@ -376,18 +376,16 @@ canvas{
     height: 320px;
     position: fixed;
     z-index: 1006;
-    background: white;
+    background: rgba(0,0,0,0.7);
     right: calc(50% - 250px);
     top: calc(50% - 160px);
 }
 .share-inner{
-    width: 390px;
     height: 280px;
     position: fixed;
     z-index: 1007;
-    background: white;
-    right: calc(50% - 195px);
-    top: calc(50% - 140px);
+    right: calc(50% - 222px);
+    top: calc(50% - 30px);
 }
 .close{
     position: absolute;
@@ -395,6 +393,9 @@ canvas{
     right:10px;
     top:10px;
     cursor:pointer;
+    color:rgba(255,255,255,0.7);
+    font-weight: 600;
+    font-size: 20px;
 }
 #gift{
     position: relative;
@@ -487,7 +488,7 @@ canvas{
     width: 90px;
     height: 70px;
     opacity:0.7;
-    border-left: 8px solid rgb(0,0,0);
+    border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
     position:absolute;
@@ -502,7 +503,7 @@ canvas{
     width: 90px;
     height: 70px;
     opacity:0.7;
-    border-left: 8px solid rgb(0,0,0);
+    border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
     position:absolute;
@@ -517,7 +518,7 @@ canvas{
     width: 90px;
     height: 70px;
     opacity:0.7;
-    border-left: 8px solid rgb(0,0,0);
+    border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
     position:absolute;
@@ -532,7 +533,7 @@ canvas{
     width: 90px;
     height: 70px;
     opacity:0.7;
-    border-left: 8px solid rgb(0,0,0);
+    border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
     position:absolute;
@@ -546,7 +547,8 @@ canvas{
     -ms-transform:rotate(-150deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    border-left: 8px solid rgb(0,0,0);
+    opacity:0.7;
+    border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
     position:absolute;
@@ -560,7 +562,8 @@ canvas{
     -ms-transform:rotate(-210deg);     /* IE 9 */
     width: 90px;
     height: 70px;
-    border-left: 8px solid rgb(0,0,0);
+    opacity:0.7;
+    border-left: 8px solid rgb(255,255,255);
     border-bottom: 8.6px solid transparent;
     border-top: 8.6px solid transparent;
     position:absolute;
@@ -569,11 +572,24 @@ canvas{
 }
 
 .nest-weixin{
-    top:100px;
 }
 .nest-weibo{
 }
 .nest-qq{
 }
 .nest-qqspace{
+}
+
+/*伪元素修改滚动条*/
+::-webkit-scrollbar {
+    width: .6em;
+    height: .6em;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #BB3441;
+    border-radius: .6em;
+}
+::-webkit-scrollbar-track {
+    border-radius: .6em;
+    background-color: #666;
 }
