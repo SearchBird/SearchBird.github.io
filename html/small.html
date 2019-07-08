@@ -41,6 +41,67 @@
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(files[0]);
     });
+
+
+
+    function showJson(){
+        var test;
+        if(window.XMLHttpRequest){
+            test = new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            test = new window.ActiveXObject();
+        }else{
+            alert("请升级至最新版本的浏览器");
+        }
+        if(test !=null){
+            test.open("GET","points.json",true);
+            test.send(null);
+            test.onreadystatechange=function(){
+                if(test.readyState==4&&test.status==200){
+                    console.log(test.responseText);
+                    //          var obj = JSON.parse(test.responseText);
+                    //          for (var name in obj){
+                    //              alert(obj[name].key);
+                    //          }
+                }
+            };
+
+        }
+    }
+
+    function test2() {
+        var xhr = new XMLHttpRequest();
+        var dataUrl;
+        xhr.open('GET', src, true);
+        xhr.responseType = 'arraybuffer';
+
+        xhr.onload = function(e) {
+            if (xhr.status == 200) {
+                var uInt8Array = new Uint8Array(xhr.response);
+                var i = uInt8Array.length;
+                var binaryString = new Array(i);
+                while (i--) {
+                    binaryString[i] = String.fromCharCode(uInt8Array[i]);
+                }
+                var data = binaryString.join('');
+                var base64 = window.btoa(data);
+                dataUrl = "data:image/jpg;base64," + base64;
+                //dataUrl = "data:" + (outputFormat || "image/png") + ";base64," + base64;
+                if(type == 1) {
+                    imgObj.attr('src', dataUrl);
+                } else {
+                    imgObj.css('backgroundImage', "url(" + dataUrl + ")");
+                }
+
+            }
+        };
+
+        xhr.send();
+    }
+
+    window.onload=function(){
+        showJson();
+    }
 </script>
 </body>
 </html>
