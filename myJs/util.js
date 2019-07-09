@@ -234,14 +234,41 @@ function reloadObj(){
         // 技能
         var Skill = jsonObj.Skill[0];
         var LogNum = Skill.LogNum;
+        var SkillNum = Skill.SkillNum;
         var logisticsList = $("#logisticsList");
+        // 技能简评拼接
+        for(var num = 1;num <= SkillNum;num ++){
+            var skillName = "Skill"  + num +  "Name";
+            var skillDesc = "Skill" + num + "Desc";
+            var skill1Conclusion = "Skill" + num + "Conclusion";
+
+            var skillHtml = '<div class="sk-box"><div><div class="sk-top-line"></div><div class="sk-desc"><img class="sk-img" src=""/><div class="sk-word"><div class="sk-word-name heightLight">'
+                + Skill[skillName]
+                + '</div><div class="sk-desc-line"></div><div class="sk-word-test">'
+                + Skill[skillDesc]
+                +'</div></div></div><div class="sk-bottom-line"></div></div><div><div class="sk-test-title"><div class="sk-test-title-img"></div><div class="sk-test-title-word">技能简评</div></div><div class="sk-test-content">'
+                + Skill[skill1Conclusion]
+                +'</div></div></div>';
+
+            $("#sk-list").append(skillHtml)
+
+        }
+
+
+
+
+
+
+
+        // 后勤拼接
         for(var num = LogNum;num > 0;num --) {
             var logName = "Logistics" + num + "Name";
             var logDesc = "Logistics" + num + "Desc";
-            logisticsList.prepend(logisticsList[logDesc] + '<br/>');
-            logisticsList.prepend('<span class="heightLight">' + logisticsList[logName] + '</span><br/>');
+            logisticsList.prepend((Skill[logDesc] ? Skill[logDesc] : "") + '<br/>');
+            logisticsList.prepend('<span class="heightLight">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
         }
         $("#LogisticsOverall").html(Skill.LogisticsOverall);
+        $("#SkillOverAll").html(Skill.SkillOverAll);
 
         // 要领
         var Gist = jsonObj.Gist[0];
