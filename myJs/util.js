@@ -219,7 +219,19 @@ function reloadObj(){
 
         // 天赋
         var Gift = jsonObj.Gift[0];
+        var GiftNum = Gift.GiftNum;
         $("#GiftOverall").html(Gift.GiftOverall);
+        var giftWord = $("#gift-word");
+        if(GiftNum > 0) {
+            giftWord.append('<div class="skill-name heightLight">' + Gift.Gift1Name + '</div>');
+            giftWord.append('<div class="skill-desc">' + Gift.Gift1Desc1 + Gift.Gift1Desc2 + Gift.Gift1Desc3 + '</div>');
+        } else if(GiftNum > 1) {
+            giftWord.append('<div class="skill-name heightLight">' + Gift.Gift2Name + '</div>');
+            giftWord.append('<div class="skill-desc">' + Gift.Gift2Desc1 + Gift.Gift2Desc2 + Gift.Gift2Desc3 + '</div>');
+        } else if(GiftNum > 2) {
+            giftWord.append('<div class="skill-name heightLight">' + Gift.Gift3Name + '</div>');
+            giftWord.append('<div class="skill-desc">' + Gift.Gift3Desc1 + Gift.Gift3Desc2 + Gift.Gift3Desc3 + '</div>');
+        }
 
         // 要领
         var Gist = jsonObj.Gist[0];
