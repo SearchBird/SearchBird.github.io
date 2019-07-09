@@ -186,6 +186,7 @@ function reloadObj(){
 
         // 先把页面元素加载
         htmlLoad()
+        $("#character-name").val(theCodeName);
 
         // 基础信息以及前言
         var characBase = jsonObj.Character_Base[0];
