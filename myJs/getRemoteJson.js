@@ -24,13 +24,16 @@ function reloadPiiic(codeName) {
     if(codeName){
         var jsonURL = "https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/" + codeName + ".json";
         var jsonObj = sendURL(jsonURL);
+        debugger;
     }
 }
 
 function checkName(codeName){
     var jsonObj = sendURL("https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/checkName.json");
-    var codeEn = jsonObj[codeName.toLowerCase()];
-    if(codeEn){
-        return codeEn;
+    try{
+        var codeEn = jsonObj[codeName.toLowerCase()];
+    } catch (e) {
+        return null;
     }
+    return codeEn;
 }
