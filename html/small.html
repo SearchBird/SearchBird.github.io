@@ -69,7 +69,8 @@
             test.send(null);
             test.onreadystatechange=function(){
                 if(test.readyState==4&&test.status==200){
-                    console.log(test.responseText);
+
+                    var Obj = JSON.parse(test.responseText);
                     //          var obj = JSON.parse(test.responseText);
                     //          for (var name in obj){
                     //              alert(obj[name].key);
