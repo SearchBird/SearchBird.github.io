@@ -174,6 +174,7 @@ function getQueryVariable(variable)
 function reloadObj(){
 
     var theCodeName = "";
+    var codeEn = "";
     var dutyMap = {
         "先锋" : "scouts",
         "辅助" : "assist",
@@ -214,6 +215,8 @@ function reloadObj(){
         $("#NationEn").html(characBase.NationEn);
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + "_B-min.png");
+        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-noweapon.png")
+        $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-weapon.png")
         var range = "";
         for(var i = characBase.Range;i -- > 0 ;){
             range += "★";
@@ -305,7 +308,7 @@ function reloadObj(){
 
     var checkName = function(jsonObj,checkFlag){
         try{
-            var codeEn = jsonObj[theCodeName.toLowerCase()];
+            codeEn = jsonObj[theCodeName.toLowerCase()];
         } catch (e) {
             return null;
         }
