@@ -228,7 +228,7 @@ function reloadObj(){
         $("#Deploy").html(Gist.Deploy);
         $("#Other").html(Gist.Other);
 
-        pageLoad(false)
+        pageLoad(false, characBase)
 
     }
 

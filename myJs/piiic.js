@@ -8,7 +8,7 @@ $(function() {
     }
 });
 
-function pageLoad(flag) {
+function pageLoad(flag,loadObj) {
     // 解决浏览器兼容
     //compatibleLoad();
     if(flag){
@@ -16,7 +16,7 @@ function pageLoad(flag) {
         htmlLoad();
     }
     // 样式初始化
-    cssLoad()
+    cssLoad(loadObj)
     // 动画兼容
     requestAnimationFrameInit();
     // 动作初始化
@@ -50,11 +50,9 @@ function eventLoad() {
 }
 
 // 样式初始化
-function cssLoad(){
+function cssLoad(loadObj){
     // 初始化图片
     imgOnload();
-    // 初始化反色
-    differenceOnload();
     // 初始化盒子间距
     distanceInit();
     // 初始化攻击范围文字大小
@@ -69,6 +67,11 @@ function cssLoad(){
     searchInputFocus();
     // 初始化高亮
     highLightInit();
+    debugger;
+    // 渲染全局颜色
+    mainColor(loadObj.MainColor);
+    // 初始化反色
+    differenceOnload();
 }
 
 // 加载其他html文件
@@ -156,6 +159,12 @@ function imgOnload() {
     $img.lazyload({
         effect : "fadeIn"
     });
+}
+
+function mainColor(color){
+    $(".difference").each(function(index, value) {
+        $(value).css("background", color);
+    })
 }
 
 function differenceOnload(){
@@ -338,7 +347,6 @@ function calculaHeight(){
         divInitHeight += $globalPiiicContentDiv.outerHeight(true);
         globalPiiicContentDivHeight.push(divInitHeight);
     }
-    debugger;
 }
 // 利用缓存中数据做绑定
 function scrollData(){
