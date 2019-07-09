@@ -475,14 +475,21 @@ function image2base64(imgObj, type) {
         src = background.substring(background.indexOf('url("')).replace('url("', "").replace('url(', "").replace('")', "").replace(")","");
     }
 
-    var xhr = new XMLHttpRequest();
+    var request;
+    if(window.XMLHttpRequest){
+        request = new XMLHttpRequest();
+    }else if(window.ActiveXObject){
+        request = new window.ActiveXObject();
+    }else{
+        alert("浏览器版本不支持远程访问，请更换浏览器");
+    }
     var dataUrl;
-    xhr.open('GET', src, true);
-    xhr.responseType = 'arraybuffer';
+    request.open('GET', src, true);
+    request.responseType = 'arraybuffer';
 
-    xhr.onload = function(e) {
-        if (xhr.status == 200) {
-            var uInt8Array = new Uint8Array(xhr.response);
+    request.onload = function(e) {
+        if (request.status == 200) {
+            var uInt8Array = new Uint8Array(request.response);
             var i = uInt8Array.length;
             var binaryString = new Array(i);
             while (i--) {
@@ -501,7 +508,7 @@ function image2base64(imgObj, type) {
         }
     };
 
-    xhr.send();
+    request.send();
 }
 
 function alertImgComplete() {
