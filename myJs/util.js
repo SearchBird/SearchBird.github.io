@@ -217,6 +217,10 @@ function reloadObj(){
         $("#maker").css("top",makerHeight);
 
 
+        // 天赋
+        var Gift = jsonObj.Gift[0];
+        $("#GiftOverall").html(Gift.GiftOverall);
+
         // 要领
         var Gist = jsonObj.Gist[0];
         $("#Train").html(Gist.Train);

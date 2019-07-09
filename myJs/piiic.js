@@ -330,13 +330,15 @@ function clickInit() {
 
 // 通过遍历做缓存
 function calculaHeight(){
-    var divInitHeight = 1000;
+    globalPiiicContentDivHeight = [];
+    var divInitHeight = 1184;
     globalPiiicContentDivHeight.push(divInitHeight);
     for (var i = -1;i ++ < globalPiiicContentDiv.length - 1;){
         var $globalPiiicContentDiv = $(globalPiiicContentDiv[i]);
         divInitHeight += $globalPiiicContentDiv.outerHeight(true);
         globalPiiicContentDivHeight.push(divInitHeight);
     }
+    debugger;
 }
 // 利用缓存中数据做绑定
 function scrollData(){
