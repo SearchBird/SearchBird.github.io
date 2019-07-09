@@ -227,10 +227,21 @@ function reloadObj(){
             var colDesc1 = "Gift" + num + "Desc1";
             var colDesc2 = "Gift" + num + "Desc2";
             var colDesc3 = "Gift" + num + "Desc3";
-            giftWord.append('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
-            giftWord.append('<div class="skill-desc">' + (Gift[colDesc1] ? Gift[colDesc1] : "") + (Gift[colDesc2] ? Gift[colDesc2] : "") + (Gift[colDesc3] ? Gift[colDesc3] : "") + '</div>');
-            debugger;
+            giftWord.prepend('<div class="skill-desc">' + (Gift[colDesc1] ? Gift[colDesc1] : "") + (Gift[colDesc2] ? Gift[colDesc2] : "") + (Gift[colDesc3] ? Gift[colDesc3] : "") + '</div>');
+            giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
         }
+
+        // 技能
+        var Skill = jsonObj.Skill[0];
+        var LogNum = Skill.LogNum;
+        var logisticsList = $("#logisticsList");
+        for(var num = LogNum;num > 0;num --) {
+            var logName = "Logistics" + num + "Name";
+            var logDesc = "Logistics" + num + "Desc";
+            logisticsList.prepend(logisticsList[logDesc] + '<br/>');
+            logisticsList.prepend('<span class="heightLight">' + logisticsList[logName] + '</span><br/>');
+        }
+        $("#LogisticsOverall").html(Skill.LogisticsOverall);
 
         // 要领
         var Gist = jsonObj.Gist[0];

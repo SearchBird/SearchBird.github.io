@@ -67,7 +67,6 @@ function cssLoad(loadObj){
     searchInputFocus();
     // 初始化高亮
     highLightInit(loadObj.MainColor);
-    debugger;
     // 渲染全局颜色
     mainColor(loadObj.MainColor);
     // 初始化反色
