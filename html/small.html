@@ -5,6 +5,7 @@
     <title>Excel批量处理</title>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
     <script src="../nativeJs/xlsx.core.min.js"></script>
+    <script src="../nativeJs/FileSaver.js"></script>
 </head>
 <body>
 <input type="file" id="excel-file">
@@ -19,7 +20,7 @@
                 var workbook = XLSX.read(data, {
                     type: 'binary'
                 }) // 以二进制流方式读取得到整份excel表格对象
-                var persons = []; // 存储获取到的数据
+                var persons = {}; // 存储获取到的数据
             } catch (e) {
                 console.log('文件类型不正确');
                 return;
@@ -31,12 +32,22 @@
                 if (workbook.Sheets.hasOwnProperty(sheet)) {
                     fromTo = workbook.Sheets[sheet]['!ref'];
                     console.log(fromTo);
-                    persons = persons.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+                    var sheetName = sheet.substring(0,sheet.indexOf("("));
+                    var theSheet = workbook.Sheets[sheet];
+                    for(var theKey in theSheet) {
+                        if(theKey.indexOf("1") != -1){
+                            var theString = theSheet[theKey].v;
+                            theSheet[theKey].w = theString.substring(0,theString.indexOf("("));
+                        }
+                    }
+                    persons[sheetName] = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
                     // break; // 如果只取第一张表，就取消注释这行
                 }
             }
             //在控制台打印出来表格中的数据
             console.log(persons);
+            var blob = new Blob([JSON.stringify(persons)], { type: "text/plain;charset=utf-8" });
+            saveAs(blob, "hello.txt");
         };
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(files[0]);
@@ -54,7 +65,7 @@
             alert("请升级至最新版本的浏览器");
         }
         if(test !=null){
-            test.open("GET","points.json",true);
+            test.open("GET","https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/hello.json",true);
             test.send(null);
             test.onreadystatechange=function(){
                 if(test.readyState==4&&test.status==200){
@@ -67,36 +78,6 @@
             };
 
         }
-    }
-
-    function test2() {
-        var xhr = new XMLHttpRequest();
-        var dataUrl;
-        xhr.open('GET', src, true);
-        xhr.responseType = 'arraybuffer';
-
-        xhr.onload = function(e) {
-            if (xhr.status == 200) {
-                var uInt8Array = new Uint8Array(xhr.response);
-                var i = uInt8Array.length;
-                var binaryString = new Array(i);
-                while (i--) {
-                    binaryString[i] = String.fromCharCode(uInt8Array[i]);
-                }
-                var data = binaryString.join('');
-                var base64 = window.btoa(data);
-                dataUrl = "data:image/jpg;base64," + base64;
-                //dataUrl = "data:" + (outputFormat || "image/png") + ";base64," + base64;
-                if(type == 1) {
-                    imgObj.attr('src', dataUrl);
-                } else {
-                    imgObj.css('backgroundImage', "url(" + dataUrl + ")");
-                }
-
-            }
-        };
-
-        xhr.send();
     }
 
     window.onload=function(){

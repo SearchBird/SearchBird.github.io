@@ -26,7 +26,7 @@
 
 .skill-icon{
     float:right;
-
+    margin-right:-20px;
 }
 .icon-1{
     display:inline-block;
