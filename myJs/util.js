@@ -173,7 +173,17 @@ function getQueryVariable(variable)
 // 页面重加载对象
 function reloadObj(){
 
-    var theCodeName = ""
+    var theCodeName = "";
+    var dutyMap = {
+        "先锋" : "scouts",
+        "辅助" : "assist",
+        "重装" : "heavyObj",
+        "特种" : "Delta",
+        "医疗" : "medic",
+        "术士" : "magic",
+        "近卫" : "Sworder",
+        "狙击" : "sniper",
+    }
 
     this.reloadPiiic = function(codeName) {
         if(codeName){
@@ -197,6 +207,7 @@ function reloadObj(){
         $("#Position").html(characBase.Position);
         $("#AttackScope").html(characBase.AttackScope);
         $("#Duty").html(characBase.Duty);
+        $("#DutyImg").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/" + dutyEnum(characBase.Duty) + ".png")
         $("#InShort").html(characBase.InShort);
         $("#PrefaceValue").html(characBase.PrefaceValue);
         $("#PrefaceCompare").html(characBase.PrefaceCompare);
@@ -279,7 +290,9 @@ function reloadObj(){
 
     }
 
-
+    var dutyEnum = function(duty) {
+        return dutyMap[duty];
+    }
 
     var reloadURL = function(codeEn){
         if(codeEn){
