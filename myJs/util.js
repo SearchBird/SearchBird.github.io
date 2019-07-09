@@ -200,6 +200,8 @@ function reloadObj(){
         $("#PrefaceValue").html(characBase.PrefaceValue);
         $("#PrefaceCompare").html(characBase.PrefaceCompare);
         $("#NationEn").html(characBase.NationEn);
+        $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + ".png");
+        $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + "_B-min.png");
         var range = "";
         for(var i = characBase.Range;i -- > 0 ;){
             range += "★";
