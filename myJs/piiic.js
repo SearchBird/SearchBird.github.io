@@ -66,7 +66,7 @@ function cssLoad(loadObj){
     // 绑定聚焦
     searchInputFocus();
     // 初始化高亮
-    highLightInit();
+    highLightInit(loadObj.MainColor);
     debugger;
     // 渲染全局颜色
     mainColor(loadObj.MainColor);
@@ -137,8 +137,8 @@ function attackScaleSizeInit() {
     }
 }
 
-function highLightInit() {
-    $(".heightLight").css("text-shadow", "2px 0rem 2px #BB3441,0rem 0rem .5rem #BB3441,0rem 0rem 0rem #BB3441,0rem 0rem 3px #BB3441");
+function highLightInit(color) {
+    $(".heightLight").css("text-shadow", "2px 0rem 2px " + color + ",0rem 0rem .5rem " + color + ",0rem 0rem 0rem " + color + ",0rem 0rem 3px " + color);
 }
 
 function changeFont() {
@@ -162,6 +162,8 @@ function imgOnload() {
 }
 
 function mainColor(color){
+    $(".back-curtain1").css("border-bottom","642px solid " + color);
+    $(".back-curtain2").css("border-top","643px solid " + color);
     $(".difference").each(function(index, value) {
         $(value).css("background", color);
     })
