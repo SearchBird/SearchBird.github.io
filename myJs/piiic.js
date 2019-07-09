@@ -4,21 +4,24 @@ $(function() {
 
     // 查询数据初始化
     if(!queryLoad()) {
-        pageLoad();
+        pageLoad(true);
     }
 });
 
 function pageLoad(flag) {
     // 解决浏览器兼容
     //compatibleLoad();
-    // 加载其他html文件
-    htmlLoad();
+    if(flag){
+        // 加载其他html文件
+        htmlLoad();
+    }
     // 样式初始化
-    cssLoad();
+    cssLoad()
     // 动画兼容
     requestAnimationFrameInit();
     // 动作初始化
     eventLoad();
+
 }
 
 // 查询数据初始化
@@ -56,22 +59,22 @@ function cssLoad(){
     distanceInit();
     // 初始化攻击范围文字大小
     attackScaleSizeInit();
-    // 将文件改为b64格式，便于下载
-    imgB64();
     // 改变右侧文字距离
     rightFontdistince();
     // 判断浏览器类型
     typeOfAgent();
+    // 将文件改为b64格式，便于下载
+    imgB64();
     // 绑定聚焦
     searchInputFocus();
+    // 初始化高亮
+    highLightInit();
 }
 
 // 加载其他html文件
 function htmlLoad() {
     // 同步加载
     syncHtml();
-    // 初始化高亮
-    highLightInit();
 }
 
 // 改变右侧文字距离

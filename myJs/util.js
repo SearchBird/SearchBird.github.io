@@ -184,8 +184,10 @@ function reloadObj(){
 
     var reload = function(jsonObj) {
 
-        pageLoad();
+        // 先把页面元素加载
+        htmlLoad()
 
+        // 基础信息以及前言
         var characBase = jsonObj.Character_Base[0];
         $("#CodeNameEn").html(characBase.CodeNameEn);
         $("#CodeNameCh").html(characBase.CodeNameCh);
@@ -195,20 +197,35 @@ function reloadObj(){
         $("#AttackScope").html(characBase.AttackScope);
         $("#Duty").html(characBase.Duty);
         $("#InShort").html(characBase.InShort);
-
+        $("#PrefaceValue").html(characBase.PrefaceValue);
+        $("#PrefaceCompare").html(characBase.PrefaceCompare);
         var range = "";
         for(var i = characBase.Range;i -- > 0 ;){
             range += "★";
         }
         $("#Range").html(range);
 
-        var baseInfo = $("#base-info");
-        var makerHeight = (parseInt(baseInfo.css("top").replace("px","")) + parseInt(baseInfo.css("height").replace("px","")) + 20) + "px";
-        $("#maker").css("top",makerHeight);
+        // 制作人名单
         var Maker = jsonObj.Maker[0];
         $("#artCode").html(Maker.artCode);
         $("#wordCode").html(Maker.wordCode);
         $("#dataCode").html(Maker.dataCode);
+
+        // 调整制作人员高度
+        var baseInfo = $("#base-info");
+        var makerHeight = (parseInt(baseInfo.css("top").replace("px","")) + parseInt(baseInfo.css("height").replace("px","")) + 25) + "px";
+        $("#maker").css("top",makerHeight);
+
+
+        // 要领
+        var Gist = jsonObj.Gist[0];
+        $("#Train").html(Gist.Train);
+        $("#Team").html(Gist.Team);
+        $("#Deploy").html(Gist.Deploy);
+        $("#Other").html(Gist.Other);
+
+        pageLoad(false)
+
     }
 
 
