@@ -2,6 +2,13 @@
 // 全局初始化
 $(function() {
 
+    // 查询数据初始化
+    if(!queryLoad()) {
+        pageLoad();
+    }
+});
+
+function pageLoad(flag) {
     // 解决浏览器兼容
     //compatibleLoad();
     // 加载其他html文件
@@ -12,8 +19,20 @@ $(function() {
     requestAnimationFrameInit();
     // 动作初始化
     eventLoad();
+}
 
-});
+// 查询数据初始化
+function queryLoad() {
+    var code = getQueryVariable("code");
+    if(code) {
+        code = $.trim(decodeURI(code,"utf-8"));
+        if(code) {
+            new reloadObj().reloadPiiic(code);
+            return true;
+        }
+    }
+    return false;
+}
 
 // 动作初始化
 function eventLoad() {
@@ -57,12 +76,14 @@ function htmlLoad() {
 
 // 改变右侧文字距离
 function rightFontdistince() {
-    var rightFontWidth = Math.floor($("#right-font").css("width").replace("px", "")) >> 1;
+    var rightFont = $("#right-font");
+    var rightFontWidth = Math.floor(rightFont.css("width").replace("px", "")) >> 1;
     // 因为旋转文字是以中心为支点，所以旋转后，顶部距离 = - (宽度 >> 1 + 适当调整)
-    $("#right-font").css("margin-top", ((rightFontWidth >> 1) + 50)  + "px");
+    rightFont.css("margin-top", ((rightFontWidth >> 1) + 50)  + "px");
 
     // 因为旋转文字是以中心为支点，所以旋转后，右边距离 = - (宽度 >> 1 + 高度 >> 1)
-    $("#right-font").css("margin-right", "-" + (rightFontWidth - ($("#right-font").css("height").replace("px", "") >> 1))  + "px")
+    rightFont.css("margin-right", "-" + (rightFontWidth - (rightFont.css("height").replace("px", "") >> 1))  + "px")
+    rightFont.css("opacity","1");
 }
 
 // 滑动加载初始化

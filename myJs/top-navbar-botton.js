@@ -20,6 +20,6 @@ $(".search-piiic").click(function(){
         return;
     }
     else {
-        new reloadObj().reloadPiiic(value);
+        window.location.href = "piiic-main.html?code=" + value;
     }
 })

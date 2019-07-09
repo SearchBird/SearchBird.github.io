@@ -130,6 +130,7 @@ img{
 }
 
 .right-font{
+    opacity: 0;
     display:inline-block;
     position: relative;
     float:right;

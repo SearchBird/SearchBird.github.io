@@ -72,13 +72,13 @@
 
 
             <!-- 基础信息 -->
-            <div class="base-info">
+            <div class="base-info" id="base-info">
                 <hr style="width:340px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:4px;margin-top:0;margin-right:41px;">
                 <hr style="width:200px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:0;margin-top:0;margin-right:181px">
 
                 <div style="display:inline-block;width:257px;margin-top:7px;">
                     <p style="display:inline-block">代号</p>
-                    <div style="display:inline-block;margin-left:13px;">红豆</div>
+                    <div style="display:inline-block;margin-left:13px;" id="CodeNameCh"></div>
                 </div>
                 <div style="display:inline-block">
                     <p>攻击范围</p>
@@ -86,23 +86,19 @@
 
                 <div style="width:272px;overflow:hidden;margin-top:7px;">
                     <div style="float:left;width:60px;color:white;display:inline-block">特性</div>
-                    <div style="float:left;width:185px;color:white;display:inline-block;word-wrap:break-word"> 击杀敌人后获得1点
-                        部署费用撤退时返还
-                        初始部署费用</div>
+                    <div style="float:left;width:185px;color:white;display:inline-block;word-wrap:break-word" id="Features"></div>
                 </div>
                 <div style="margin-top:7px;">
                     <div style="width:53px;color:white;display:inline-block">定位</div>
-                    <div style="color:white;display:inline-block">近战位 输出 费用回复</div>
+                    <div style="color:white;display:inline-block" id="Position"></div>
                 </div>
 
                 <!-- 攻击范围 -->
-                <div class="attack-scale" style="font-family: '黑体'">
-                    ■■
-                </div>
+                <div class="attack-scale" style="font-family: '黑体'" id="AttackScope"></div>
             </div>
 
             <!-- 制作人员信息 -->
-            <div class="maker">
+            <div class="maker" id="maker">
                 <div style="width:20px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-top:0;margin-right:41px;"></div>
                 <div style="width:150px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:4px;margin-top:0;margin-right:41px;"></div>
 
@@ -113,9 +109,9 @@
                         <li>数据记录</li>
                     </ul>
                     <ul style="float:right">
-                        <li>TQ</li>
-                        <li>肯德基</li>
-                        <li>左手的刻痕</li>
+                        <li id="artCode"></li>
+                        <li id="wordCode"></li>
+                        <li id="dataCode"></li>
                     </ul>
                 </div>
             </div>
@@ -125,17 +121,17 @@
                 <!-- 星级职业 -->
                 <div style="height:54px;margin-right:0;">
                     <div style="width:110px;display:inline-block;font-size:20px;float:right;">
-                        <div style="text-align:right;margin-right:8px;">先锋</div>
+                        <div style="text-align:right;margin-right:8px;" id="Duty"></div>
                         <div style="width:102px;height:1px;background:#fff;float:right"></div>
-                        <div style=";font-weight:600;font-style: italic;font-size:23px;height:28px;line-height:28px">★★★★</div>
+                        <div style=";font-weight:600;font-style: italic;font-size:23px;height:28px;line-height:28px" id="Range"></div>
                     </div>
 
-                    <div style="height:54px;display:inline-block;font-size:49px;float:right;margin-right:7px;font-weight:600;">红豆</div>
+                    <div style="height:54px;display:inline-block;font-size:49px;float:right;margin-right:7px;font-weight:600;" id="CodeNameCh2"></div>
                 </div>
 
 
                 <div class="difference" style="background:#BB3441;width:171px;height:15px;margin-left:109px;"></div>
-                <div style="font-family:黑体;height:20px;font-style: italic;font-size:39px;font-weight:600;position:relative;left:57px;top:-8px;text-shadow:9px 2px 2px #000, 7px 2px 2px #000;">Vigna</div>
+                <div style="font-family:黑体;height:20px;font-style: italic;font-size:39px;font-weight:600;position:relative;left:57px;top:-8px;text-shadow:9px 2px 2px #000, 7px 2px 2px #000;" id="CodeNameEn"></div>
             </div>
 
         </div>
@@ -150,7 +146,7 @@
                 <div style="width: 53px;height: 8px;background: white;position: absolute;top:33px;right: -3px;border-radius: 0 2px 2px 0px;box-shadow:5px 2px 6px #000"></div>
                 <div style="width: 15px;height: 6px;background: white;position: absolute;top: 48px;right: -3px;border-radius: 0 2px 2px 0px;box-shadow:5px 2px 6px #000"></div>
             </div>
-            <div class="introduce"><span class="heightLight">亲民</span>，实用的低星先锋，在<span class="heightLight">COST严重吃紧的关卡尤为重要</span></div>
+            <div class="introduce" id="InShort"></div>
 
             <div id="main-content">
                 <!-- 小前言 -->

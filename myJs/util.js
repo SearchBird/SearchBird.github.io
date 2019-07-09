@@ -159,6 +159,17 @@ function requestAnimationFrameInit() {
         || clearTimeout;
 }
 
+function getQueryVariable(variable)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+}
+
 // 页面重加载对象
 function reloadObj(){
 
@@ -172,8 +183,35 @@ function reloadObj(){
     }
 
     var reload = function(jsonObj) {
-        debugger;
+
+        pageLoad();
+
+        var characBase = jsonObj.Character_Base[0];
+        $("#CodeNameEn").html(characBase.CodeNameEn);
+        $("#CodeNameCh").html(characBase.CodeNameCh);
+        $("#CodeNameCh2").html(characBase.CodeNameCh);
+        $("#Features").html(characBase.Features);
+        $("#Position").html(characBase.Position);
+        $("#AttackScope").html(characBase.AttackScope);
+        $("#Duty").html(characBase.Duty);
+        $("#InShort").html(characBase.InShort);
+
+        var range = "";
+        for(var i = characBase.Range;i -- > 0 ;){
+            range += "★";
+        }
+        $("#Range").html(range);
+
+        var baseInfo = $("#base-info");
+        var makerHeight = (parseInt(baseInfo.css("top").replace("px","")) + parseInt(baseInfo.css("height").replace("px","")) + 20) + "px";
+        $("#maker").css("top",makerHeight);
+        var Maker = jsonObj.Maker[0];
+        $("#artCode").html(Maker.artCode);
+        $("#wordCode").html(Maker.wordCode);
+        $("#dataCode").html(Maker.dataCode);
     }
+
+
 
     var reloadURL = function(codeEn){
         if(codeEn){
