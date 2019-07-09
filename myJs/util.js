@@ -158,3 +158,62 @@ function requestAnimationFrameInit() {
         || window.msCancelRequestAnimationFrame
         || clearTimeout;
 }
+
+// 页面重加载对象
+function reloadObj(){
+
+    var theCodeName = ""
+
+    this.reloadPiiic = function(codeName) {
+        if(codeName){
+            theCodeName = codeName;
+            sendURL("https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/checkName.json", true);
+        }
+    }
+
+    var reload = function(jsonObj) {
+        debugger;
+    }
+
+    var reloadURL = function(codeEn){
+        if(codeEn){
+            var jsonURL = "https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/" + codeEn + ".json";
+            sendURL(jsonURL, false);
+        } else {
+            alert("该干员测评不存在")
+        }
+    }
+
+    var checkName = function(jsonObj,checkFlag){
+        try{
+            var codeEn = jsonObj[theCodeName.toLowerCase()];
+        } catch (e) {
+            return null;
+        }
+        reloadURL(codeEn);
+    }
+
+    var sendURL = function(jsonURL,checkFlag){
+        var request;
+        if(window.XMLHttpRequest){
+            request = new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            request = new window.ActiveXObject();
+        }else{
+            alert("浏览器版本不支持远程访问，请更换浏览器");
+        }
+        if(request !=null){
+            request.open("GET",jsonURL,true);
+            request.send(null);
+            request.onreadystatechange=function(){
+                if(request.readyState==4 && request.status==200){
+                    var jsonObj = JSON.parse(request.responseText);
+                    if(checkFlag)
+                        checkName(jsonObj);
+                    else
+                        reload(jsonObj);
+                }
+            };
+        }
+    }
+}
