@@ -199,6 +199,7 @@ function reloadObj(){
         $("#InShort").html(characBase.InShort);
         $("#PrefaceValue").html(characBase.PrefaceValue);
         $("#PrefaceCompare").html(characBase.PrefaceCompare);
+        $("#NationEn").html(characBase.NationEn);
         var range = "";
         for(var i = characBase.Range;i -- > 0 ;){
             range += "★";
@@ -253,12 +254,6 @@ function reloadObj(){
             $("#sk-list").append(skillHtml)
 
         }
-
-
-
-
-
-
 
         // 后勤拼接
         for(var num = LogNum;num > 0;num --) {
