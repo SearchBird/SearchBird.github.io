@@ -299,11 +299,19 @@ function reloadObj(){
 
     var reloadURL = function(codeEn){
         if(codeEn){
+            if(pageType === 0) {
+                window.location.href = "html/piiic-main.html?code=" + codeEn;
+                return;
+            }
+            else if(pageType == 1 ) {
+                window.location.href = "piiic-main.html?code=" + codeEn;
+                return;
+            }
             var jsonURL = "https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/" + codeEn + ".json";
             sendURL(jsonURL, false);
         } else {
             alert("该干员测评不存在")
-            if(pageType == 0) {
+            if(pageType === 0 || pageType == 1) {
                 return;
             }
             else {
@@ -317,16 +325,6 @@ function reloadObj(){
             codeEn = jsonObj[theCodeName.toLowerCase()];
         } catch (e) {
             return null;
-        }
-        if(pageType !== "") {
-            if(pageType == 0) {
-                window.location.href = "html/piiic-main.html?code=" + codeEn;
-                return;
-            }
-            else if(pageType == 1 ) {
-                window.location.href = "piiic-main.html?code=" + codeEn;
-                return;
-            }
         }
         reloadURL(codeEn);
     }
