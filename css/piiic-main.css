@@ -165,6 +165,11 @@ img{
     width: 150px;
     border-right: 101px solid transparent;
 }
+.back-curtain3{
+    position: absolute;
+    right: 0px;
+    width: 200px;
+}
 .curtain-distance{
     height:711px;
 }

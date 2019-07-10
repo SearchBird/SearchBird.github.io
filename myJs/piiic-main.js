@@ -138,7 +138,7 @@ function attackScaleSizeInit() {
 }
 
 function highLightInit(color) {
-    $(".heightLight").css("text-shadow", "2px 0rem 2px " + color + ",0rem 0rem .5rem " + color + ",0rem 0rem 0rem " + color + ",0rem 0rem 3px " + color);
+    $(".heightLight").css({"text-shadow": "0px 0px 20px " + color + ",0rem 0rem .5rem " + color + ",0rem 0rem 0rem " + color, "font-weight" : "600"});
 }
 
 function changeFont() {
@@ -164,6 +164,7 @@ function imgOnload() {
 function mainColor(color){
     $(".back-curtain1").css("border-bottom","642px solid " + color);
     $(".back-curtain2").css("border-top","643px solid " + color);
+    $(".back-curtain3").css("border-bottom","642px solid " + color);
     $(".difference").each(function(index, value) {
         $(value).css("background", color);
     })
@@ -199,7 +200,7 @@ function clickInit() {
     $("#getImg").click(function(){
         if(!clickFlag.downloadStarFlag) {
             clickFlag.downloadStarFlag = true;
-            getImg();
+            setTimeout(getImg,1000);
         }
 
     })

@@ -6,7 +6,7 @@
 function reversalColor(colorStr){
 
     // let局部常量，无变量提升
-    let sixNumReg = /^#(\d{2})(\d{2})(\d{2})$/ig,
+    let sixNumReg = /^#[0-9a-fA-F]{6}$/ig,
         threeNumReg = /^#(\d{1})(\d{1})(\d{1})$/ig,
         rgbReg = /^rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)$/ig;
     var c1=0, c2=0, c3=0;

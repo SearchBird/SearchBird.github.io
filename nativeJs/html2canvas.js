@@ -1759,8 +1759,12 @@
         };
 
         NodeContainer.prototype.MATRIX_PROPERTY = /(matrix|matrix3d)\((.+)\)/;
-        NodeContainer.prototype.TEXT_SHADOW_PROPERTY = /((rgba|rgb)\([^\)]+\)(\s-?\d+px){0,})/g;
-        NodeContainer.prototype.TEXT_SHADOW_VALUES = /(-?\d+px)|(#.+)|(rgb\(.+\))|(rgba\(.+\))/g;
+        /*NodeContainer.prototype.TEXT_SHADOW_PROPERTY = /((rgba|rgb)\([^\)]+\)(\s-?\d+px){0,})/g;
+        NodeContainer.prototype.TEXT_SHADOW_VALUES = /(-?\d+px)|(#.+)|(rgb\(.+\))|(rgba\(.+\))/g;*/
+
+        NodeContainer.prototype.TEXT_SHADOW_PROPERTY = /((rgba|rgb)\([^\)]+\)(\s-?\d+(?:\.\d+)?px){0,})/g;
+        NodeContainer.prototype.TEXT_SHADOW_VALUES = /(-?\d+(?:\.\d+)?px)|(#.+)|(rgb\(.+\))|(rgba\(.+\))/g;
+
         NodeContainer.prototype.CLIP = /^rect\((\d+)px,? (\d+)px,? (\d+)px,? (\d+)px\)$/;
 
         function selectionValue(node) {
@@ -3032,7 +3036,7 @@
             this.setFillStyle(color).font = [style, variant, weight, size, family].join(" ").split(",")[0];
         };
 
-        CanvasRenderer.prototype.fontShadow = function(color, offsetX, offsetY, blur) {
+        /*CanvasRenderer.prototype.fontShadow = function(color, offsetX, offsetY, blur) {
             this.setVariable("shadowColor", color.toString())
                 .setVariable("shadowOffsetY", offsetX)
                 .setVariable("shadowOffsetX", offsetY)
@@ -3041,7 +3045,21 @@
 
         CanvasRenderer.prototype.clearShadow = function() {
             this.setVariable("shadowColor", "rgba(0,0,0,0)");
+        };*/
+        // 只是解析了阴影但是没有进行使用，所以替换了函数
+        CanvasRenderer.prototype.fontShadow = function(color, offsetX, offsetY, blur) {
+            this.ctx.shadowOffsetX = offsetX;
+            this.ctx.shadowOffsetY = offsetY;
+            this.ctx.shadowColor = color;
+            this.ctx.shadowBlur = blur;
         };
+
+        CanvasRenderer.prototype.clearShadow = function() {
+            this.ctx.shadowOffsetX = 0;
+            this.ctx.shadowOffsetY = 0;
+            this.ctx.shadowBlur = 0;
+        };
+
 
         CanvasRenderer.prototype.setOpacity = function(opacity) {
             this.ctx.globalAlpha = opacity;
