@@ -405,6 +405,11 @@ function getImg() {
                 webview.getSettings().setSupportMultipleWindows(true);
                 webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);*/
                 //document.body.appendChild(canvas);
+                if(clickFlag.toImg) {
+                    alert("已经转为图片，长按保存即可");
+                    return;
+                }
+                clickFlag.toImg = true;
                 var img = document.createElement("img");
                 var $img = $(img);
                 $img.attr("src", url);
@@ -524,6 +529,7 @@ function image2base64(imgObj, type) {
 }
 
 function alertImgComplete() {
+    alert("已经完成了哦")
     clickFlag.completeDownloadFlag = true;
     if(!clickFlag.downloadAnimateFlag) {
         callbackClickAnimate(2);
