@@ -157,14 +157,12 @@ img{
     position: absolute;
     right: 0px;
     width: 470px;
-    border-bottom: 642px solid #BB3441;
     border-left: 84px solid transparent;
 }
 .back-curtain2{
     position: absolute;
     left: 0px;
     width: 150px;
-    border-top: 643px solid #BB3441;
     border-right: 101px solid transparent;
 }
 .curtain-distance{

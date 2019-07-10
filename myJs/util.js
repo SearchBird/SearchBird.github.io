@@ -303,6 +303,7 @@ function reloadObj(){
             sendURL(jsonURL, false);
         } else {
             alert("该干员测评不存在")
+            window.location.href = "piiic.html"
         }
     }
 
