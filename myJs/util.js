@@ -313,6 +313,12 @@ function reloadObj(){
         } catch (e) {
             return null;
         }
+        if(pageType) {
+            if(pageType == 1) {
+                window.location.href = "piiic-main.html?code=" + codeEn;
+                return;
+            }
+        }
         reloadURL(codeEn);
     }
 

@@ -26,6 +26,12 @@ function beginSearch() {
         return;
     }
     else {
-        window.location.href = "piiic-main.html?code=" + value;
+        if(pageType){
+            if(pageType == 1) {
+                new reloadObj().reloadPiiic(value);
+            }
+        } else{
+            window.location.href = "piiic-main.html?code=" + value;
+        }
     }
 }
