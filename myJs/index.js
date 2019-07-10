@@ -34,7 +34,7 @@ colors = [
   "rgba(244,223,254,0.75)"
 ],
 headline = document.querySelector("#headline"),
-ww = window.innerWidth,
+ww = 1024,
 wh = window.innerHeight;
 
 function Particle(x, y) {
@@ -82,7 +82,7 @@ Particle.prototype.render = function() {
 
 // 鼠标悬停扩散
 function onMouseMove(e) {
-  mouse.x = e.clientX;
+  mouse.x = e.clientX - ((window.innerWidth >> 1) - 512);
   mouse.y = e.clientY;
 }
 
