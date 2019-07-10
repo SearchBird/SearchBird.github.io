@@ -1,5 +1,5 @@
 var _title,_source,_sourceUrl,_pic,_showcount,_desc,_summary,_site,
-    _url = 'http://searchbird.github.io/html/piiic-main',
+    _url = 'http://searchbird.github.io/',
     _pic = 'https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/shareimg.jpg';
 
 shareClose();
