@@ -1,3 +1,24 @@
+$(function(){
+  syncHtml()
+})
+
+
+
+function syncHtml(synObj) {
+    for(var i = globalDiv.length;i -- >0;) {
+        var syncName = globalDiv[i];
+        $.ajax({
+            url: "html/" + syncName.replace("#", "") + '.html',
+            type: 'get',
+            async: false,
+            success: function (res) {
+                $(syncName).html($(res));
+            }
+        });
+    }
+}
+
+
 var canvas = document.querySelector("#canvas"),
     ctx = canvas.getContext("2d"),
     link = document.createElement('link');
@@ -82,7 +103,7 @@ function onTouchEnd(e) {
 function initScene() {
 
   ww = canvas.width = window.innerWidth;
-  wh = canvas.height = window.innerHeight;
+  wh = canvas.height = window.innerHeight - 50;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 

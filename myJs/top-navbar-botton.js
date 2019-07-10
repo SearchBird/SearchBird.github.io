@@ -1,5 +1,17 @@
 $("#homePage").click(function(){
-    window.location.href = "../index.html"
+    if(pageType === 0) {}
+    else{
+        window.location.href = "../index.html"
+    }
+})
+
+$("#piiic").click(function() {
+    if(pageType === 0) {
+        window.location.href = "html/piiic.html"
+    } else if(pageType == 1) {}
+    else{
+        window.location.href = "piiic.html"
+    }
 })
 
 $("#character-name").focus(function() {
@@ -26,8 +38,8 @@ function beginSearch() {
         return;
     }
     else {
-        if(pageType){
-            if(pageType == 1) {
+        if(pageType !== ""){
+            if(pageType == 1 || pageType == 0) {
                 new reloadObj().reloadPiiic(value);
             }
         } else{

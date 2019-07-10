@@ -2,24 +2,14 @@
   body {
     font-weight: 500;
     background-color: #212121;
+      overflow: hidden;
   }
   body section canvas {
     width: 100vw;
-    height: 100vh;
+      position:relative;
+      bottom:0px;
   }
 /* Header */
-.coidea-header {
-    position: fixed;
-    display: block;
-    width: 96%;
-    width: calc( 100% - 32px );
-    height: 40px;
-    margin: 0 auto;
-    color: #3498db;
-    text-align: center;
-    top: 16px; right: 16px; left: 16px;
-    z-index: 1000;
-}
 
 .coidea-header .coidea-links .coidea-icon-back {
     position: absolute;
@@ -109,47 +99,3 @@
     }
 }
 
-
-
-
-* {
-    box-sizing:border-box;
-}
-#search {
-    margin-top:80px;
-}
-form {
-    position:relative;
-    width:350px;
-    margin:0 auto;
-}
-input,button {
-    outline:none;
-}
-input {
-    width:100%;
-    height:42px;
-    padding-left:13px;
-    border:2px solid #c5464a;
-    border-radius:5px;
-    background:white;
-    top:0;
-    right:0;
-}
-button {
-    border:none;
-    height:42px;
-    width:42px;
-    cursor:pointer;
-    position:absolute;
-    background:#c5464a;
-    border-radius:0 5px 5px 0;
-    width:60px;
-    top:0;
-    right:0;
-}
-button:before {
-    content:"搜索";
-    font-size:13px;
-    color:#F9F0DA;
-}

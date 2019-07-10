@@ -7,30 +7,43 @@
     <link rel="icon" href="https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/icon.jpg" type="image/x-icon" />
     <title>是Saika牛逼</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/top-navbar-botton.css" />
     <script rel="script">
 
         var globalDiv = ["#top-navbar-botton"],
             clickFlag = {},
-            globalObj = {},
-            pageType = 0
+            globalObj = {}
     </script>
     <script src="nativeJs/jquery.min.js"></script>
-    <script src="myJs/util.js"></script>
 </head>
 <body>
+<!-- COIDEA:header START -->
+<header class="coidea-header">
+
+</header>
 
     <div id="piiic-header">
         <div id="top-navbar-botton"></div>
     </div>
 
+    <div id='search'>
+        <form>
+            <input type="text" placeholder="请输入要查看的干员代号，如：阿米娅"
+                   id='ganyuanid'>
+            <button type="button" onclick='dcce()'></button>
+        </form>
+    </div>
+
     <section id="ci-particles">
         <canvas id="canvas"></canvas>
-        <h1 id="headline" style="display: none">SAIKA长图站</h1>
+        <h1 id="headline">逼格神牛逼</h1>
     </section>
 
 <script src="myJs/index.js"></script>
-
+<script type='text/javascript'>
+    var dcce=function(){
+        var dd=document.getElementById('ganyuanid');
+        alert(dd.value);
+    };
+</script>
 </body>
 </html>

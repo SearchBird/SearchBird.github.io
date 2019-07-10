@@ -9,4 +9,17 @@
         </li>
         <li class="search-piiic">搜索</li>
     </ul>
-    <script src="../myJs/top-navbar-botton.js"></script>
+
+    <script>
+        var topNavScript = document.createElement("script");
+        if(pageType === 0) {
+            topNavScript.src = "myJs/top-navbar-botton.js"
+            $("#piiic").removeClass("present");
+            $("#homePage").addClass("present");
+        } else {
+            topNavScript.src = "../myJs/top-navbar-botton.js"
+            $("#piiic").addClass("present");
+            $("#homePage").removeClass("present");
+        }
+        document.body.appendChild(topNavScript)
+    </script>

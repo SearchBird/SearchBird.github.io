@@ -303,7 +303,12 @@ function reloadObj(){
             sendURL(jsonURL, false);
         } else {
             alert("该干员测评不存在")
-            window.location.href = "piiic.html"
+            if(pageType == 0) {
+                return;
+            }
+            else {
+                window.location.href = "piiic.html"
+            }
         }
     }
 
@@ -313,8 +318,12 @@ function reloadObj(){
         } catch (e) {
             return null;
         }
-        if(pageType) {
-            if(pageType == 1) {
+        if(pageType !== "") {
+            if(pageType == 0) {
+                window.location.href = "html/piiic-main.html?code=" + codeEn;
+                return;
+            }
+            else if(pageType == 1 ) {
                 window.location.href = "piiic-main.html?code=" + codeEn;
                 return;
             }
