@@ -611,12 +611,6 @@ canvas{
 ::-webkit-scrollbar-button:horizontal:decrement:hover{
     background:red;
 }
-#top-navbar-botton{
-    height:50px;
-    width:100%;
-    background:rgba(0,0,0,0.6);
-    border-bottom:1px solid rgba(255,255,255,0.3);
-}
 
 
 
