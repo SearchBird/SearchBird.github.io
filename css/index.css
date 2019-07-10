@@ -5,7 +5,9 @@
       overflow: hidden;
   }
   body section canvas {
-    width: 100vw;
+    width: 1024px;
+      display: block;
+      margin: 0 auto;
       position:relative;
       bottom:0px;
   }

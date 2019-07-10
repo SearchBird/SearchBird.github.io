@@ -102,17 +102,12 @@ function onTouchEnd(e) {
 
 function initScene() {
 
-  ww = canvas.width = window.innerWidth;
-  wh = canvas.height = window.innerHeight - 50;
+  ww = canvas.width = 1024
+  wh = canvas.height = window.innerHeight
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  /*link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = 'https://fonts.googleapis.com/css?family=Abril+Fatface';
-  document.getElementsByTagName('head')[0].appendChild(link);*/
-
-  ctx.font = 'bold 16vw "黑体"';
+  ctx.font = 'bold 170px "黑体"';
   ctx.textAlign = "center";
   ctx.fillText(headline.innerHTML, ww / 2, wh / 1.2);
 
