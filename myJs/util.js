@@ -196,7 +196,7 @@ function reloadObj(){
     var reload = function(jsonObj) {
 
         // 先把页面元素加载
-        new htmlLoad().syncHtml();
+        new htmlLoad().syncHtml;
         $("#character-name").val(theCodeName);
 
         // 基础信息以及前言

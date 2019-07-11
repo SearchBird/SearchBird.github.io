@@ -391,6 +391,10 @@ function getImg() {
     $("#main-content").children().each(function(index, value) {
         $(value).css("opacity","1");
     })
+    if(clickFlag.toImg) {
+        alertImgComplete("已经转为图片，长按保存即可");
+        return;
+    }
     html2canvas($('#piiic-container'), {
         onrendered: function(canvas) {
             /*let base64ImgSrc = canvas.toDataURL("image/png")
@@ -406,11 +410,6 @@ function getImg() {
                 webview.getSettings().setSupportMultipleWindows(true);
                 webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);*/
                 //document.body.appendChild(canvas);
-                if(clickFlag.toImg) {
-                    alert("已经转为图片，长按保存即可");
-                    return;
-                }
-                alert(clickFlag.toImg);
                 clickFlag.toImg = true;
                 var img = document.createElement("img");
                 var $img = $(img);
@@ -420,12 +419,14 @@ function getImg() {
                 var container = document.getElementById("piiic-container");
 
                 document.body.removeChild(container);
-                alertImgComplete();
+                alertImgComplete("finish");
             } else {
                 //var img_data1 = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
                 //var _stars = new Stars({stars:100});
+
+
                 callback(dataURIToBlob(url));
-                alertImgComplete();
+                alertImgComplete("finish");
                 /* var link = document.createElement('a');
                  link.download = 'my-image-name.jpg';
                  link.href = url;
@@ -530,8 +531,8 @@ function image2base64(imgObj, type) {
     request.send();
 }
 
-function alertImgComplete() {
-    alert("已经完成了哦")
+function alertImgComplete(alertString) {
+    alert(alertString)
     clickFlag.completeDownloadFlag = true;
     if(!clickFlag.downloadAnimateFlag) {
         callbackClickAnimate(2);

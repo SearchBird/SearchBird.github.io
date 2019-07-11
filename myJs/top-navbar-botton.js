@@ -20,6 +20,12 @@ $("#character-name").focus(function() {
         $("#character-name").val("");
     }
 });
+$("#character-name").blur(function(){
+    var value = $.trim($("#character-name").val());
+    if (value === "" || !value) {
+        $("#character-name").val("请输入干员名称,搜索长图");
+    }
+})
 
 // 回车和点击进行查询
 $("#character-name").keydown(function(e){
