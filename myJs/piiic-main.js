@@ -14,7 +14,7 @@ function pageLoad(flag,loadObj) {
     //compatibleLoad();
     if(flag){
         // 加载其他html文件
-        htmlLoad();
+        new htmlLoad().syncHtml();
     }
     // 样式初始化
     cssLoad(loadObj)

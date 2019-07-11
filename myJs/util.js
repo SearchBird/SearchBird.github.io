@@ -196,7 +196,7 @@ function reloadObj(){
     var reload = function(jsonObj) {
 
         // 先把页面元素加载
-        htmlLoad()
+        new htmlLoad().syncHtml();
         $("#character-name").val(theCodeName);
 
         // 基础信息以及前言
@@ -352,4 +352,27 @@ function reloadObj(){
             };
         }
     }
+}
+
+function htmlLoad(){
+
+    var perString = ""
+    if(pageType === 0) {
+        perString = "html/"
+    }
+    this.syncHtml = function(synObj) {
+        for(var i = globalDiv.length;i -- >0;) {
+            var syncName = globalDiv[i];
+            $.ajax({
+                url: perString + syncName.replace("#", "") + '.html',
+                type: 'get',
+                async: false,
+                success: function (res) {
+                    $(syncName).html($(res));
+                }
+            });
+        }
+        //htmlLazyLoad();
+    }
+
 }

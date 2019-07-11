@@ -1,22 +1,6 @@
 $(function(){
-  syncHtml()
+    new htmlLoad().syncHtml();
 })
-
-
-
-function syncHtml(synObj) {
-    for(var i = globalDiv.length;i -- >0;) {
-        var syncName = globalDiv[i];
-        $.ajax({
-            url: "html/" + syncName.replace("#", "") + '.html',
-            type: 'get',
-            async: false,
-            success: function (res) {
-                $(syncName).html($(res));
-            }
-        });
-    }
-}
 
 
 var canvas = document.querySelector("#canvas"),
