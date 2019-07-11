@@ -410,6 +410,7 @@ function getImg() {
                     alert("已经转为图片，长按保存即可");
                     return;
                 }
+                alert(clickFlag.toImg);
                 clickFlag.toImg = true;
                 var img = document.createElement("img");
                 var $img = $(img);
