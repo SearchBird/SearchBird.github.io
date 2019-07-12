@@ -528,7 +528,11 @@ function image2base64(imgObj, type) {
         }
     };
 
-    request.send();
+    try{
+        request.send();
+    } catch(e) {
+        $(imgObj).attr("display","none");
+    }
 }
 
 function alertImgComplete(alertString) {

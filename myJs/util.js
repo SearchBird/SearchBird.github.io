@@ -377,6 +377,3 @@ function htmlLoad(){
 
 }
 
-function errorImg() {
-    $("#weapon").attr("display","none")
-}
