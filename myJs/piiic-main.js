@@ -131,10 +131,12 @@ function hoverInit() {
 
 function attackScaleSizeInit() {
     var $attackScale = $(".attack-inner");
-    var sizeArr = $attackScale.html().split("<br/>");
+    var sizeArr = $attackScale.html().split("<br>");
     var sizeFlag = false;
     if(sizeArr.length == 1) {
         $attackScale.css({"width":"100%","margin-left":"0"})
+    } else if(sizeArr.length > 1) {
+        $attackScale.css({"width":"fit-content","margin-left":"auto"})
     }
     for(var i = sizeArr.length;i -- > 0;) {
         if($.trim(sizeArr[i]).length > 4){
