@@ -528,9 +528,9 @@ function image2base64(imgObj, type) {
         }
     };
 
-    xmlhttp.onreadystatechange = function(){
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 404) {
-            $(imgObj).attr("display","none")
+    request.onreadystatechange = function(){
+        if (request.readyState === 4 && request.status === 404) {
+            imgObj.remove()
         }
     }
 
