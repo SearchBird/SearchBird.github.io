@@ -130,10 +130,19 @@ function hoverInit() {
 }
 
 function attackScaleSizeInit() {
-    var $attackScale = $(".attack-scale");
-    var sizeFlag = $.trim($attackScale.html()).length < 4;
+    var $attackScale = $(".attack-inner");
+    var sizeArr = $attackScale.html().split("<br/>");
+    var sizeFlag = false;
+    for(var i = sizeArr.length;i -- > 0;) {
+        if($.trim(sizeArr[i]).length > 4){
+            sizeFlag = true;
+        }
+    }
     if(sizeFlag) {
         $attackScale.css("font-size", "17px");
+    }
+    if($attackScale.html().indexOf("br") > -1) {
+        $attackScale.css("text-align","left");
     }
 }
 

@@ -124,9 +124,13 @@ img{
     right:24px;
     font-size:14px;
     text-align:center;
-    line-height:100%;
+    line-height:120%;
     padding-top: 8px;
     padding-bottom: 8px;
+}
+.attack-inner{
+    margin:0 auto;
+    margin-left:10px;
 }
 
 .right-font{
