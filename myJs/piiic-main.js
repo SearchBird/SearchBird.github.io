@@ -528,11 +528,13 @@ function image2base64(imgObj, type) {
         }
     };
 
-    try{
-        request.send();
-    } catch(e) {
-        $(imgObj).attr("display","none");
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 404) {
+            $(imgObj).attr("display","none")
+        }
     }
+
+    request.send();
 }
 
 function alertImgComplete(alertString) {
