@@ -262,7 +262,7 @@ function reloadObj(){
 
             var skillHtml = '<div class="sk-box"><div><div class="sk-top-line"></div><div class="sk-desc">'
                 +  '<img class="sk-img" src="'
-                + "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + characBase.CodeNameEn + "skill-" + num + ".png"
+                + "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + characBase.CodeNameEn + "/skill-" + num + ".png"
                 +  '"/><div class="sk-word"><div class="sk-word-name heightLight">'
                 + Skill[skillName]
                 + '</div><div class="sk-desc-line"></div><div class="sk-word-test">'

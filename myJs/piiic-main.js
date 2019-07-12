@@ -133,6 +133,9 @@ function attackScaleSizeInit() {
     var $attackScale = $(".attack-inner");
     var sizeArr = $attackScale.html().split("<br/>");
     var sizeFlag = false;
+    if(sizeArr.length == 1) {
+        $attackScale.css({"width":"100%","margin-left":"0"})
+    }
     for(var i = sizeArr.length;i -- > 0;) {
         if($.trim(sizeArr[i]).length > 4){
             sizeFlag = true;
