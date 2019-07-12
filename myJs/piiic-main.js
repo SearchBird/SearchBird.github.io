@@ -141,6 +141,11 @@ function attackScaleSizeInit() {
     } else if(sizeArr.length > 1) {
         $attackScale.css({"width":"fit-content","margin-left":"auto","text-align":"left"})
     }
+    if($("#AttackScope_E").html()) {
+        $attackScale.css({"margin-left":"0"})
+        var theWidth = parseInt($("#AttackScope_E").css("width").replace("px","")) + 3 + "px"
+        $("#AttackList").css({"width":theWidth, "margin" : "0 auto"})
+    }
 }
 
 function highLightInit(color) {
