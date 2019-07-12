@@ -129,6 +129,7 @@ function hoverInit() {
     })
 }
 
+// 攻击范围样式初始化
 function attackScaleSizeInit() {
     var $attackScale = $(".attack-inner");
     var sizeArr = $attackScale.html().split("<br>");
@@ -210,6 +211,10 @@ function searchInputFocus() {
 function clickInit() {
     $("#getImg").click(function(){
         if(!clickFlag.downloadStarFlag) {
+            document.body.style.overflow='hidden ';
+            if(agentType) {
+                document.body.style.position='fixed ';
+            }
             clickFlag.downloadStarFlag = true;
             setTimeout(getImg,1000);
         }
@@ -399,6 +404,7 @@ function typeOfAgent() {
 
 // 因为使用a标签下载b64太长，所以只能够转为blob文件进行下载
 function getImg() {
+
     $("#main-content").children().each(function(index, value) {
         $(value).css("opacity","1");
     })
@@ -550,6 +556,9 @@ function image2base64(imgObj, type) {
 
 function alertImgComplete(alertString) {
     alert(alertString)
+    document.body.style.overflow='scroll';
+    if(agentType)
+        document.body.style.position='static'
     clickFlag.completeDownloadFlag = true;
     if(!clickFlag.downloadAnimateFlag) {
         callbackClickAnimate(2);
