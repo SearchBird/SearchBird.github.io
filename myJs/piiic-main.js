@@ -135,19 +135,11 @@ function attackScaleSizeInit() {
     var sizeFlag = false;
     if(sizeArr.length == 1) {
         $attackScale.css({"width":"100%","margin-left":"0"})
-    } else if(sizeArr.length > 1) {
-        $attackScale.css({"width":"fit-content","margin-left":"auto"})
-    }
-    for(var i = sizeArr.length;i -- > 0;) {
-        if($.trim(sizeArr[i]).length > 4){
-            sizeFlag = true;
+        if($.trim(sizeArr[0]).length < 4){
+            $attackScale.css("font-size", "17px");
         }
-    }
-    if(sizeFlag) {
-        $attackScale.css("font-size", "17px");
-    }
-    if($attackScale.html().indexOf("br") > -1) {
-        $attackScale.css("text-align","left");
+    } else if(sizeArr.length > 1) {
+        $attackScale.css({"width":"fit-content","margin-left":"auto","text-align":"left"})
     }
 }
 
