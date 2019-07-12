@@ -181,7 +181,7 @@ function reloadObj(){
         "重装" : "heavyObj",
         "特种" : "Delta",
         "医疗" : "medic",
-        "术士" : "magic",
+        "术师" : "magic",
         "近卫" : "Sworder",
         "狙击" : "sniper",
     }
