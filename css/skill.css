@@ -139,9 +139,17 @@
 }
 .sk-logistics-content-test{
     text-indent:2em;
-    width:850px;
+    position:relative;
 }
 #LogisticsOverall{
+    width:800px;
+    margin:0 auto;
+}
+.to-left {
+    position:absolute;
+    left:0
+}
+.sk-logistics-content-desc{
     width:800px;
     margin:0 auto;
 }
