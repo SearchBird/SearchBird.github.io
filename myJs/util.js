@@ -248,13 +248,10 @@ function reloadObj(){
             var colDesc1 = "Gift" + num + "Desc1";
             var colDesc2 = "Gift" + num + "Desc2";
             var colDesc3 = "Gift" + num + "Desc3";
-            giftWord.prepend('<div class="skill-desc"><div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>'
-                + (Gift[colDesc1] ? Gift[colDesc1] : "")
-                + "<br>"
-                + (Gift[colDesc2] ? Gift[colDesc2] : "")
-                + "<br>"
-                + (Gift[colDesc3] ? Gift[colDesc3] : "")
-                + "<br>"
+            giftWord.prepend('<div class="skill-desc">'
+                + (Gift[colDesc1] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc1] + "<br>" : "")
+                + (Gift[colDesc2] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc2] + "<br>" : "")
+                + (Gift[colDesc3] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc3] + "<br>" : "")
                 + '</div>');
             giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
         }
