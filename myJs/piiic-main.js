@@ -395,7 +395,7 @@ function syncHtml(synObj) {
 }
 
 function containerInit() {
-    $("#background-body").css("height", (globalPiiicContentDivHeight[globalPiiicContentDivHeight.length - 1] + 180) + "px");
+    $("#background-body").css("height", (parseInt($("#main-content").css("height").replace("px","")) + 160) + "px");
     debugger;
 }
 
