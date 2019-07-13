@@ -390,7 +390,7 @@ function syncHtml(synObj) {
 }
 
 function containerInit() {
-    $("#background-body").css("height", (globalPiiicContentDivHeight[globalPiiicContentDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 630) + "px");
+    $("#background-body").css("height", (globalPiiicContentDivHeight[globalPiiicContentDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 820) + "px");
 }
 
 function typeOfAgent() {
