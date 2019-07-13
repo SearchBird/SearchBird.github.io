@@ -259,52 +259,59 @@ function reloadObj(){
         } else{
             $("#gift").css("display","none");
         }
-        debugger;
 
         // 技能
         var Skill = jsonObj.Skill[0];
-        var LogNum = Skill.LogNum;
-        var SkillNum = Skill.SkillNum;
-        var logisticsList = $("#logisticsList");
-        // 技能简评拼接
-        for(var num = 1;num <= SkillNum;num ++){
-            var skillName = "Skill"  + num +  "Name";
-            var skillDesc = "Skill" + num + "Desc";
-            var skill1Conclusion = "Skill" + num + "Conclusion";
+        if(Skill.isExist == "1") {
+            var LogNum = Skill.LogNum;
+            var SkillNum = Skill.SkillNum;
+            var logisticsList = $("#logisticsList");
+            // 技能简评拼接
+            for (var num = 1; num <= SkillNum; num++) {
+                var skillName = "Skill" + num + "Name";
+                var skillDesc = "Skill" + num + "Desc";
+                var skill1Conclusion = "Skill" + num + "Conclusion";
 
-            var skillHtml = '<div class="sk-box"><div><div class="sk-top-line"></div><div class="sk-desc">'
-                +  '<img class="sk-img" src="'
-                + "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + characBase.CodeNameEn + "/skill-" + num + ".png"
-                +  '"/><div class="sk-word"><div class="sk-word-name heightLight">'
-                + Skill[skillName]
-                + '</div><div class="sk-desc-line"></div><div class="sk-word-test">'
-                + Skill[skillDesc]
-                +'</div></div></div><div class="sk-bottom-line"></div></div><div><div class="sk-test-title"><div class="sk-test-title-img"></div><div class="sk-test-title-word">技能简评</div></div><div class="sk-test-content">'
-                + Skill[skill1Conclusion]
-                +'</div></div></div>';
+                var skillHtml = '<div class="sk-box"><div><div class="sk-top-line"></div><div class="sk-desc">'
+                    + '<img class="sk-img" src="'
+                    + "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + characBase.CodeNameEn + "/skill-" + num + ".png"
+                    + '"/><div class="sk-word"><div class="sk-word-name heightLight">'
+                    + Skill[skillName]
+                    + '</div><div class="sk-desc-line"></div><div class="sk-word-test">'
+                    + Skill[skillDesc]
+                    + '</div></div></div><div class="sk-bottom-line"></div></div><div><div class="sk-test-title"><div class="sk-test-title-img"></div><div class="sk-test-title-word">技能简评</div></div><div class="sk-test-content">'
+                    + Skill[skill1Conclusion]
+                    + '</div></div></div>';
 
-            $("#sk-list").append(skillHtml)
+                $("#sk-list").append(skillHtml)
 
+            }
+
+            // 后勤拼接
+            for (var num = LogNum; num > 0; num--) {
+                var logName = "Logistics" + num + "Name";
+                var logDesc = "Logistics" + num + "Desc";
+                logisticsList.prepend((Skill[logDesc] ? Skill[logDesc] : "") + '<br/>');
+                logisticsList.prepend('<span class="heightLight">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
+            }
+            $("#LogisticsOverall").html(splitObjStr(Skill.LogisticsOverall));
+
+            $("#SkillOverAll").html(splitObjStr(Skill.SkillOverAll));
+        } else {
+            $("#skill").css("display","none");
         }
-
-        // 后勤拼接
-        for(var num = LogNum;num > 0;num --) {
-            var logName = "Logistics" + num + "Name";
-            var logDesc = "Logistics" + num + "Desc";
-            logisticsList.prepend((Skill[logDesc] ? Skill[logDesc] : "") + '<br/>');
-            logisticsList.prepend('<span class="heightLight">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
-        }
-        $("#LogisticsOverall").html(splitObjStr(Skill.LogisticsOverall));
-
-        $("#SkillOverAll").html(splitObjStr(Skill.SkillOverAll));
 
         // 要领
-        var Gist = jsonObj.Gist[0];
+            var Gist = jsonObj.Gist[0];
+        if(Gist.isExist == "1"){
+            $("#Train").html(splitObjStr(Gist.Train));
+            $("#Team").html(splitObjStr(Gist.Team));
+            $("#Deploy").html(splitObjStr(Gist.Deploy));
+            $("#Other").html(splitObjStr(Gist.Other));
+        } else {
+            $("#gist").css("display","none");
+        }
 
-        $("#Train").html(splitObjStr(Gist.Train));
-        $("#Team").html(splitObjStr(Gist.Team));
-        $("#Deploy").html(splitObjStr(Gist.Deploy));
-        $("#Other").html(splitObjStr(Gist.Other));
 
         pageLoad(false, characBase)
 
