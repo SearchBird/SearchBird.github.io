@@ -622,5 +622,9 @@ canvas{
     background:red;
 }
 
+.text-indent-type{
+    text-indent: 2em;
+}
+
 
 

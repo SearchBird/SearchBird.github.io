@@ -242,15 +242,23 @@ function reloadObj(){
         var Gift = jsonObj.Gift[0];
         var GiftNum = Gift.GiftNum;
         var giftWord = $("#gift-word");
-        $("#GiftOverall").html(Gift.GiftOverall);
+        $("#GiftOverall").html(splitObjStr(Gift.GiftOverall));
         for(var num = GiftNum;num > 0;num --) {
             var colName = "Gift" + num + "Name";
             var colDesc1 = "Gift" + num + "Desc1";
             var colDesc2 = "Gift" + num + "Desc2";
             var colDesc3 = "Gift" + num + "Desc3";
-            giftWord.prepend('<div class="skill-desc">' + (Gift[colDesc1] ? Gift[colDesc1] : "") + (Gift[colDesc2] ? Gift[colDesc2] : "") + (Gift[colDesc3] ? Gift[colDesc3] : "") + '</div>');
+            giftWord.prepend('<div class="skill-desc"><div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>'
+                + (Gift[colDesc1] ? Gift[colDesc1] : "")
+                + "<br>"
+                + (Gift[colDesc2] ? Gift[colDesc2] : "")
+                + "<br>"
+                + (Gift[colDesc3] ? Gift[colDesc3] : "")
+                + "<br>"
+                + '</div>');
             giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
         }
+
 
         // 技能
         var Skill = jsonObj.Skill[0];
@@ -285,51 +293,30 @@ function reloadObj(){
             logisticsList.prepend((Skill[logDesc] ? Skill[logDesc] : "") + '<br/>');
             logisticsList.prepend('<span class="heightLight">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
         }
-        $("#LogisticsOverall").html(Skill.LogisticsOverall);
+        $("#LogisticsOverall").html(splitObjStr(Skill.LogisticsOverall));
 
-        var skillArr = Skill.SkillOverAll.split("\r\n");
-        var skillArrLength = skillArr.length;
-        var skillStr = "";
-        for(var i = 0;i < skillArrLength;i ++) {
-            skillStr += '<div class="sk-totalTest-content">' + skillArr[i] + "</div>";
-        }
-        $("#SkillOverAll").html(skillStr);
+        $("#SkillOverAll").html(splitObjStr(Skill.SkillOverAll));
 
         // 要领
         var Gist = jsonObj.Gist[0];
 
-        var trainArr = Gist.Train.split("\r\n");
-        var trainArrLength = trainArr.length;
-        var trainStr = "";
-        for(var i = 0;i < trainArrLength;i ++) {
-            trainStr += '<div class="gs-content-word-content">' + trainArr[i] + "</div>";
-        }
-        var teamArr = Gist.Team.split("\r\n");
-        var teamArrLength = teamArr.length;
-        var teamStr = "";
-        for(var i = 0;i < teamArrLength;i ++) {
-            teamStr += '<div class="gs-content-word-content">' + teamArr[i] + "</div>";
-        }
-        var deployArr = Gist.Deploy.split("\r\n");
-        var deployArrLength = deployArr.length;
-        var deployStr = "";
-        for(var i = 0;i < deployArrLength;i ++) {
-            deployStr += '<div class="gs-content-word-content">' + deployArr[i] + "</div>";
-        }
-        var otherArr = Gist.Other.split("\r\n");
-        var otherArrLength = otherArr.length;
-        var otherStr = "";
-        for(var i = 0;i < otherArrLength;i ++) {
-            otherStr += '<div class="gs-content-word-content">' + otherArr[i] + "</div>";
-        }
-
-        $("#Train").html(trainStr);
-        $("#Team").html(teamStr);
-        $("#Deploy").html(deployStr);
-        $("#Other").html(otherStr);
+        $("#Train").html(splitObjStr(Gist.Train));
+        $("#Team").html(splitObjStr(Gist.Team));
+        $("#Deploy").html(splitObjStr(Gist.Deploy));
+        $("#Other").html(splitObjStr(Gist.Other));
 
         pageLoad(false, characBase)
 
+    }
+
+    var splitObjStr = function(str) {
+        var strArr = str.split("\r\n");
+        var strArrLength = strArr.length;
+        var concatStr = "";
+        for(var i = 0;i < strArrLength;i ++) {
+            concatStr += '<div class="text-indent-type">' + strArr[i] + "</div>";
+        }
+        return concatStr;
     }
 
     var dutyEnum = function(duty) {
