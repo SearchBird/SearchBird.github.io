@@ -213,8 +213,10 @@ function reloadObj(){
         $("#Duty").html(characBase.Duty);
         $("#DutyImg").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/" + dutyEnum(characBase.Duty) + ".png")
         $("#InShort").html(characBase.InShort);
-        $("#PrefaceValue").html(characBase.PrefaceValue);
-        $("#PrefaceCompare").html(characBase.PrefaceCompare);
+
+        var prefaceReg = /\uff0c|\u3002|,|./g;
+        $("#PrefaceValue").html(characBase.PrefaceValue.replace(prefaceReg,"<br>"));
+        $("#PrefaceCompare").html(characBase.PrefaceCompare.replace(prefaceReg,"<br>"));
         $("#NationEn").html(characBase.NationEn);
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + "_B-min.png");
@@ -249,11 +251,11 @@ function reloadObj(){
                 var colDesc1 = "Gift" + num + "Desc1";
                 var colDesc2 = "Gift" + num + "Desc2";
                 var colDesc3 = "Gift" + num + "Desc3";
-                giftWord.prepend('<div class="skill-desc">'
+                giftWord.prepend('<div><div class="skill-desc">'
                     + (Gift[colDesc1] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc1] + "<br>" : "")
                     + (Gift[colDesc2] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc2] + "<br>" : "")
                     + (Gift[colDesc3] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc3] + "<br>" : "")
-                    + '</div>');
+                    + '</div></div>');
                 giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
             }
         } else{
