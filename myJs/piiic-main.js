@@ -359,13 +359,18 @@ function clickInit() {
 // 通过遍历做缓存
 function calculaHeight(){
     globalPiiicContentDivHeight = [];
-    var divInitHeight = 1184;
+    var divInitHeight = 1170;
     globalPiiicContentDivHeight.push(divInitHeight);
     for (var i = -1;i ++ < globalPiiicContentDiv.length - 1;){
         var $globalPiiicContentDiv = $(globalPiiicContentDiv[i]);
+        if($globalPiiicContentDiv.css("display") == "none") {
+            globalPiiicContentDiv.splice(i,1);
+            continue;
+        }
         divInitHeight += $globalPiiicContentDiv.outerHeight(true);
         globalPiiicContentDivHeight.push(divInitHeight);
     }
+    debugger;
 }
 // 利用缓存中数据做绑定
 function scrollData(){
@@ -390,7 +395,8 @@ function syncHtml(synObj) {
 }
 
 function containerInit() {
-    $("#background-body").css("height", (globalPiiicContentDivHeight[globalPiiicContentDivHeight.length - 2] + Math.floor($(".gs-content-word").height()) - 820) + "px");
+    $("#background-body").css("height", (globalPiiicContentDivHeight[globalPiiicContentDivHeight.length - 1] + 180) + "px");
+    debugger;
 }
 
 function typeOfAgent() {

@@ -259,6 +259,7 @@ function reloadObj(){
         } else{
             $("#gift").css("display","none");
         }
+        debugger;
 
         // 技能
         var Skill = jsonObj.Skill[0];
