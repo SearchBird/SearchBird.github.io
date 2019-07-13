@@ -370,7 +370,6 @@ function calculaHeight(){
         divInitHeight += $globalPiiicContentDiv.outerHeight(true);
         globalPiiicContentDivHeight.push(divInitHeight);
     }
-    debugger;
 }
 // 利用缓存中数据做绑定
 function scrollData(){
@@ -396,7 +395,6 @@ function syncHtml(synObj) {
 
 function containerInit() {
     $("#background-body").css("height", (parseInt($("#main-content").css("height").replace("px","")) + 160) + "px");
-    debugger;
 }
 
 function typeOfAgent() {
