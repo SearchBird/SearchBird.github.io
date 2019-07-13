@@ -286,7 +286,14 @@ function reloadObj(){
             logisticsList.prepend('<span class="heightLight">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
         }
         $("#LogisticsOverall").html(Skill.LogisticsOverall);
-        $("#SkillOverAll").html(Skill.SkillOverAll);
+
+        var skillArr = Skill.SkillOverAll.split("\r\n");
+        var skillArrLength = skillArr.length;
+        var skillStr = "";
+        for(var i = 0;i < skillArrLength;i ++) {
+            skillStr += '<div class="sk-totalTest-content">' + skillArr[i] + "</div>";
+        }
+        $("#SkillOverAll").html(skillStr);
 
         // 要领
         var Gist = jsonObj.Gist[0];
