@@ -240,22 +240,25 @@ function reloadObj(){
 
         // 天赋
         var Gift = jsonObj.Gift[0];
-        var GiftNum = Gift.GiftNum;
-        var giftWord = $("#gift-word");
-        $("#GiftOverall").html(splitObjStr(Gift.GiftOverall));
-        for(var num = GiftNum;num > 0;num --) {
-            var colName = "Gift" + num + "Name";
-            var colDesc1 = "Gift" + num + "Desc1";
-            var colDesc2 = "Gift" + num + "Desc2";
-            var colDesc3 = "Gift" + num + "Desc3";
-            giftWord.prepend('<div class="skill-desc">'
-                + (Gift[colDesc1] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc1] + "<br>" : "")
-                + (Gift[colDesc2] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc2] + "<br>" : "")
-                + (Gift[colDesc3] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc3] + "<br>" : "")
-                + '</div>');
-            giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
+        if(Gift.isExist == 1) {
+            var GiftNum = Gift.GiftNum;
+            var giftWord = $("#gift-word");
+            $("#GiftOverall").html(splitObjStr(Gift.GiftOverall));
+            for(var num = GiftNum;num > 0;num --) {
+                var colName = "Gift" + num + "Name";
+                var colDesc1 = "Gift" + num + "Desc1";
+                var colDesc2 = "Gift" + num + "Desc2";
+                var colDesc3 = "Gift" + num + "Desc3";
+                giftWord.prepend('<div class="skill-desc">'
+                    + (Gift[colDesc1] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc1] + "<br>" : "")
+                    + (Gift[colDesc2] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc2] + "<br>" : "")
+                    + (Gift[colDesc3] ? '<div class="skill-icon"><div class="icon-1"></div><div class="icon-2"></div></div>' + Gift[colDesc3] + "<br>" : "")
+                    + '</div>');
+                giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
+            }
+        } else{
+            $("#gift").css("display","none");
         }
-
 
         // 技能
         var Skill = jsonObj.Skill[0];
