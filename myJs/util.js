@@ -297,6 +297,7 @@ function reloadObj(){
             $("#LogisticsOverall").html(splitObjStr(Skill.LogisticsOverall));
 
             $("#SkillOverAll").html(splitObjStr(Skill.SkillOverAll));
+            debugger;
         } else {
             $("#skill").css("display","none");
         }
