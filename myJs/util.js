@@ -290,10 +290,36 @@ function reloadObj(){
 
         // 要领
         var Gist = jsonObj.Gist[0];
-        $("#Train").html(Gist.Train);
-        $("#Team").html(Gist.Team);
-        $("#Deploy").html(Gist.Deploy);
-        $("#Other").html(Gist.Other);
+
+        var trainArr = Gist.Train.split("\r\n");
+        var trainArrLength = trainArr.length;
+        var trainStr = "";
+        for(var i = 0;i < trainArrLength;i ++) {
+            trainStr += '<div class="gs-content-word-content">' + trainArr[i] + "</div>";
+        }
+        var teamArr = Gist.Team.split("\r\n");
+        var teamArrLength = teamArr.length;
+        var teamStr = "";
+        for(var i = 0;i < teamArrLength;i ++) {
+            teamStr += '<div class="gs-content-word-content">' + teamArr[i] + "</div>";
+        }
+        var deployArr = Gist.Deploy.split("\r\n");
+        var deployArrLength = deployArr.length;
+        var deployStr = "";
+        for(var i = 0;i < deployArrLength;i ++) {
+            deployStr += '<div class="gs-content-word-content">' + deployArr[i] + "</div>";
+        }
+        var otherArr = Gist.Other.split("\r\n");
+        var otherArrLength = otherArr.length;
+        var otherStr = "";
+        for(var i = 0;i < otherArrLength;i ++) {
+            otherStr += '<div class="gs-content-word-content">' + otherArr[i] + "</div>";
+        }
+
+        $("#Train").html(trainStr);
+        $("#Team").html(teamStr);
+        $("#Deploy").html(deployStr);
+        $("#Other").html(otherStr);
 
         pageLoad(false, characBase)
 

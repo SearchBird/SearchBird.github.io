@@ -105,7 +105,9 @@
 .sk-test-content,.sk-totalTest-content{
     text-indent:2em;
     line-height:150%;
+    margin:0 auto;
     margin-top:10px;
+    width:800px;
 }
 
 .sk-totalTest-content{
