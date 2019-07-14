@@ -31,7 +31,6 @@
 }
 .icon-1{
     display:inline-block;
-    border: 3px solid #BB3441;
     width:25px;
     height: 25px;
     transform:rotate(45deg);
@@ -65,7 +64,6 @@
     display:inline-block;
     width:45px;
     height: 45px;
-    border: 3px solid #BB3441;
     margin-left:-51px;
     background:rgba(0,0,0,0);
     /*box-shadow: -32px -3px 2px -19px #fff, 11px -35px 2px -15px #fff, 36px -37px 2px -9px #fff, 35px -10px 2px -13px #fff;*/

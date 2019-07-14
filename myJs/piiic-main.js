@@ -180,6 +180,13 @@ function mainColor(color){
     $(".difference").each(function(index, value) {
         $(value).css("background", color);
     })
+    $(".skill-icon .icon-1").each(function(index, value) {
+        $(value).css("border", "3px solid " + color);
+    })
+    $(".skill-icon .icon-2").each(function(index, value) {
+        $(value).css("border", "3px solid " + color);
+    })
+    $(".test-icon").css("border" ,  "3px solid" + color);
 }
 
 function differenceOnload(){
