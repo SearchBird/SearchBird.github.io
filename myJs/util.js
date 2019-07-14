@@ -274,7 +274,7 @@ function reloadObj(){
                 giftWord.prepend('<div class="skill-name heightLight">' + Gift[colName] + '</div>');
             }
         } else{
-            $("#gift").css("display","none");
+            $("#gift").remove();
         }
 
         // 技能
@@ -315,7 +315,7 @@ function reloadObj(){
 
             $("#SkillOverAll").html(splitObjStr(Skill.SkillOverAll));
         } else {
-            $("#skill").css("display","none");
+            $("#skill").remove();
         }
 
         // 要领
@@ -326,7 +326,7 @@ function reloadObj(){
             $("#Deploy").html(splitObjStr(Gist.Deploy));
             $("#Other").html(splitObjStr(Gist.Other));
         } else {
-            $("#gist").css("display","none");
+            $("#gist").remove();
         }
 
 

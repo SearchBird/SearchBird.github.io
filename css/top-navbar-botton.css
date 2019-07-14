@@ -1,7 +1,7 @@
 #top-navbar-botton{
     height:50px;
     width:100%;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.3);
     border-bottom:1px solid rgba(255,255,255,0.3);
 }
 
@@ -9,6 +9,7 @@
     margin:auto;
     width:1024px;
     height:100%;
+    background:rgba(0,0,0,0.6);
     position:relative;
 }
 #top-navbar-botton ul li{

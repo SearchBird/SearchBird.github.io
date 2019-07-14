@@ -6,6 +6,7 @@ if(globalObj.urlType == 1) {
     _url = 'http://searchbird.github.io/';
 } else if(globalObj.urlType == 2) {
     _url = window.location.href;
+    debugger;
 }
 
 shareClose();
