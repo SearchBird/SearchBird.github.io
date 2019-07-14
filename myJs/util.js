@@ -214,9 +214,24 @@ function reloadObj(){
         $("#DutyImg").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/" + dutyEnum(characBase.Duty) + ".png")
         $("#InShort").html(characBase.InShort);
 
-        var prefaceReg = /\uff0c|\u3002|,|./g;
-        $("#PrefaceValue").html(characBase.PrefaceValue.replace(prefaceReg,"<br>"));
-        $("#PrefaceCompare").html(characBase.PrefaceCompare.replace(prefaceReg,"<br>"));
+        var prefaceReg = /\uff0c|\u3002|,|\./g;
+        var prefaceValueArr = characBase.PrefaceValue.split(prefaceReg);
+        var prefaceValue = "";
+        for(var i = 0;i < prefaceValueArr.length;i ++){
+            if(prefaceValueArr[i]) {
+                prefaceValue += "<div></div>" + prefaceValueArr[i] + "<br>";
+            }
+        }
+        var prefaceCompareArr = characBase.PrefaceCompare.split(prefaceReg);
+        var prefaceCompare = "";
+        for(var i = 0;i < prefaceCompareArr.length;i ++){
+            if(prefaceCompareArr[i]) {
+                prefaceCompare += "<div></div>" + prefaceCompareArr[i] + "<br>";
+            }
+        }
+        $("#PrefaceValue").html(prefaceValue.replace("/(.*)<br>/",""));
+        $("#PrefaceCompare").html(prefaceCompare.replace("/(.*)<br>/",""));
+
         $("#NationEn").html(characBase.NationEn);
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + "_B-min.png");
@@ -299,7 +314,6 @@ function reloadObj(){
             $("#LogisticsOverall").html(splitObjStr(Skill.LogisticsOverall));
 
             $("#SkillOverAll").html(splitObjStr(Skill.SkillOverAll));
-            debugger;
         } else {
             $("#skill").css("display","none");
         }
