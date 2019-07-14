@@ -358,7 +358,7 @@ function reloadObj(){
                 window.location.href = "piiic-main.html?code=" + codeEn;
                 return;
             }
-            var jsonURL = "https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/" + codeEn + ".json";
+            var jsonURL = "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterJson/" + codeEn + ".json";
             sendURL(jsonURL, false);
         } else {
             alert("该干员测评不存在")
