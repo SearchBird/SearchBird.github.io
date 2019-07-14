@@ -189,7 +189,7 @@ function reloadObj(){
     this.reloadPiiic = function(codeName) {
         if(codeName){
             theCodeName = codeName;
-            sendURL("https://raw.githubusercontent.com/SearchBird/SearchBird.github.io/master/json/checkName.json", true);
+            sendURL("https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterJson/checkName.json", true);
         }
     }
 
