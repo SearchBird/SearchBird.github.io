@@ -35,6 +35,17 @@ $("#shareStation").click(function(){
     }
 })
 
+$("#test").click(function() {
+    $.ajax({
+        url: "http://49.234.4.31:8080/EchartTest-0.0.1-SNAPSHOT/uploadGithub",
+        type: 'get',
+        async: false,
+        success: function (res) {
+            alert(res.dd)
+        }
+    });
+
+})
 
 $("#character-name").focus(function() {
     var value = $.trim($("#character-name").val());
