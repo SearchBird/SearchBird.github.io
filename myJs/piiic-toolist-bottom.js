@@ -154,6 +154,7 @@ function clickToolistAnimate($this, type) {
                         globalObj.shareObj = shareObj;
                         clickFlag.shareAnimateFlag = false;
                         if(clickFlag.completeShareFlag){
+                            debugger;
                             callbackClickAnimate(type);
                         }
                     } else if(type == 2) {

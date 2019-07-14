@@ -20,6 +20,7 @@ function shareClose() {
             callbackClickAnimate(1)
         } else if(globalObj.urlType == 1) {
             clickFlag.shareStarFlag = false;
+            clickFlag.completeShareFlag = false;
         }
     })
 }
