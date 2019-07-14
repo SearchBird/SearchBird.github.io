@@ -14,6 +14,28 @@ $("#piiic").click(function() {
     }
 })
 
+$("#shareStation").click(function(){
+    var url =  'share.html';
+    if(pageType === 0) {
+        url = "html/share.html"
+    }
+    if(!clickFlag.shareStarFlag) {
+        globalObj.urlType = 1;
+        clickFlag.shareStarFlag = true;
+        $.ajax({
+            url: url,
+            type: 'get',
+            async: false,
+            success: function (res) {
+                $("#share-curtain").html($(res));
+                document.documentElement.style.overflow='hidden';
+                document.body.style.overflow='hidden';
+            }
+        });
+    }
+})
+
+
 $("#character-name").focus(function() {
     var value = $.trim($("#character-name").val());
     if (value == "请输入干员名称,搜索长图" || !value) {

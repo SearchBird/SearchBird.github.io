@@ -1,6 +1,12 @@
 var _title,_source,_sourceUrl,_pic,_showcount,_desc,_summary,_site,
-    _url = 'http://searchbird.github.io/',
-    _pic = 'https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/shareimg.jpg';
+    _pic = 'https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/test/shareimg.jpg',
+    _url = "";
+
+if(globalObj.urlType == 1) {
+    _url = 'http://searchbird.github.io/';
+} else if(globalObj.urlType == 2) {
+    _url = window.location.href;
+}
 
 shareClose();
 function shareClose() {
@@ -10,8 +16,10 @@ function shareClose() {
         document.body.style.overflow='auto';
         $("#share-curtain").empty();
         clickFlag.completeShareFlag = true;
-        if(!clickFlag.shareAnimateFlag) {
+        if(!clickFlag.shareAnimateFlag && globalObj.urlType != 1) {
             callbackClickAnimate(1)
+        } else if(globalObj.urlType == 1) {
+            clickFlag.shareStarFlag = false;
         }
     })
 }

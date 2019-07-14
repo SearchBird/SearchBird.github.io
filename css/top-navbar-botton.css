@@ -9,6 +9,7 @@
     margin:auto;
     width:1024px;
     height:100%;
+    position:relative;
 }
 #top-navbar-botton ul li{
     text-align: center;
@@ -67,7 +68,10 @@
 #top-navbar-botton ul li.search-piiic:hover{
     animation :boxShineSearch 1s infinite alternate;
 }
-
+#shareStation{
+    right:0;
+    position:absolute;
+}
 
 
 

@@ -71,4 +71,17 @@
         </div>
     </div>
 </div>
-<script src="../myJs/share.js"></script>
+<script>
+    var sharePage = function() {
+        if(pageType === 0) {
+            var scriptJS = document.createElement("script");
+            $(scriptJS).attr("src", "myJs/share.js");
+            document.body.appendChild(scriptJS);
+        } else {
+            var scriptJS = document.createElement("script");
+            $(scriptJS).attr("src", "../myJs/share.js");
+            document.body.appendChild(scriptJS);
+        }
+    }
+    sharePage();
+</script>

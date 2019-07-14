@@ -338,9 +338,9 @@ function clickInit() {
         });
     })
 
-
     $("#share").click(function(){
         if(!clickFlag.shareStarFlag) {
+            globalObj.urlType = 2;
             clickFlag.shareStarFlag = true;
             $.ajax({
                 url: 'share.html',
