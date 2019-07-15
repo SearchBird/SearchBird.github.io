@@ -39,7 +39,7 @@ $("#test").click(function() {
     $.ajax({
         url: "https://49.234.4.31:8081/uploadGithub",
         type: 'get',
-        async: false,
+        async: true,
         success: function (res) {
             alert(res.dd)
         }
