@@ -37,7 +37,7 @@ $("#shareStation").click(function(){
 
 $("#test").click(function() {
     $.ajax({
-        url: "http://49.234.4.31:8080/EchartTest-0.0.1-SNAPSHOT/uploadGithub",
+        url: "https://49.234.4.31/uploadGithub",
         type: 'get',
         async: false,
         success: function (res) {
