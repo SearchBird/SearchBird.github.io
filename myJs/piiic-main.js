@@ -543,7 +543,7 @@ function image2base64(imgObj, type) {
     }else if(window.ActiveXObject){
         request = new window.ActiveXObject();
     }else{
-        alert("浏览器版本不支持远程访问，请更换浏览器");
+        myAlert("浏览器版本不支持远程访问，请更换浏览器");
     }
     var dataUrl;
     request.open('GET', src, true);
@@ -580,7 +580,7 @@ function image2base64(imgObj, type) {
 }
 
 function alertImgComplete(alertString) {
-    alert(alertString)
+    myAlert(alertString)
     document.body.style.overflow='scroll';
     if(agentType)
         document.body.style.position='static'

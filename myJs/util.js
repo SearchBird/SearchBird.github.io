@@ -363,7 +363,7 @@ function reloadObj(){
             var jsonURL = "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterJson/" + codeEn + ".json";
             sendURL(jsonURL, false);
         } else {
-            alert("该干员测评不存在")
+            myAlert("该干员测评不存在")
             if(pageType === 0 || pageType == 1) {
                 return;
             }
@@ -389,7 +389,7 @@ function reloadObj(){
         }else if(window.ActiveXObject){
             request = new window.ActiveXObject();
         }else{
-            alert("浏览器版本不支持远程访问，请更换浏览器");
+            myAlert("浏览器版本不支持远程访问，请更换浏览器");
         }
         if(request !=null){
             request.open("GET",jsonURL,true);
@@ -428,5 +428,29 @@ function htmlLoad(){
         //htmlLazyLoad();
     }
 
+}
+
+function myAlert(msg) {
+    var appear = $("#alert");
+    if(appear)
+        appear.remove();
+    var alertdiv = document.createElement("div");
+    alertdiv.id = "alert";
+    var $alert = $(alertdiv);
+    document.body.appendChild(alertdiv);
+
+    $.ajax({
+        url: pageType === 0 ? "html/alert.html" : 'alert.html',
+        type: 'get',
+        async: false,
+        success: function (res) {
+            $alert.html($(res));
+            $alert.css("opacity", "1");
+            $(".alert-inner-word").html(msg)
+            setTimeout(function(){
+                $alert.css("opacity", "0");
+            },800)
+        }
+    });
 }
 

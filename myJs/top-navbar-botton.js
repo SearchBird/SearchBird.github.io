@@ -63,9 +63,9 @@ $("#uploadGithub").click(function() {
                 contentType: false, //必须
                 success: function (result) {
                     if(result.msg == -1 || !result.msg) {
-                        alert("上传失败了");
+                        myAlert("上传失败了");
                     } else{
-                        alert("上传成功");
+                        myAlert("上传成功");
                     }
                     globalLock.upLoadFlag = false;
                 },
@@ -81,34 +81,16 @@ $("#test").click(function() {
         type: 'get',
         async: true,
         success: function (res) {
-            alert(res.dd)
+            myAlert(res.dd)
         }
     });
 
-})
-
-$(".alertT").click(function() {
-    var appear = document.getElementById("alert");
-    if(appear)
-        document.body.removeChild(appear);
-    var alertdiv = document.createElement("div");
-    alertdiv.id = "alert";
-    document.body.appendChild(alertdiv);
-    $.ajax({
-        url: "alert" + '.html',
-        type: 'get',
-        async: false,
-        success: function (res) {
-            $(alertdiv).html($(res));
-        }
-    });
 })
 
 // 搜索框动画
 $("#character-name").focus(function() {
     var value = $.trim($("#character-name").val());
     if (!value) {
-        $("#character-name").val("请输入干员名称,搜索长图");
         $("#character-name").css("width", "210");
         $("#top-navbar-botton ul li.searchli").css("width", "252");
     }
