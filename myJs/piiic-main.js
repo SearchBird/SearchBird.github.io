@@ -72,6 +72,8 @@ function cssLoad(loadObj){
     mainColor(loadObj.MainColor);
     // 初始化反色
     differenceOnload();
+    // 搜索框长度初始化
+    searchInputLength();
 }
 
 // 加载其他html文件
@@ -199,6 +201,18 @@ function differenceOnload(){
         $difference.css("background-color", highLightColor);
     });
     document.styleSheets[0].addRule('::-webkit-scrollbar-thumb', 'background:' + highLightColor);
+}
+
+function searchInputLength() {
+    var value = $.trim($("#character-name").val());
+    if (!value) {
+        $("#character-name").val("");
+        $("#character-name").css("width", "110");
+        $("#top-navbar-botton ul li.searchli").css("width", "152");
+    } else {
+        $("#character-name").css("width", "210");
+        $("#top-navbar-botton ul li.searchli").css("width", "252");
+    }
 }
 
 function searchInputFocus() {
