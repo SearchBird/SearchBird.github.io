@@ -91,9 +91,9 @@ $("#test").click(function() {
 $("#character-name").focus(function() {
     var value = $.trim($("#character-name").val());
     if (!value) {
+        $("#character-name").val("请输入干员名称,搜索长图");
         $("#character-name").css("width", "210");
         $("#top-navbar-botton ul li.searchli").css("width", "252");
-        $("#top-navbar-botton ul li.searchli").attr("value", "请输入干员名称,搜索长图");
     }
 });
 $("#character-name").blur(function(){
