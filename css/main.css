@@ -180,3 +180,8 @@ textarea {
     color:rgba(0,0,0,0.7);
 }
 /* 弹框css */
+
+.margin-fixed{
+    width:1024px;
+    margin:0 auto;
+}
