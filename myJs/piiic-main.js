@@ -436,7 +436,7 @@ function getImg() {
             document.body.appendChild(img);*/
             //let quality = $("#jpgQuality").getValue(),
              var url = canvas.toDataURL("image/jpeg");//, 0.5);//.replace("image/png", "image/octet-stream");
-
+            var codeCh = $("#CodeNameCh").html();
             // 转为file并且下载
             if(agentType) {
                 /*webview.getSettings().setJavaScriptEnabled(true);
@@ -446,8 +446,8 @@ function getImg() {
                 clickFlag.toImg = true;
                 var img = document.createElement("img");
                 var $img = $(img);
-                $img.attr("src", url);
-                $img.css("display","block").css("margin","auto");
+                $img.attr("src", url).attr("name",codeCh);
+                $img.css({"display":"block","margin":"auto"});
                 document.body.appendChild(img);
                 var container = document.getElementById("piiic-container");
 
@@ -458,7 +458,7 @@ function getImg() {
                 //var _stars = new Stars({stars:100});
 
 
-                callback(dataURIToBlob(url));
+                callback(dataURIToBlob(url), codeCh);
                 alertImgComplete("finish");
                 /* var link = document.createElement('a');
                  link.download = 'my-image-name.jpg';
@@ -496,13 +496,13 @@ function dataURIToBlob(dataURI) {
             blob = new Blob( [arr.buffer], {type : "image/jpeg"});
         }
     } finally {
-        let files = new window.File([blob], "test.jpg", {type: "jpeg"})
+        let files = new window.File([blob], "download.jpg", {type: "jpeg"})
         return files;
     }
 }
-function callback(files) {
+function callback(files,codeCh) {
     let blobdown = document.createElement('a');
-    blobdown.download = "test.jpg";
+    blobdown.download = codeCh + "测评.jpg";
     blobdown.href = window.URL.createObjectURL(files);
     blobdown.style.display = 'none';
     blobdown.click();
