@@ -1,10 +1,10 @@
 .word {
-    position: absolute;
-    width: 700px;
-    height: 60px;
+    width: 1024px;
+    display: block;
+    position:absolute;
     left:50%;
-    margin-left:-350px;
-    bottom:100px;
+    margin-left:-512px;
+    bottom:150px;
     transition:0.4s ease;
     animation: scalesmall 0.1s 1s ease-out both;
 }
@@ -23,14 +23,11 @@
     display: block;
     position: absolute;
     z-index: 9;
-    width: 700px;
+    width: 1024px;
     height: 60px;
     text-align: center;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
+    left:50%;
+    margin-left: -512px;
     cursor: default;
     will-change: transform;
 }
@@ -62,7 +59,7 @@
     color: #fff;
     background: #050710;
     overflow: hidden;
-    width: 700px;
+    width: 1024px;
     height: 60px;
     clip: rect(0, 300px, 0, 0);
     will-change: transform;
