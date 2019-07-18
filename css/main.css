@@ -182,7 +182,7 @@ textarea {
 /* 弹框css */
 
 .margin-fixed{
-    width:1024px;
+    width:100%;
     height:100%;
     margin:0 auto;
 }
