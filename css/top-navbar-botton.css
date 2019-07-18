@@ -31,8 +31,13 @@
     animation:null;
 }
 #top-navbar-botton ul li.searchli{
-    width:252px;
+    width:152px;
     margin-left:20px;
+    transition: all 4s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
 }
 .searchbox{
     margin-top:7px;
@@ -46,13 +51,18 @@
     color: #999;
     display: block;
     float: left;
-    width: 200px;
+    width: 110px;
     padding: 4px 0 4px 7px;
     border: 0;
     height: 33px;
     line-height:33px;
     border-radius: 3px;
     background: 0 0;
+    transition: all 4s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
 }
 .searchbox input:focus{
     box-shadow: 0 0 14px #03a9f4;
