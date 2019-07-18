@@ -73,6 +73,10 @@
     right:0;
     position:absolute;
 }
+#uploadGithub{
+    position: absolute;
+    right:80px;
+}
 
 
 

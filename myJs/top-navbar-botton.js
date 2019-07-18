@@ -35,6 +35,46 @@ $("#shareStation").click(function(){
     }
 })
 
+$("#uploadGithub").click(function() {
+
+    var uploadInput = document.getElementById("FileUpload");
+    uploadInput.click();
+    var $uploadInput = $("#FileUpload");
+    globalLock.upLoadFlag = false;
+    $uploadInput.change(function() {
+        if(!globalLock.upLoadFlag) {
+            globalLock.upLoadFlag = true;
+            var fileObj = uploadInput.files[0]; // js 获取文件对象
+            if (!fileObj || fileObj.size <= 0) {
+                return;
+            }
+            var formData = new FormData();
+            formData.append("file", fileObj);
+            $.ajax({
+                url: "https://49.234.4.31:8081/uploadGithub",
+                data: formData,
+                type: "POST",
+                dataType: "json",
+                headers:{"Access-Control-Allow-Origin" : "*"},
+                cache: false,//上传文件无需缓存
+                async: true,
+                contentType: "multipart/form-data",
+                processData: false,//用于对data参数进行序列化处理 这里必须false
+                contentType: false, //必须
+                success: function (result) {
+                    if(result.msg == -1 || !result.msg) {
+                        alert("上传失败了");
+                    } else{
+                        alert("上传成功");
+                    }
+                    globalLock.upLoadFlag = false;
+                },
+            })
+        }
+    })
+
+})
+
 $("#test").click(function() {
     $.ajax({
         url: "https://49.234.4.31:8081/uploadGithub",
