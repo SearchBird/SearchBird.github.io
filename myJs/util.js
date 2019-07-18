@@ -454,3 +454,11 @@ function myAlert(msg) {
     });
 }
 
+function typeOfAgent() {
+    var platform = navigator.platform,
+        agent = navigator.userAgent;
+    agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
+    if (agentType) {
+        $("#getImg").find(".word").html("转图 IMG");
+    }
+}

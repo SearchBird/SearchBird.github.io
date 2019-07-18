@@ -418,15 +418,6 @@ function containerInit() {
     $("#background-body").css("height", (parseInt($("#main-content").css("height").replace("px","")) + 160) + "px");
 }
 
-function typeOfAgent() {
-    var platform = navigator.platform,
-        agent = navigator.userAgent;
-    agentType = (agent.indexOf('Android') > -1 || agent.indexOf('Adr') > -1 || !!agent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || platform.indexOf("Mac") > -1);
-    if (agentType) {
-        $("#getImg").find(".word").html("转图 IMG");
-    }
-}
-
 // 因为使用a标签下载b64太长，所以只能够转为blob文件进行下载
 function getImg() {
 

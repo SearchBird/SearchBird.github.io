@@ -95,6 +95,13 @@
     z-index: 1;
 }
 
+.indexword{
+    font-size:100px;
+    margin:auto;
+    color:white;
+    text-align: center;
+}
+
 @media screen and (max-width: 360px) {
     .coidea-header .coidea-links .coidea-header {
         font-size: 12px; 
