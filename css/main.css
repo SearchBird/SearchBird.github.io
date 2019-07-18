@@ -106,3 +106,36 @@ textarea {
 .present{
     box-shadow: inset -1px -6px 11px -7px #FFF;
 }
+.alert-curtain{
+    width:32%;
+    height:20%;
+    position: fixed;
+    left:34%;
+    top:40%;
+    background:rgba(255,255,255,0.7);
+    font-size:22px;
+}
+.alert-inner-border{
+    width:84%;
+    height:76%;
+    position: absolute;
+    left:7%;
+    top:12%;
+    border:3px solid rgba(0,0,0,0.3);
+    display: table;
+}
+.alert-inner-word {
+    display: table-cell;
+    text-align:center;
+    vertical-align:middle;
+    line-height: 100%;
+}
+.alert-inner-rectangle{
+    position:absolute;
+    right:5%;
+    top:30%;
+    width:22%;
+    height:40%;
+    border: 8px solid rgba(0,0,0,0.7);
+}
+

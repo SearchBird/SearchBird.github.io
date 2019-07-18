@@ -87,6 +87,23 @@ $("#test").click(function() {
 
 })
 
+$(".alertT").click(function() {
+    var appear = document.getElementById("alert");
+    if(appear)
+        document.body.removeChild(appear);
+    var alertdiv = document.createElement("div");
+    alertdiv.id = "alert";
+    document.body.appendChild(alertdiv);
+    $.ajax({
+        url: "alert" + '.html',
+        type: 'get',
+        async: false,
+        success: function (res) {
+            $(alertdiv).html($(res));
+        }
+    });
+})
+
 // 搜索框动画
 $("#character-name").focus(function() {
     var value = $.trim($("#character-name").val());
