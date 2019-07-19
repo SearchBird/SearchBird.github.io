@@ -87,7 +87,10 @@
     position: absolute;
     right:80px;
 }
-
+#downloadTemp{
+    position: absolute;
+    right:160px;
+}
 
 
 @-moz-keyframes boxShine {

@@ -65,6 +65,7 @@
     width:45px;
     height: 45px;
     margin-left:-51px;
+    margin-top: 20px;
     background:rgba(0,0,0,0);
     /*box-shadow: -32px -3px 2px -19px #fff, 11px -35px 2px -15px #fff, 36px -37px 2px -9px #fff, 35px -10px 2px -13px #fff;*/
     transform:rotate(45deg);
