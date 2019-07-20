@@ -43,15 +43,6 @@ $("#uploadGithub").click(function() {
     }
 );
 
-// 下载模板点击
-$("#downloadTemp").click(function() {
-    var downloadA = document.createElement("a");
-    downloadA.setAttribute('download', '测评模板(命名和上传无关).doc');
-    downloadA.setAttribute('href', 'https://github.com/SearchBird/jsonUpload/blob/master/word/%E6%B5%8B%E8%AF%84%E6%A8%A1%E6%9D%BF(%E5%91%BD%E5%90%8D%E5%92%8C%E4%B8%8A%E4%BC%A0%E6%97%A0%E5%85%B3).doc?raw=true');
-    downloadA.setAttribute('filename', '测评模板(命名和上传无关).doc');
-    downloadA.click();
-})
-
 $("#FileUpload").change(function(e) {
     if(!globalLock.upLoadFlag) {
         globalLock.upLoadFlag = true;
@@ -107,6 +98,16 @@ $("#FileUpload").change(function(e) {
         fileReader.readAsBinaryString(fileObj[0]);
     }
 })
+
+// 下载模板点击
+$("#downloadTemp").click(function() {
+    var downloadA = document.createElement("a");
+    downloadA.setAttribute('download', '测评模板(命名和上传无关).doc');
+    downloadA.setAttribute('href', 'https://github.com/SearchBird/jsonUpload/blob/master/word/%E6%B5%8B%E8%AF%84%E6%A8%A1%E6%9D%BF(%E5%91%BD%E5%90%8D%E5%92%8C%E4%B8%8A%E4%BC%A0%E6%97%A0%E5%85%B3).doc?raw=true');
+    downloadA.setAttribute('filename', '测评模板(命名和上传无关).doc');
+    downloadA.click();
+})
+
 
 $("#test").click(function() {
     $.ajax({
