@@ -33,7 +33,7 @@
     function attachEvent(){
         var old = typeof window.onclick==="function" && window.onclick;
         window.onclick = function(event){
-            old && old();
+            //old && old();
             createHeart(event);
         }
     }
