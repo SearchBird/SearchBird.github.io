@@ -110,6 +110,8 @@ textarea {
 
 /* 弹框css */
 #alert{
+    position: fixed;
+    z-index: 1001;
     opacity:0;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;

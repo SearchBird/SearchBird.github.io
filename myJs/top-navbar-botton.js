@@ -119,7 +119,7 @@ $("#FileUpload").change(function(e) {
 
         // 判断xml文件
         if (!fileObj || fileObj.size <= 0) {
-            myAlert("提交测评xml", 500);
+            myAlert("请提交测评xml文件", 500);
             globalLock.upLoadFlag = false;
             return;
         }
@@ -127,7 +127,7 @@ $("#FileUpload").change(function(e) {
         var fileNameLen = fileObj[0].name.length;
         var type = fileObj[0].name.substring(fileNameLen - 4, fileNameLen);
         if(type != ".xml") {
-            myAlert("提交测评xml", 500);
+            myAlert("请提交测评xml文件", 500);
             globalLock.upLoadFlag = false;
             return;
         }

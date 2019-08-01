@@ -1,3 +1,7 @@
+#piiic-header{
+    position: relative;
+    z-index: 999;
+}
 #top-navbar-botton{
     height:50px;
     width:100%;
