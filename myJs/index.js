@@ -27,7 +27,7 @@ function initAnimate() {
             ww = 1024,
             wh = window.innerHeight;
         headline.addEventListener("keyup", initScene);
-        window.addEventListener("resize", initScene);
+        //window.addEventListener("resize", initScene);
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("touchmove", onTouchMove);
         window.addEventListener("touchend", onTouchEnd);

@@ -245,10 +245,11 @@ function reloadObj(){
         $("#Range").html(range);
 
         // 制作人名单
-        var Maker = jsonObj.Maker[0];
+        /*var Maker = jsonObj.Maker[0];
         $("#artCode").html(Maker.artCode);
         $("#wordCode").html(Maker.wordCode);
-        $("#dataCode").html(Maker.dataCode);
+        $("#dataCode").html(Maker.dataCode);*/
+        $("wordCode").html(characBase.workCode);
 
         // 调整制作人员高度
         var baseInfo = $("#base-info");
