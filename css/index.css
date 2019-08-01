@@ -102,6 +102,82 @@
     text-align: center;
 }
 
+.banner {
+    background: rgba(0,0,0,1);
+    width:1280px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner .left{
+    background: rgba(255,255,255,0.4);
+    width:256px;
+    height:100%;
+    float: left;
+}
+.banner-list{
+    background: rgba(0,0,0,1);
+    width:1024px;
+    height:100%;
+    float: left;
+    overflow:hidden;
+}
+.banner-slide1 {
+    background: rgba(0,0,0,0.4);
+    width:256px;
+    height:70%;
+    float: left;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+}
+.banner-slide2 {
+    background: rgba(0,0,0,0.4);
+    width:256px;
+    height:90%;
+    float: left;
+    margin-top:2%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+}
+.banner-slide3 {
+    background: rgba(0,0,0,0.4);
+    width:256px;
+    height:90%;
+    float: left;
+    margin-top:2%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+}
+.banner-slide4 {
+    background: rgba(0,0,0,0.4);
+    width:256px;
+    height:70%;
+    float: left;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+}
+.next{
+    width: 9%;
+    height: 10%;
+    background: white;
+    position: absolute;
+    right: -2%;
+    top: 35%;
+}
+.prev{
+    width: 9%;
+    height: 10%;
+    background: white;
+    position: absolute;
+    right: -2%;
+    top: 47%;
+}
+
 @media screen and (max-width: 360px) {
     .coidea-header .coidea-links .coidea-header {
         font-size: 12px; 

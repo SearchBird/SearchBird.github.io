@@ -1,8 +1,19 @@
 $(function(){
     new htmlLoad().syncHtml();
     typeOfAgent();
-    initAnimate();
+    initHeight();
+    initBanner();
+    //initAnimate();
 })
+
+function initHeight() {
+    $(".banner").css("height", window.innerHeight - 50);
+}
+
+function initBanner() {
+
+}
+
 
 function initAnimate() {
     if(agentType) {

@@ -210,7 +210,8 @@ function reloadObj(){
 
         // 攻击范围
         $("#AttackScope").html(characBase.AttackScope);
-        $("#AttackScope_E").html(characBase.AttackScope_E);
+        $("#AttackScope_E1").html(characBase.AttackScope_E1);
+        $("#AttackScope_E2").html(characBase.AttackScope_E2);
         $("#Duty").html(characBase.Duty);
         $("#DutyImg").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/" + dutyEnum(characBase.Duty) + ".png")
         $("#InShort").html(characBase.InShort);
