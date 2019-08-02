@@ -109,12 +109,24 @@
     margin: 0 auto;
     position: relative;
 }
+
+/* 左边内容 */
 .banner .left{
     background: rgba(255,255,255,0.4);
     width:256px;
     height:100%;
     float: left;
+    position: relative;
 }
+#left-logo img{
+    display: block;
+    position: absolute;
+    top: 20px;
+    width:100%;
+}
+
+
+/* 列表内容 */
 .banner-list{
     background: rgba(0,0,0,1);
     width:884px;

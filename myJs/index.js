@@ -43,8 +43,8 @@ function initBanner() {
         globalLock.bannerClickLock = true;
         var openAnimate = setInterval(function () {
             if(globalObj.index + 1 >= 7) {
-                reloadClick();
                 clearInterval(openAnimate);
+                reloadClick();
                 globalLock.bannerClickLock = false;
             }
             runleft("-s");
