@@ -124,7 +124,40 @@
     top: 20px;
     width:100%;
 }
-
+/* 左边下面 */
+.banner .left .bottom .beginuse,
+.banner .left .bottom .introduction{
+    position: absolute;
+    left:25px;
+    color:#444;
+    font-size: 30px;
+}
+.banner .left .bottom .introduction{
+    top: 296px;
+}
+.banner .left .bottom .beginuse{
+    top: 382px;
+}
+.banner .left .bottom .beginuse img,
+.banner .left .bottom .introduction img{
+    position: absolute;
+    display: block;
+    width:206px;
+}
+.banner .left .bottom .beginuse div,
+.banner .left .bottom .introduction div{
+    position: absolute;
+    width:226px;
+    z-index: 3;
+    line-height: 69px;
+    text-align: center;
+}
+.banner .left .bottom .beginuse div:hover,
+.banner .left .bottom .introduction div:hover{
+    cursor: pointer;
+    color:white;
+    text-shadow: 0px 0px 20px rgb(3,183,255),0rem 0rem .5rem rgb(3,183,255),0rem 0rem 0rem rgb(3,183,255);
+}
 
 /* 列表内容 */
 .banner-list{
@@ -147,8 +180,8 @@
 .banner-line{
     position: absolute;
     top:166px;
-    left:5%;
-    width:90%;
+    left:10%;
+    width:80%;
     height:2px;
     background: white;
 }

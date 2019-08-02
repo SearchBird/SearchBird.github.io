@@ -3,8 +3,8 @@
     display: block;
     position:absolute;
     left:50%;
-    margin-left:-512px;
-    bottom:150px;
+    margin-left:-128px;
+    top:196px;
     transition:0.4s ease;
     animation: scalesmall 0.1s 1s ease-out both;
 }
@@ -34,7 +34,8 @@
 .flash span {
     display: block;
     position: relative;
-    font-size: 100px;
+    font-size: 40px;
+    width:256px;
     line-height: 1;
     color:#fefeff;
     text-shadow: -5px 2px 6px #2451fa;
@@ -53,13 +54,13 @@
 .glitch .flash span:before,
 .glitch .flash span:after {
     display: block;
-    content: 'SAIKA 长图站';
+    content: '自助长图测评';
     position: absolute;
     top: 0;
     color: #fff;
     background: #050710;
     overflow: hidden;
-    width: 1024px;
+    width: 256px;
     height: 60px;
     clip: rect(0, 300px, 0, 0);
     will-change: transform;
