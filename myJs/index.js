@@ -40,7 +40,7 @@ function initBanner() {
     }
 
     function initMove(){
-        $(".banner-list").css("visibility","visible");
+        $(".banner").css("visibility","visible");
         globalLock.bannerClickLock = true;
         var openAnimate = setInterval(function () {
             if(globalObj.index + 1 >= 7) {
