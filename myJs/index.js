@@ -3,8 +3,26 @@ $(function(){
     typeOfAgent();
     initHeight();
     initBanner().init();
+    initHover();
     //initAnimate();
 })
+
+function initHover() {
+    $("#prev").hover(function () {
+        $("#prev marquee").css("visibility","visible");
+        $("#prev div").css("visibility","hidden");
+    },function () {
+        $("#prev marquee").css("visibility","hidden");
+        $("#prev div").css("visibility","visible");
+    })
+    $("#next").hover(function () {
+        $("#next marquee").css("visibility","visible");
+        $("#next div").css("visibility","hidden");
+    },function () {
+        $("#next marquee").css("visibility","hidden");
+        $("#next div").css("visibility","visible");
+    })
+}
 
 function initHeight() {
     $(".banner").css("height", window.innerHeight - 50);
@@ -18,12 +36,14 @@ function initBanner() {
     function init() {
         initMove();
         initClick();
+        reloadClick();
     }
 
     function initMove(){
         globalLock.bannerClickLock = true;
         var openAnimate = setInterval(function () {
             if(globalObj.index + 1 >= 7) {
+                reloadClick();
                 clearInterval(openAnimate);
                 globalLock.bannerClickLock = false;
             }
@@ -34,9 +54,21 @@ function initBanner() {
     function initClick() {
         $("#next").click(function () {
             runleft();
+            reloadClick();
         })
         $("#prev").click(function () {
             runright();
+            reloadClick();
+        })
+    }
+
+    function reloadClick() {
+        $("#banner-list-longger div").each(function (index, value) {
+            var $value = $(value);
+            $value.unbind("click");
+            $value.click(function () {
+                alert($value.attr("id"));
+            })
         })
     }
 
