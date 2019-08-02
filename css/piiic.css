@@ -104,7 +104,6 @@ body{
     position: absolute;
     display: inline-block;
     width:82px;
-    height:30px;
     background: #BB3441;
     right: 10px;
     top:15px;
@@ -166,7 +165,6 @@ body{
 .list-piiic-list .cell .cell-word .type .logo{
     display: inline-block;
     width:30%;
-    height: 100%;
     position: absolute;
     left: 50%;
 }
@@ -181,7 +179,6 @@ body{
     position: absolute;
     right: 8%;
     width: 50%;
-    height: 16px;
     background: #00aaff;
 }
 .list-piiic-list .cell .cell-word .footer .author{
