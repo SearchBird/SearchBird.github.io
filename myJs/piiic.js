@@ -3,6 +3,8 @@
 $(function() {
     new htmlLoad().syncHtml();
     initHeight();
+    // 黑科技
+    //document.body.contentEditable="true"
 });
 
 function initHeight() {

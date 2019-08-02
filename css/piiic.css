@@ -68,18 +68,21 @@ body{
     background:#03B7FF;
 }
 
+/* 下方列表内容 */
 .list-piiic-list{
     margin-top:20px;
     overflow:scroll;
     overflow-x:hidden;
 }
-.list-piiic-list div{
+.list-piiic-list .cell{
+    position: relative;
     float:left;
     border:1px solid white;
     width:338px;
     height:33%;
 }
-.list-piiic-list div:hover{
+/* 单元格 */
+.list-piiic-list .cell:hover{
     cursor: pointer;
     background: rgba(255,255,255,0.5);
     animation :boxShineBlue 1s infinite alternate;
@@ -89,6 +92,107 @@ body{
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
 }
+/* 图片 */
+.list-piiic-list .cell .cell-img{
+    width:39%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+.list-piiic-list .cell .cell-img img{
+    position: absolute;
+    display: inline-block;
+    width:82px;
+    height:30px;
+    background: #BB3441;
+    right: 10px;
+    top:15px;
+}
+/* 图片 */
+/* 文字 */
+.list-piiic-list .cell .cell-word{
+    width:60%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left:39%;
+}
+.list-piiic-list .cell .cell-word .header{
+    height:10%;
+}
+.list-piiic-list .cell .cell-word .header .main-color{
+    width: 80px;
+    height:7px;
+    background: #00aaff;
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+}
+.list-piiic-list .cell .cell-word .header .time{
+    color:white;
+    position: absolute;
+    right: 3px;
+    top:3px;
+}
+.list-piiic-list .cell .cell-word .name{
+    color:white;
+    font-size: 24px;
+    position: absolute;
+    top:20%;
+}
+.list-piiic-list .cell .cell-word .type{
+    position: absolute;
+    top:40%;
+    height:40%;
+    width:100%;
+}
+.list-piiic-list .cell .cell-word .type .duty{
+    width:50%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    text-align: right;
+}
+.list-piiic-list .cell .cell-word .type .duty .en{
+    color:white;
+}
+.list-piiic-list .cell .cell-word .type .duty .ch{
+    font-size: 30px;
+    color:white;
+}
+.list-piiic-list .cell .cell-word .type .logo{
+    display: inline-block;
+    width:30%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+}
+.list-piiic-list .cell .cell-word .footer{
+    height: 10%;
+    width:100%;
+    position: absolute;
+    top:80%;
+}
+.list-piiic-list .cell .cell-word .footer img{
+    display: inline-block;
+    position: absolute;
+    right: 8%;
+    width: 50%;
+    height: 16px;
+    background: #00aaff;
+}
+.list-piiic-list .cell .cell-word .footer .author{
+    color: white;
+    display: inline-block;
+    position: absolute;
+    right: 12%;
+}
+
+
+/* 下方列表内容 */
 
 ::-webkit-scrollbar{
     width: .6em;
