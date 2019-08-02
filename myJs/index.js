@@ -96,6 +96,9 @@ function initBanner() {
                 document.onmousemove = null;
             }
         }
+        document.onmouseup = function (event) {
+            document.onmousemove = null;
+        }
     }
 
     function reloadClick() {
