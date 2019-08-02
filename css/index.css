@@ -102,9 +102,10 @@
     text-align: center;
 }
 
+/* 滚动 */
 .banner {
     background: rgba(0,0,0,1);
-    width:1280px;
+    width:1072px;
     margin: 0 auto;
     position: relative;
 }
@@ -116,51 +117,110 @@
 }
 .banner-list{
     background: rgba(0,0,0,1);
-    width:1024px;
+    width:816px;
     height:100%;
     float: left;
     overflow:hidden;
 }
-.banner-slide1 {
-    background: rgba(0,0,0,0.4);
-    width:256px;
+.banner-list-longger{
+    width:1224px;
+    margin-left:-204px;
+    height:100%;
+}
+.banner-slide0-move-d {
+    width:204px;
+    height:70%;
+    float: left;
+    margin-left:204px;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; /* Safari */
+    -moz-transition: all 0.3s; /* Firefox 4 */
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.banner-slide0-move {
+    width:204px;
     height:70%;
     float: left;
     margin-top:10%;
     border-left: 1px solid white;
     box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
-    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; /* Safari */
+    -moz-transition: all 0.3s; /* Firefox 4 */
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.banner-slide0-nomove-d {
+    width:204px;
+    height:70%;
+    margin-left:204px;
+    float: left;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+}
+.banner-slide0-nomove {
+    width:204px;
+    height:70%;
+    float: left;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+}
+.banner-slide1 {
+    width:204px;
+    height:90%;
+    float: left;
+    margin-top:2%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; /* Safari */
+    -moz-transition: all 0.3s; /* Firefox 4 */
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.banner-slide1-nomove {
+    width:204px;
+    height:90%;
+    float: left;
+    margin-top:2%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; /* Safari */
+    -moz-transition: all 0.3s; /* Firefox 4 */
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
 }
 .banner-slide2 {
-    background: rgba(0,0,0,0.4);
-    width:256px;
-    height:90%;
+    width:204px;
+    height:50%;
     float: left;
-    margin-top:2%;
+    margin-top:15%;
     border-left: 1px solid white;
     box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
-    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; /* Safari */
+    -moz-transition: all 0.3s; /* Firefox 4 */
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
 }
-.banner-slide3 {
-    background: rgba(0,0,0,0.4);
-    width:256px;
-    height:90%;
-    float: left;
-    margin-top:2%;
-    border-left: 1px solid white;
-    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
-    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+.banner-slide-leftmove{
+    margin-left : -234px !important;
 }
-.banner-slide4 {
-    background: rgba(0,0,0,0.4);
-    width:256px;
-    height:70%;
-    float: left;
-    margin-top:10%;
-    border-left: 1px solid white;
-    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
-    -webkit-box-reflect: below -25px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
-}
+
 .next{
     width: 9%;
     height: 10%;
@@ -177,6 +237,78 @@
     right: -2%;
     top: 47%;
 }
+
+/* 用于动画播放 */
+.banner-slide0-move-d-s {
+    width:204px;
+    height:70%;
+    float: left;
+    margin-left:204px;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 90ms;
+    -webkit-transition: all 90ms; /* Safari */
+    -moz-transition: all 90ms; /* Firefox 4 */
+    -ms-transition: all 90ms;
+    -o-transition: all 90ms;
+}
+.banner-slide0-move-s {
+    width:204px;
+    height:70%;
+    float: left;
+    margin-top:10%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 90ms;
+    -webkit-transition: all 90ms; /* Safari */
+    -moz-transition: all 90ms; /* Firefox 4 */
+    -ms-transition: all 90ms;
+    -o-transition: all 90ms;
+}
+.banner-slide2-s {
+    width:204px;
+    height:50%;
+    float: left;
+    margin-top:15%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 90ms;
+    -webkit-transition: all 90ms; /* Safari */
+    -moz-transition: all 90ms; /* Firefox 4 */
+    -ms-transition: all 90ms;
+    -o-transition: all 90ms;
+}
+.banner-slide1-s {
+    width:204px;
+    height:90%;
+    float: left;
+    margin-top:2%;
+    border-left: 1px solid white;
+    box-shadow: inset 18px 0px 24px -17px #FFF, -13px 13px 14px -13px #FFF;
+    -webkit-box-reflect: below -5px linear-gradient(transparent,transparent 70%,rgba(0,0,0,.5));
+    transition: all 90ms;
+    -webkit-transition: all 90ms; /* Safari */
+    -moz-transition: all 90ms; /* Firefox 4 */
+    -ms-transition: all 90ms;
+    -o-transition: all 90ms;
+}
+
+/* 图片 */
+.banner-list-longger div img{
+    display: block;
+    height:100%;
+}
+.banner-list-longger div:hover{
+    cursor: pointer;
+    background: rgba(255,255,255,0.5);
+    animation :boxShineBlue 1s infinite alternate;
+}
+/* 滚动 */
+
 
 @media screen and (max-width: 360px) {
     .coidea-header .coidea-links .coidea-header {
