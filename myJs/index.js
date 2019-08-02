@@ -32,21 +32,23 @@ function initBanner() {
 
     var bannerDuty = ["#duty-scouts", "#duty-Sworder", "#duty-sniper", "#duty-magic", "#duty-heavyObj", "#duty-medic", "#duty-Delta", "#duty-assist"];
     globalObj.index = 0;
+    var divObj;
 
     function init() {
         initMove();
         initClick();
-        reloadClick();
     }
 
     function initMove(){
         $(".banner").css("visibility","visible");
         globalLock.bannerClickLock = true;
         var openAnimate = setInterval(function () {
-            if(globalObj.index + 1 >= 7) {
+            if(globalObj.index + 1 > 7) {
                 clearInterval(openAnimate);
+                reloadDrag();
                 reloadClick();
                 globalLock.bannerClickLock = false;
+                return;
             }
             runleft("-s");
         },125);
@@ -54,13 +56,46 @@ function initBanner() {
 
     function initClick() {
         $("#next").click(function () {
-            runleft();
-            reloadClick();
+            runright();
         })
         $("#prev").click(function () {
-            runright();
-            reloadClick();
+            runleft();
         })
+    }
+
+    function reloadDrag() {
+        var divList = document.getElementById('banner-list-longger').getElementsByTagName("div");
+        // //点击某物体时，用drag对象即可，move和up是全局区域，
+        // 也就是整个文档通用，应该使用document对象而不是drag对象(否则，采用drag对象时物体只能往右方或下方移动)
+        for(var i = divList.length;i -- > 0;) {
+            divObj = divList[i];
+            divObj.removeEventListener("onmousedown",drag);
+            divObj.onmousedown = drag;
+        }
+    }
+
+    function drag(ev) {
+        var event = event || window.event;  //兼容IE浏览器
+        //    鼠标点击物体那一刻相对于物体左侧边框的距离=点击时的位置相对于浏览器最左边的距离-物体左边框相对于浏览器最左边的距离
+        var diffX = ev.clientX;
+        var diffY = ev.clientY;
+        if (typeof divObj.setCapture !== 'undefined') {
+            divObj.setCapture();
+        }
+        document.onmousemove = function (event) {
+            var event = event || window.event;
+            var moveX = event.clientX - diffX;
+            var moveY = event.clientY - diffY;
+            if (moveX > 0) {
+                runright();
+                document.onmousemove = null;
+            } else if (moveX < 0) {
+                runleft();
+                document.onmousemove = null;
+            } else {
+                document.onmousemove = null;
+            }
+        }
     }
 
     function reloadClick() {
@@ -92,6 +127,8 @@ function initBanner() {
                 $(bannerDuty[(globalObj.index + 1) % 8]).attr("class","banner-slide0-nomove-d");
                 globalObj.index ++;
                 globalLock.bannerClickLock = false;
+                reloadDrag();
+                reloadClick();
             },str ? 105 : 320);
         }
     }
@@ -119,6 +156,8 @@ function initBanner() {
                 $(bannerDuty[(globalObj.index + 3) % 8]).remove();
                 globalObj.index = (globalObj.index + 7) % 8;
                 globalLock.bannerClickLock = false;
+                reloadDrag();
+                reloadClick();
             },330);
         }
     }

@@ -290,7 +290,7 @@
     background: rgba(3,183,255,0.3);
     position: absolute;
     right: -2%;
-    top: 35%;
+    top: 44%;
 }
 .next:hover{
     cursor: pointer;
@@ -307,7 +307,7 @@
     background: rgba(3,183,255,0.3);
     position: absolute;
     right: -2%;
-    top: 44%;
+    top: 35%;
 }
 .prev:hover{
     cursor: pointer;
