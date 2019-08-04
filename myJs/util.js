@@ -1,5 +1,22 @@
 "use strict";
 
+var tagMap = {
+    "先锋" : "duty-scouts",
+    "近卫" : "duty-Sworder",
+    "狙击" : "duty-sniper",
+    "术士" : "duty-magic",
+    "重装" : "duty-heavyObj",
+    "医疗" : "duty-medic",
+    "特种" : "duty-Delta",
+    "辅助" : "duty-assist",
+    "1★" : "1",
+    "2★" : "2",
+    "3★" : "3",
+    "4★" : "4",
+    "5★" : "5",
+    "6★" : "6"
+};
+
 /**
  * 反色闭包对象
  * @param colorStr

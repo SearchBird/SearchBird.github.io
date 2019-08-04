@@ -113,8 +113,9 @@ $("#uploadGithub").click(function() {
 );
 
 $("#FileUpload").change(function(e) {
-    if(!globalLock.upLoadFlag) {
+    if(!globalLock.upLoadFlag && !globalLock.upLoadFlag2) {
         globalLock.upLoadFlag = true;
+        globalLock.upLoadFlag2 = true;
         var fileObj = e.target.files;//document.getElementById('fileToUpload').files[0]
 
         // 判断xml文件
@@ -149,30 +150,59 @@ $("#FileUpload").change(function(e) {
                 dataArr.splice(0, 25);
 
                 // 封装json
-                var myData = buildObj().build(dataArr);
+                var newBuildObj = new buildObj();
+                newBuildObj.build(dataArr);
                 // 清理掉大文件
-                dataArr = undefined;
-                debugger;
+                var jsonInterval = setInterval(function () {
+                    if(!globalLock.extLock && !globalLock.extLock2) {
+                        newBuildObj.packListCellData(globalObj.myData);
+                        clearInterval(jsonInterval);
+                        dataArr = undefined;
+                        debugger;
 
-                $.ajax({
-                    url: "https://saikapiic.xyz/uploadGithub",
-                    data: JSON.stringify(myData),
-                    type: "POST",
-                    headers: {"Access-Control-Allow-Origin": "*"},
-                    cache: false,//上传文件无需缓存
-                    async: true,
-                    dataType: "json",
-                    contentType: "application/json; charset=UTF-8", //multipart/form-data
-                    //processData: false,//用于对data参数进行序列化处理 这里必须false，如果是多媒体文件就加上，json文件就要序列化处理
-                    success: function (result) {
-                        if (result.msg == -1 || !result.msg) {
-                            myAlert("上传失败了");
-                        } else {
-                            myAlert("上传成功");
-                        }
-                        globalLock.upLoadFlag = false;
-                    },
-                })
+                        $.ajax({
+                            url: "https://saikapiic.xyz/uploadGithub/uploadMyData",
+                            data: JSON.stringify(globalObj.myData),
+                            type: "POST",
+                            headers: {"Access-Control-Allow-Origin": "*"},
+                            cache: false,//上传文件无需缓存
+                            async: true,
+                            dataType: "json",
+                            contentType: "application/json; charset=UTF-8", //multipart/form-data
+                            //processData: false,//用于对data参数进行序列化处理 这里必须false，如果是多媒体文件就加上，json文件就要序列化处理
+                            success: function (result) {
+                                globalObj.myData = {};
+                                if (result.msg == -1 || !result.msg) {
+                                    myAlert("上传失败了");
+                                } else {
+                                    myAlert("上传成功");
+                                }
+                                globalLock.upLoadFlag = false;
+                            },
+                        })
+
+                        $.ajax({
+                            url: "https://saikapiic.xyz/uploadGithub/uploadCellListData",
+                            data: JSON.stringify(globalObj.listCellData),
+                            type: "POST",
+                            headers: {"Access-Control-Allow-Origin": "*"},
+                            cache: false,//上传文件无需缓存
+                            async: true,
+                            dataType: "json",
+                            contentType: "application/json; charset=UTF-8", //multipart/form-data
+                            //processData: false,//用于对data参数进行序列化处理 这里必须false，如果是多媒体文件就加上，json文件就要序列化处理
+                            success: function (result) {
+                                globalObj.listCellData = {};
+                                if (result.msg == -1 || !result.msg) {
+                                    myAlert("上传失败了");
+                                } else {
+                                    myAlert("上传成功");
+                                }
+                                globalLock.upLoadFlag2 = false;
+                            },
+                        })
+                    }
+                }, 100);
             } catch (e) {
                 console.log(e)
                 myAlert('文件类型不正确');
@@ -211,7 +241,89 @@ function buildObj() {
         // 匹配要领属性
         index = fix.build(myData, dataJson, "gist", index);
 
-        return myData;
+        // 填写补充信息
+        fixExtProperty(myData);
+    }
+
+    function packListCellData(myData) {
+        var listCellData = {};
+        var Character_Base = myData.Character_Base;
+        listCellData.CodeImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/charecter-bust/" + Character_Base.CodeNameEn.toLowerCase() + (parseInt(Character_Base.CodeImg) ? "-min.png" : "2-min.png")
+        listCellData.MainColor = Character_Base.MainColor;
+        listCellData.CodeNameCh = Character_Base.CodeNameCh + Character_Base.CodeVer;
+        listCellData.CodeNameEn = Character_Base.CodeNameEn;
+        listCellData.CodeNameEnVer = Character_Base.CodeNameEn + Character_Base.CodeVer;
+        listCellData.CodeVerInt = Character_Base.CodeVerInt;
+        listCellData.Range = Character_Base.Range;
+        listCellData.DutyCh = Character_Base.Duty;
+        listCellData.DutyEn = tagMap[listCellData.DutyCh];
+        listCellData.DutyImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/duty-" + listCellData.DutyEn + "_back.png";
+        listCellData.wordCode = Character_Base.wordCode;
+
+        var myDate = new Date();
+        var point = ".";
+        var branch = ":";
+        listCellData.commitDate = myDate.getFullYear() + point + myDate.getMonth() + point + myDate.getDate() + "<br/>" + myDate.getHours() + branch + myDate.getMinutes() + branch + myDate.getSeconds();
+
+        globalObj.listCellData = listCellData;
+    }
+
+    function fixExtProperty(myData) {
+
+        var request;
+        var request2;
+        if(window.XMLHttpRequest){
+            request = new XMLHttpRequest();
+            request2 = new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            request = new window.ActiveXObject();
+            request2 = new window.ActiveXObject();
+        }else{
+            myAlert("浏览器版本不支持远程访问，请更换浏览器");
+        }
+        globalLock.extLock = true;
+        globalLock.extLock2 = true;
+
+        // 先请求获取标准英文名
+        if(request !=null){
+            request.open("GET","https://raw.githubusercontent.com/SearchBird/jsonUpload/master/searchJson/en-check.json",true);
+            request.send(null);
+            request.onreadystatechange=function(){
+                if(request.readyState==4 && request.status==200){
+                    var jsonObj = JSON.parse(request.responseText);
+                    myData.Character_Base.CodeNameEn = jsonObj[myData.Character_Base.CodeNameCh];
+
+                    // 检查最新版本
+                    if(request2 !=null){
+                        request2.open("GET","https://raw.githubusercontent.com/SearchBird/jsonUpload/master/searchJson/version-check.json",true);
+                        request2.send(null);
+                        request2.onreadystatechange=function(){
+                            if(request2.readyState==4 && request2.status==200){
+                                // 给另外一个json提供的信息
+                                var jsonObj2 = JSON.parse(request.responseText);
+                                try{
+                                    myData.Character_Base.CodeVer = dataLeftCompleting(4, "0", parseInt(jsonObj2[myData.Character_Base.CodeNameEn]) + 1);
+                                    myData.Character_Base.CodeVerInt = parseInt(jsonObj2[myData.Character_Base.CodeNameEn]) + 1;
+                                }catch(e){
+                                    myData.Character_Base.CodeVer = "[0001]";
+                                    myData.Character_Base.CodeVerInt = 1;
+                                }
+                                globalObj.myData = myData;
+                                globalLock.extLock2 = false;
+                            }
+                        };
+                    }
+                    globalObj.myData = myData;
+                    globalLock.extLock = false;
+                }
+            };
+        }
+    }
+
+    // 位数补齐
+    function dataLeftCompleting(bits, identifier, value){
+        value = Array(bits + 1).join(identifier) + value;
+        return "[" + value.slice(-bits) + "]";
     }
 
     // 匹配基础信息属性
@@ -300,8 +412,8 @@ function buildObj() {
         function baseEntity(str) {
             if(str.indexOf("CodeNameCh") != -1) {
                 return "CodeNameCh";
-            } else if(str.indexOf("CodeNameEn") != -1){
-                return "CodeNameEn";
+            } else if(str.indexOf("CodeImg") != -1){
+                return "CodeImg";
             } else if(str.indexOf("Logo") != -1){
                 return "Logo";
             } else if(str.indexOf("Range") != -1){
@@ -443,12 +555,14 @@ function buildObj() {
         }
 
         return{
-            build : build
+            build : build ,
+
         }
     }
 
     return {
-        build : build
+        build : build,
+        packListCellData : packListCellData ,
     }
 }
 // 上传测评点击 ============================
