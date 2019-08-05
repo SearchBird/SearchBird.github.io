@@ -2,18 +2,10 @@ $(function(){
     new htmlLoad().syncHtml();
     typeOfAgent();
     initHeight();
-    waitImgOnload();
+    initBanner().init();
+    initHover();
+    initAnimate();
 })
-
-function waitImgOnload() {
-    $("img").each(function(index, value) {
-        $(value).load (function() {
-            initBanner().init();
-            initHover();
-            initAnimate();
-        })
-    })
-}
 
 function initHover() {
     $("#prev").hover(function () {
@@ -53,6 +45,11 @@ function initBanner() {
         var openAnimate = setInterval(function () {
             if(globalObj.index + 1 > 7) {
                 clearInterval(openAnimate);
+                var $scouts = $("#duty-scouts");
+                $scouts.addClass("extHover");
+                $scouts.hover(function () {
+                    $("#duty-scouts").removeClass("extHover");
+                })
                 reloadDrag();
                 reloadClick();
                 globalLock.bannerClickLock = false;

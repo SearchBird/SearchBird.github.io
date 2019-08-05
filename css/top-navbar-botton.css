@@ -154,6 +154,34 @@
         box-shadow: 0 0 30px #03a9f4;
     }
 }
+@-moz-keyframes boxShineGlod {
+    0% {
+        box-shadow: 0 0 20px rgb(255,215,0);
+    }
+    100% {
+        box-shadow: 0 0 40px rgb(255,215,0);
+
+    }
+}
+@-o-keyframes boxShineGlod {
+    0% {
+        box-shadow: 0 0 20px rgb(255,215,0);
+    }
+    100% {
+        box-shadow: 0 0 40px rgb(255,215,0);
+    }
+}
+@keyframes boxShineGlod {
+    /**/
+    /*bg shine*/
+
+    0% {
+        box-shadow: 0 0 20px rgb(255,215,0);
+    }
+    100% {
+        box-shadow: 0 0 40px rgb(255,215,0);
+    }
+}
 
 
 @-moz-keyframes boxShineSearch {

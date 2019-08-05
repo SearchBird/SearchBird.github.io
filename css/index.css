@@ -406,6 +406,9 @@
     background: rgba(255,255,255,0.5);
     animation :boxShineBlue 1s infinite alternate;
 }
+.extHover{
+    animation :boxShineGlod 1s infinite alternate;
+}
 /* 滚动 */
 
 
