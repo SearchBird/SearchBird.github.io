@@ -51,7 +51,7 @@ function initBanner() {
                 return;
             }
             runleft("-s");
-        },155);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
+        },200);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
     }
 
     function initClick() {
@@ -132,7 +132,7 @@ function initBanner() {
                 globalLock.bannerClickLock = false;
                 reloadDrag();
                 reloadClick();
-            },str ? 125 : 340);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
+            },str ? 150 : 340);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
         }
     }
 
@@ -161,7 +161,7 @@ function initBanner() {
                 globalLock.bannerClickLock = false;
                 reloadDrag();
                 reloadClick();
-            },330);
+            },340);
         }
     }
 
