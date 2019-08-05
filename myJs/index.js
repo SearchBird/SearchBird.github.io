@@ -51,7 +51,7 @@ function initBanner() {
                 return;
             }
             runleft("-s");
-        },125);
+        },155);
     }
 
     function initClick() {
@@ -132,7 +132,7 @@ function initBanner() {
                 globalLock.bannerClickLock = false;
                 reloadDrag();
                 reloadClick();
-            },str ? 105 : 320);
+            },str ? 125 : 340);
         }
     }
 
