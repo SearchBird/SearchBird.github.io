@@ -7,10 +7,10 @@ $("#homePage").click(function(){
 
 $("#piiic").click(function() {
     if(pageType === 0) {
-        window.location.href = "html/piiic.html"
+        window.location.href = "html/piiic.html";
     } else if(pageType == 1) {}
     else{
-        window.location.href = "piiic.html"
+        window.location.href = "piiic.html";
     }
 })
 
@@ -536,7 +536,6 @@ function buildObj() {
         }
 
         function gistEntity(str) {
-            console.log(str);
             if(str.indexOf("isExist") != -1){
                 return "isExist";
             } else if(str.indexOf("Train") != -1){

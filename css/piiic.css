@@ -63,6 +63,9 @@ body{
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
 }
+.search-tag-selected{
+    background: #00dfff;
+}
 
 .search-tap-duty .first,.search-tap-range .first{
     background:#03B7FF;
@@ -105,7 +108,7 @@ body{
 .list-piiic-list .cell .cell-img img{
     position: absolute;
     display: inline-block;
-    width:60%;
+    width:67%;
     right: 10px;
     top:4%;
     border: 1px solid white;

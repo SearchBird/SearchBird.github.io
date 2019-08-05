@@ -106,7 +106,7 @@ function initBanner() {
             var $value = $(value);
             $value.unbind("click");
             $value.click(function () {
-                alert($value.attr("id"));
+                window.location.href = "html/piiic.html?dutyId=" + $value.attr("id");
             })
         })
     }

@@ -185,7 +185,7 @@ function getQueryVariable(variable)
         var pair = vars[i].split("=");
         if(pair[0] == variable){return pair[1];}
     }
-    return(false);
+    return false;
 }
 
 // 页面重加载对象
@@ -371,11 +371,11 @@ function reloadObj(){
     var reloadURL = function(codeEn){
         if(codeEn){
             if(pageType === 0) {
-                window.location.href = "html/piiic-main.html?code=" + codeEn;
+                window.location.href = "html/piiic.html?code=" + codeEn;
                 return;
             }
             else if(pageType == 1 ) {
-                window.location.href = "piiic-main.html?code=" + codeEn;
+                window.location.href = "piiic.html?code=" + codeEn;
                 return;
             }
             var jsonURL = "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterJson/" + codeEn + ".json";
