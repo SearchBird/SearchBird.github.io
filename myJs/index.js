@@ -2,10 +2,18 @@ $(function(){
     new htmlLoad().syncHtml();
     typeOfAgent();
     initHeight();
-    initBanner().init();
-    initHover();
-    initAnimate();
+    waitImgOnload();
 })
+
+function waitImgOnload() {
+    $("img").each(function(index, value) {
+        $(value).load (function() {
+            initBanner().init();
+            initHover();
+            initAnimate();
+        })
+    })
+}
 
 function initHover() {
     $("#prev").hover(function () {
