@@ -83,6 +83,7 @@ body{
     border:1px solid white;
     width:338px;
     height:33%;
+    overflow: hidden;
     background: rgba(255,255,255,0.2);
 }
 
