@@ -456,6 +456,7 @@
 /* use cross as close button */
 .h2uclose::before {
     content: "\2716";
+    cursor: pointer;
 }
 .index-use-title div{
     height: 10%;

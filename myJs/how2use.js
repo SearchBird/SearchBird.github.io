@@ -26,6 +26,9 @@ function how2use() {
                 document.styleSheets[0].deleteRule(0);
                 document.styleSheets[0].deleteRule(0);
             }
+        });
+        $(".h2uclose").click(function () {
+            $(".index-mask").parent().remove();
         })
     }
 
