@@ -43,14 +43,18 @@ function initBanner() {
     function initMove(){
         $(".banner").css("visibility","visible");
         globalLock.bannerClickLock = true;
+        engerMove();
+    }
+
+    function engerMove() {
         if(globalObj.moveIndex + 1 > 7) {
+            globalObj.moveIndex ++ ;
             var $scouts = $("#duty-scouts");
             $scouts.addClass("extHover");
             $scouts.hover(function () {
                 $("#duty-scouts").removeClass("extHover");
-            })
+            });
             reloadDrag();
-            reloadClick();
             globalLock.bannerClickLock = false;
             return;
         }
@@ -111,7 +115,7 @@ function initBanner() {
                 runleft();
                 document.onmousemove = null;
             } else {
-                document.onmousemove = null;
+                //document.onmousemove = null;// 如果只是设置时间的时候这个就有效，但是异步回调就反而破坏功能
             }
         }
         document.onmouseup = function (event) {
@@ -152,7 +156,7 @@ function initBanner() {
                 reloadClick();
                 if(globalObj.moveIndex <= 7) {
                     setTimeout(function () {
-                        initMove();
+                        engerMove();
                     }, 50);
                 }
             },str ? 200 : 340);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
