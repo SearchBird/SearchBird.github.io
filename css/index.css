@@ -62,7 +62,6 @@
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     outline: 0px none;
-    outline: 0px;
     transition: all .3s ease;
     top: 0px;
     right: 0px;
@@ -174,6 +173,7 @@
     width: 800px;
     opacity: 0.5;
     z-index: 1006;
+    animation: letterspacing 1.2s 1 normal ease-in;
     /* 去除点击监听，不影响底层点击 */
     pointer-events: none;
 }
@@ -415,6 +415,25 @@
 @media screen and (max-width: 360px) {
     .coidea-header .coidea-links .coidea-header {
         font-size: 12px; 
+    }
+}
+
+@keyframes letterspacing {
+    0% {
+        opacity: 1;
+        filter: blur(2rem);
+    }
+    50% {
+        filter: blur(1rem);
+    }
+    80% {
+        filter: blur(0.5rem);
+        color: #fff;
+    }
+    100% {
+        opacity: 0.5;
+        filter: blur(0rem);
+        color: #fff;
     }
 }
 
