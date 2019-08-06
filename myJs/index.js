@@ -153,7 +153,7 @@ function initBanner() {
                 if(globalObj.moveIndex <= 7) {
                     setTimeout(function () {
                         initMove();
-                    }, 100);
+                    }, 50);
                 }
             },str ? 200 : 340);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
         }
