@@ -1,4 +1,5 @@
 var how2useClickFlag = false;
+var firstStyel = "";
 
 function how2use() {
 
@@ -23,11 +24,20 @@ function how2use() {
                 $(".img-next:not(#img-next2)").css({"animation" : "prevAniLeft2 1s 1 alternate forwards",});
                 $("#img-next2").css({"animation" : "prevAniRight 1s 1 alternate forwards",});
                 $(".img-prev:not(#img-prev2)").css({"animation" : "prevAniRight2 1s 1 alternate forwards",});
-                document.styleSheets[0].deleteRule(0);
-                document.styleSheets[0].deleteRule(0);
+
+                var rules = document.styleSheets[0].rules;
+                for(var index = rules.length;index -- > 0 ;) {
+                    firstStyel += rules[index].cssText;
+                }
+
+                $(document.head.getElementsByTagName("style")[0]).remove();
             }
         });
         $(".h2uclose").click(function () {
+            var style = document.createElement("style");
+            document.head.appendChild(style);
+            $(style).prepend(firstStyel);
+            $("#how2useJs").remove();
             $(".index-mask").parent().remove();
         })
     }

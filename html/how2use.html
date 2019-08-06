@@ -22,7 +22,7 @@
 <script>
     var how2useJs = function() {
         var scriptJS = document.createElement("script");
-        $(scriptJS).attr("src", "myJs/how2use.js");
+        $(scriptJS).attr({"src": "myJs/how2use.js","id" : "how2useJs"});
         document.body.appendChild(scriptJS);
     }
     how2useJs();
