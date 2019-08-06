@@ -25,18 +25,22 @@ function how2use() {
                 $("#img-next2").css({"animation" : "prevAniRight 1s 1 alternate forwards",});
                 $(".img-prev:not(#img-prev2)").css({"animation" : "prevAniRight2 1s 1 alternate forwards",});
 
-                var rules = document.styleSheets[0].rules;
-                for(var index = rules.length;index -- > 0 ;) {
-                    firstStyel += rules[index].cssText;
-                }
+                var $removeStylr = $("#removeStyle");
+                firstStyel = $removeStylr.html();
 
-                $(document.head.getElementsByTagName("style")[0]).remove();
+                $removeStylr.remove();
             }
         });
         $(".h2uclose").click(function () {
-            var style = document.createElement("style");
-            document.head.appendChild(style);
-            $(style).prepend(firstStyel);
+            if(firstStyel) {
+                var style = document.createElement("style");
+                style.id = "removeStyle";
+                document.head.appendChild(style);
+                $(style).prepend(firstStyel);
+                firstStyel = "";
+            }
+
+            how2useClickFlag = false;
             $("#how2useJs").remove();
             $(".index-mask").parent().remove();
         })
