@@ -22,15 +22,10 @@ $("#shareStation").click(function(){
     if(!clickFlag.shareStarFlag) {
         globalObj.urlType = 1;
         clickFlag.shareStarFlag = true;
-        $.ajax({
-            url: url,
-            type: 'get',
-            async: false,
-            success: function (res) {
-                $("#share-curtain").html($(res));
-                document.documentElement.style.overflow='hidden';
-                document.body.style.overflow='hidden';
-            }
+        importHtml(url, false, function (res) {
+            $("#share-curtain").html($(res));
+            document.documentElement.style.overflow='hidden';
+            document.body.style.overflow='hidden';
         });
     }
 })

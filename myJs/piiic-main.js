@@ -363,16 +363,11 @@ function clickInit() {
         if(!clickFlag.shareStarFlag) {
             globalObj.urlType = 2;
             clickFlag.shareStarFlag = true;
-            $.ajax({
-                url: 'share.html',
-                type: 'get',
-                async: false,
-                success: function (res) {
-                    $("#share-curtain").html($(res));
-                    document.documentElement.style.overflow='hidden';
-                    document.body.style.overflow='hidden';
-                }
-            });
+            importHtml('share.html', false, function (res) {
+                $("#share-curtain").html($(res));
+                document.documentElement.style.overflow='hidden';
+                document.body.style.overflow='hidden';
+            })
         }
     })
 }
@@ -402,14 +397,9 @@ function scrollData(){
 function syncHtml(synObj) {
     for(var i = globalDiv.length;i -- >0;) {
         var syncName = globalDiv[i];
-        $.ajax({
-            url: syncName.replace("#", "") + '.html',
-            type: 'get',
-            async: false,
-            success: function (res) {
-                $(syncName).html($(res));
-            }
-        });
+        importHtml(syncName.replace("#", "") + '.html', false, function (res) {
+            $(syncName).html($(res));
+        })
     }
     //htmlLazyLoad();
 }

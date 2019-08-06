@@ -434,18 +434,23 @@ function htmlLoad(){
     this.syncHtml = function(synObj) {
         for(var i = globalDiv.length;i -- >0;) {
             var syncName = globalDiv[i];
-            $.ajax({
-                url: perString + syncName.replace("#", "") + '.html',
-                type: 'get',
-                async: false,
-                success: function (res) {
-                    $(syncName).html($(res));
-                }
-            });
+            importHtml(perString + syncName.replace("#", "") + '.html', false, function (res) {
+                $(syncName).html($(res));
+            })
         }
         //htmlLazyLoad();
     }
+}
 
+function importHtml(htmlUrl, isAsync, successFun) {
+    $.ajax({
+        url: htmlUrl,
+        type: 'get',
+        async: isAsync,
+        success: function (res) {
+            successFun(res);
+        }
+    });
 }
 
 function myAlert(msg, time) {

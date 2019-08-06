@@ -32,6 +32,7 @@ function initBanner() {
 
     var bannerDuty = ["#duty-scouts", "#duty-Sworder", "#duty-sniper", "#duty-magic", "#duty-heavyObj", "#duty-medic", "#duty-Delta", "#duty-assist"];
     globalObj.index = 0;
+    globalObj.moveIndex = 0;
     var divObj;
 
     function init() {
@@ -42,29 +43,41 @@ function initBanner() {
     function initMove(){
         $(".banner").css("visibility","visible");
         globalLock.bannerClickLock = true;
-        var openAnimate = setInterval(function () {
-            if(globalObj.index + 1 > 7) {
-                clearInterval(openAnimate);
-                var $scouts = $("#duty-scouts");
-                $scouts.addClass("extHover");
-                $scouts.hover(function () {
-                    $("#duty-scouts").removeClass("extHover");
-                })
-                reloadDrag();
-                reloadClick();
-                globalLock.bannerClickLock = false;
-                return;
-            }
-            runleft("-s");
-        },200);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
+        if(globalObj.moveIndex + 1 > 7) {
+            var $scouts = $("#duty-scouts");
+            $scouts.addClass("extHover");
+            $scouts.hover(function () {
+                $("#duty-scouts").removeClass("extHover");
+            })
+            reloadDrag();
+            reloadClick();
+            globalLock.bannerClickLock = false;
+            return;
+        }
+        globalObj.moveIndex ++ ;
+        runleft("-s");// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
     }
 
     function initClick() {
         $("#next").click(function () {
             runright();
-        })
+        });
         $("#prev").click(function () {
             runleft();
+        });
+        $("#introduction").click(function () {
+            createCurtain("html/introduction.html");
+        });
+        $("#how2use").click(function () {
+            createCurtain("html/how2use.html");
+        });
+    }
+
+    function createCurtain(url) {
+        var appendDiv = document.createElement("div");
+        document.body.appendChild(appendDiv);
+        importHtml(url, false, function (res) {
+            $(appendDiv).html($(res));
         })
     }
 
@@ -137,7 +150,12 @@ function initBanner() {
                 globalLock.bannerClickLock = false;
                 reloadDrag();
                 reloadClick();
-            },str ? 150 : 340);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
+                if(globalObj.moveIndex <= 7) {
+                    setTimeout(function () {
+                        initMove();
+                    }, 100);
+                }
+            },str ? 200 : 340);// 谷歌浏览器延迟20ms可以处理，但是qq需要40ms以上
         }
     }
 
