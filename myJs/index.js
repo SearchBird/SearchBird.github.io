@@ -114,9 +114,9 @@ function initBanner() {
             } else if (moveX < 0) {
                 runleft();
                 document.onmousemove = null;
-            } else {
+            } /*else {
                 //document.onmousemove = null;// 如果只是设置时间的时候这个就有效，但是异步回调就反而破坏功能
-            }
+            }*/
         }
         document.onmouseup = function (event) {
             document.onmousemove = null;
