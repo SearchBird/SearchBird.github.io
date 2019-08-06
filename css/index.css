@@ -1,7 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway:300,400,900');*/
   body {
     font-weight: 500;
-    background-color: #212121;
+    background-color: #212121 !important;
       overflow: hidden;
   }
   body section canvas {
@@ -411,6 +411,200 @@
 }
 /* 滚动 */
 
+/* 弹出文本框 */
+.index-mask{
+    position: fixed;
+    top:0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+.index-use-title{
+    height:40%;
+    text-align: center;
+    font-family:consolas, 黑体;
+    color: white;
+    font-size: 5rem;
+    animation: letterspacing2 0.5s 1 alternate ease-in;
+    display: block;
+    white-space:nowrap;
+    letter-spacing: .5rem;
+    padding:0;
+    margin:0;
+    width:100%;
+    position: relative;
+}
+.index-use-title .word{
+    display: inline-block;
+    margin-left:unset;
+}
+.h2uclose {
+    background: white;
+    color: black;
+    border-radius: 4em;
+    line-height: 4em;
+    text-align: center;
+    height: 4em;
+    width: 4em;
+    font-size: 20px;
+    padding: 1px;
+    top: -10px;
+    right: -10px;
+    position: absolute;
+}
+/* use cross as close button */
+.h2uclose::before {
+    content: "\2716";
+}
+.index-use-title div{
+    height: 10%;
+    width: 40%;
+    line-height: 100%;
+    position: absolute;
+    top:45%;
+    left:30%;
+}
+
+/* 如何使用 */
+.index-use-img-list{
+    height:60%;
+    width:100%;
+    animation: letterspacing2 0.5s 1 alternate ease-in;
+}
+
+.img-container{
+    width:40%;
+    height:100%;
+    margin: 0 auto;
+    position: relative;
+    overflow:hidden;
+    border-radius: 8px;
+}
+.img-container-outter{
+    height:40%;
+    width:100%;
+}
+.img-content{
+    width:150%;
+    height:100%;
+    position: absolute;
+    left:-25%;
+    z-index: 2;
+}
+.img-content div{
+    display: inline-block;
+    width:31%;
+    height:100%;
+    background: #BB3441;
+}
+.img-content div:nth-last-child(1){
+    margin-right:3%;
+}
+.index-use-img-list .img-prev{
+    color: white;
+    background: #00aaff;
+    height:100%;
+    width:40px;
+    position: absolute;
+    font-size:40px;
+    left:0;
+    cursor: pointer;
+    z-index: 3;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.index-use-img-list .img-next{
+    color: white;
+    background: #00aaff;
+    height:100%;
+    width:40px;
+    position: absolute;
+    font-size:40px;
+    /* 垂直居中使用方法
+    align-items:center;
+    justify-content:center;
+    display: -webkit-flex;*/
+    right:0;
+    cursor: pointer;
+    z-index: 3;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.index-use-title,
+.img-container,
+.img-container-outter,
+.index-use-img-list .img-next,
+.index-use-img-list .img-prev{
+    transition: all .7s;
+    -webkit-transition: all .7s; /* Safari */
+    -moz-transition: all .7s; /* Firefox 4 */
+    -ms-transition: all .7s;
+    -o-transition: all .7s;
+}
+
+@keyframes letterspacing2 {
+    0% {
+        letter-spacing: -2rem;
+        filter: blur(1rem);
+        color:red;
+    }
+    50% {
+        filter: blur(0.5rem);
+    }
+    80% {
+        letter-spacing: .5rem;
+        filter: blur(0.1rem);
+        color: #fff;
+    }
+    100% {
+        letter-spacing: .5rem;
+        filter: blur(0rem);
+        color: #fff;
+    }
+}
+@keyframes prevAniLeft{
+    70%{
+        margin-top : 20%;
+        transform:rotate(0deg);
+    }
+    100%{
+        margin-top : 20%;
+        transform:rotate(-45deg);
+    }
+}
+@keyframes prevAniRight{
+    70%{
+        margin-top : 20%;
+        transform:rotate(0deg);
+    }
+    100%{
+        margin-top : 20%;
+        transform:rotate(45deg);
+    }
+}
+@keyframes prevAniLeft2{
+    70%{
+        margin-top : 5%;
+        transform:rotate(0deg);
+    }
+    100%{
+        margin-top : 5%;
+        transform:rotate(-45deg);
+    }
+}
+@keyframes prevAniRight2{
+    70%{
+        margin-top : 5%;
+        transform:rotate(0deg);
+    }
+    100%{
+        margin-top : 5%;
+        transform:rotate(45deg);
+    }
+}
+/* 弹出文本框 */
+
 
 @media screen and (max-width: 360px) {
     .coidea-header .coidea-links .coidea-header {
@@ -421,7 +615,11 @@
 @keyframes letterspacing {
     0% {
         opacity: 1;
+        background: rgba(0,0,0,0.8);
         filter: blur(2rem);
+    }
+    35%{
+        background: rgba(0,0,0,0);
     }
     50% {
         opacity: 0.8;
