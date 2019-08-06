@@ -100,6 +100,7 @@ function piiicInit() {
             }
 
         } else if(code) {
+            $("#character-name").val(code);
             piiicSendUrl(code, "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/searchJson/cell-version-list.json", 0);
         } else {
 

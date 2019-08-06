@@ -1,5 +1,29 @@
 <div class="index-mask">
-    <div>
-        <h1>简单介绍</h1>
+    <div class="index-use-title">
+        <div class="word">简单介绍</div>
+        <span class="h2uclose"></span>
+    </div>
+    <div class="index-use-img-list">
+        <div class="img-container-outter">
+            <div class="img-container">
+                <div class="img-prev"></div>
+                <div class="img-prev" id="img-prev2"></div>
+                <div class="img-content">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="img-next"></div>
+                <div class="img-next" id="img-next2"></div>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+    var how2useJs = function() {
+        var scriptJS = document.createElement("script");
+        $(scriptJS).attr({"src": "myJs/how2use.js","id" : "how2useJs"});
+        document.body.appendChild(scriptJS);
+    }
+    how2useJs();
+</script>
