@@ -649,11 +649,10 @@
     left:-25%;
     z-index: 2;
 }
-.img-content div{
+.img-content img{
     display: inline-block;
     width:31%;
     height:100%;
-    background: #BB3441;
 }
 .img-content div:nth-last-child(1){
     margin-right:3%;
