@@ -2,7 +2,7 @@
   body {
     font-weight: 500;
     background-color: #212121 !important;
-      overflow: hidden;
+    overflow: hidden;
   }
   body section canvas {
     width: 1024px;
@@ -11,6 +11,14 @@
       position:relative;
       bottom:0px;
   }
+::-webkit-scrollbar{
+    width: .6em;
+    height: 1em;
+    background: #ffd90e;
+}
+::-webkit-scrollbar-thumb {
+    background: #03B7FF;
+}
 /* Header */
 
 .coidea-header .coidea-links .coidea-icon-back {

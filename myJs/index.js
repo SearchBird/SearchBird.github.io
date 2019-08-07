@@ -26,6 +26,9 @@ function initHover() {
 
 function initHeight() {
     $(".banner").css("height", window.innerHeight - 50);
+    if(window.innerWidth < 1143) {
+        $("body").css({"overflow":"unset","overflow-y":"hidden"})
+    }
 }
 
 function initBanner() {
