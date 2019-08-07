@@ -1,13 +1,16 @@
 var how2useClickFlag = false;
 var firstStyel = "";
 
-function how2use() {
+function alertWord() {
 
     function init() {
         initClick();
     }
 
     function initClick() {
+
+
+        // 怎样使用选项
         $(".img-container-outter").click(function () {
             how2useClickFlag = !how2useClickFlag;
             if(how2useClickFlag) {
@@ -31,7 +34,10 @@ function how2use() {
                 $removeStylr.remove();
             }
         });
-        $(".h2uclose").click(function () {
+
+
+        // 关闭按钮
+        $(".alertclose").click(function () {
             if(firstStyel) {
                 var style = document.createElement("style");
                 style.id = "removeStyle";
@@ -41,7 +47,7 @@ function how2use() {
             }
 
             how2useClickFlag = false;
-            $("#how2useJs").remove();
+            $("#alertWord").remove();
             $(".index-mask").parent().remove();
         })
     }
@@ -52,5 +58,5 @@ function how2use() {
 }
 
 setTimeout(function () {
-    how2use().init();
+    alertWord().init();
 }, 500);

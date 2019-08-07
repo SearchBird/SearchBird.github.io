@@ -1,20 +1,21 @@
 <div class="index-mask">
-    <div class="index-use-title">
+    <div class="index-use-title" id="intro-title">
         <div class="word">简单介绍</div>
-        <span class="h2uclose"></span>
+        <span class="alertclose"></span>
     </div>
-    <div class="index-use-img-list">
-        <div class="img-container-outter">
-            <div class="img-container">
-                <div class="img-prev"></div>
-                <div class="img-prev" id="img-prev2"></div>
-                <div class="img-content">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="img-next"></div>
-                <div class="img-next" id="img-next2"></div>
+
+    <div class="index-intro">
+        <div class="index-intro-content">
+            <div class="index-intro-body"></div>
+            <div class="index-intro-roge"></div>
+            <div class="index-intro-rightline"></div>
+            <div class="index-intro-ball"></div>
+            <div class="index-intro-word">
+                <p>Hello！</p>
+                <p>这里是摸鱼攻略组的天晴和saika制作的自助长图测评站。</p>
+                <p>您可以在这里查到对干员的测评和详细资料，并把它保存成一张长图。</p>
+                <p>你当然也可以自己下载我们为您做好的模板，并编写上传您自己的测评，分享见解给其他人。</p>
+                <p>再次欢迎您来到本站，祝您愉快。</p>
             </div>
         </div>
     </div>
@@ -22,7 +23,7 @@
 <script>
     var how2useJs = function() {
         var scriptJS = document.createElement("script");
-        $(scriptJS).attr({"src": "myJs/how2use.js","id" : "how2useJs"});
+        $(scriptJS).attr({"src": "myJs/alertWord.js","id" : "alertWord"});
         document.body.appendChild(scriptJS);
     }
     how2useJs();

@@ -447,7 +447,7 @@
     display: inline-block;
     margin-left:unset;
 }
-.h2uclose {
+.alertclose {
     background: white;
     color: black;
     border-radius: 4em;
@@ -462,7 +462,7 @@
     position: absolute;
 }
 /* use cross as close button */
-.h2uclose::before {
+.alertclose::before {
     content: "\2716";
     cursor: pointer;
 }
@@ -474,6 +474,151 @@
     top:45%;
     left:30%;
 }
+
+/* 简单介绍 */
+.index-intro{
+    height:80%;
+    width:100%;
+    animation: letterspacing2 0.5s 1 alternate ease-in;
+}
+.index-intro-content{
+    height:90%;
+    width:50%;
+    margin:0 auto;
+    position: relative;
+}
+#intro-title{
+    height:20%;
+}
+.index-intro-body{
+    height:calc(90% - 47px);
+    position: absolute;
+    right:5%;
+    top:10%;
+    border: 2px solid white;
+    border-left: unset;
+    border-right: unset;
+    animation: introBody 2s 1 alternate forwards;
+}
+.index-intro-word{
+    height:calc(90% - 47px);
+    position: absolute;
+    right:5%;
+    top:10%;
+    width:90%;
+    visibility: hidden;
+    background: rgba(0,170,255,0.5);
+    animation: letterspacing-p 2s 1 alternate forwards;
+}
+.index-intro-word p{
+    margin-left:5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:90%;
+    color:white;
+    font-size: 25px;
+    line-height: 150%;
+    animation: letterspacing-p 2s 1 alternate forwards;
+}
+.index-intro-roge{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background: transparent;
+    border-radius: 3px;
+    border: 3px solid white;
+    width:40px;
+    height:40px;
+    transform: rotate(45deg);
+    animation: rogo 1s 1 alternate forwards;
+}
+.index-intro-rightline{
+    position: absolute;
+    bottom: 47px;
+    right: 19px;
+    z-index: 2;
+    background: white;
+    width:3px;
+    animation: rogo-line 1s 1 alternate forwards;
+}
+.index-intro-ball{
+    position: absolute;
+    bottom: 90%;
+    right: 5.5px;
+    z-index: 1;
+    background: white;
+    width:30px;
+    border-radius: 30px;
+    animation: rogo-ball 2s 1 alternate forwards;
+}
+
+@keyframes introBody {
+    50%{
+        width:0;
+        border-left: unset;
+        border-right: unset;
+    }
+    65%{
+        width:90%;
+    }
+    67%{
+        border-left:2px solid white;
+        border-right:2px solid white;
+    }
+    100%{
+        width:90%;
+        border-left:2px solid white;
+        border-right:2px solid white;
+    }
+}
+@keyframes rogo-ball {
+    50%{
+        height:0px;
+    }
+    55%{
+        height:30px;
+    }
+    100%{
+        height:30px;
+    }
+}
+@keyframes rogo-line {
+    50%{
+        height:0px;
+    }
+    100%{
+        height:calc(90% - 47px);
+    }
+}
+@keyframes rogo {
+    50%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(1485deg);
+    }
+}
+@keyframes letterspacing-p {
+    68% {
+        visibility: hidden;
+        letter-spacing: -2rem;
+        filter: blur(1rem);
+        color:red;
+    }
+    85%{
+        filter: blur(0.5rem);
+    }
+    100% {
+        visibility:visible;
+        letter-spacing: .5rem;
+        filter: blur(0rem);
+        color: #fff;
+    }
+}
+/* 简单介绍 */
+
+
 
 /* 如何使用 */
 .index-use-img-list{
@@ -512,7 +657,7 @@
 }
 .index-use-img-list .img-prev{
     color: white;
-    background: #00aaff;
+    background: rgba(0,170,255,0.7);
     height:100%;
     width:40px;
     position: absolute;
@@ -525,7 +670,7 @@
 }
 .index-use-img-list .img-next{
     color: white;
-    background: #00aaff;
+    background: rgba(0,170,255,0.7);
     height:100%;
     width:40px;
     position: absolute;
