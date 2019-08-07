@@ -461,6 +461,9 @@
     right: -10px;
     position: absolute;
 }
+.alertclose:hover{
+    color:goldenrod;
+}
 /* use cross as close button */
 .alertclose::before {
     content: "\2716";
