@@ -698,7 +698,30 @@
     -ms-transition: all .7s;
     -o-transition: all .7s;
 }
+.index-use-img-list .img-next:hover,
+.index-use-img-list .img-prev:hover{
+    background: rgba(0,170,255,1);
+}
+.afterClick{
+    width:60%;
+    height:100%;
+    position: absolute;
+    top: 20%;
+    left:20%;
+    opacity: 0;
+}
+.afterClick img{
+    width:100%;
+}
 
+@keyframes afterClickAni {
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 @keyframes letterspacing2 {
     0% {
         letter-spacing: -2rem;
