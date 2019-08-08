@@ -1,5 +1,4 @@
 var how2useClickFlag = false;
-var firstStyel = "";
 var useImgIndex = 1;
 var imgLock = false;
 var $clickImg;
@@ -32,10 +31,7 @@ function alertWord() {
                 $("#img-next2").css({"animation" : "prevAniRight 1s 1 alternate forwards",});
                 $(".img-prev:not(#img-prev2)").css({"animation" : "prevAniRight2 1s 1 alternate forwards",});
 
-                var $removeStylr = $("#removeStyle");
-                firstStyel = $removeStylr.html();
-
-                $removeStylr.remove();
+                $("#removeStyle").empty();
                 $clickImg = $(".afterClick img");
                 $afterClick = $(".afterClick");
                 $afterClick.css({"animation" : "afterClickAni 0.5s 0.7s 1 alternate ease-in forwards"});
@@ -71,17 +67,17 @@ function alertWord() {
 
         // 关闭按钮
         $(".alertclose").click(function () {
-            if(firstStyel) {
+            if($(".index-use-img-list").length != 0) {
                 var style = document.createElement("style");
                 style.id = "removeStyle";
                 document.head.appendChild(style);
-                $(style).prepend(firstStyel);
-                firstStyel = "";
+                $("#removeStyle").prepend(globalObj.firstStyel);
             }
-
             how2useClickFlag = false;
-            $("#alertWord").remove();
-            $(".index-mask").parent().remove();
+            setTimeout(function () {
+                $("#alertWord").remove();
+                $(".index-mask").parent().remove();
+            },100);
         })
     }
 

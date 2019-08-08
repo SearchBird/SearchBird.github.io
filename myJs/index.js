@@ -1,3 +1,4 @@
+
 $(function(){
     new htmlLoad().syncHtml();
     typeOfAgent();
@@ -5,7 +6,12 @@ $(function(){
     initBanner().init();
     initHover();
     initAnimate();
+    initStyle();
 })
+
+function initStyle() {
+    globalObj.firstStyel = $("#removeStyle").html();
+}
 
 function initHover() {
     $("#prev").hover(function () {
