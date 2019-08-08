@@ -100,11 +100,15 @@ function piiicInit() {
             }
 
         } else if(code) {
-            $("#character-name").val(code);
-            piiicSendUrl(code, "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/searchJson/cell-version-list.json", 0);
+            $("#character-name").val(decodeURI(code));
+            checkName(code);
         } else {
 
         }
+    }
+
+    function checkName(code) {
+        piiicSendUrl(code, "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/searchJson/en-check.json", 2)
     }
 
     function piiicSendUrl(str, jsonURL, type) {
@@ -126,9 +130,20 @@ function piiicInit() {
                         releaseLock(jsonObj, str);
                     else if(type === 1)
                         urlGetCell(jsonObj);
+                    else if(type === 2)
+                        getCodeEn(jsonObj, str);
                 }
             };
         }
+    }
+
+    function getCodeEn(jsonObj, str) {
+        code = jsonObj[str];
+        if(!code) {
+            myAlert("该干员测评不存在");
+            return;
+        }
+        piiicSendUrl(code, "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/searchJson/cell-version-list.json", 0);
     }
 
     function releaseLock(jsonObj, str) {

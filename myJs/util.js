@@ -206,8 +206,7 @@ function reloadObj(){
 
     this.reloadPiiic = function(codeName) {
         if(codeName){
-            theCodeName = codeName;
-            sendURL("https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterJson/checkName.json", true);
+            reloadURL(codeName)
         }
     }
 
@@ -370,37 +369,14 @@ function reloadObj(){
 
     var reloadURL = function(codeEn){
         if(codeEn){
-            if(pageType === 0) {
-                window.location.href = "html/piiic.html?code=" + codeEn;
-                return;
-            }
-            else if(pageType == 1 ) {
-                window.location.href = "piiic.html?code=" + codeEn;
-                return;
-            }
             var jsonURL = "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterJson/" + codeEn + ".json";
-            sendURL(jsonURL, false);
+            sendURL(jsonURL);
         } else {
-            myAlert("该干员测评不存在")
-            if(pageType === 0 || pageType == 1) {
-                return;
-            }
-            else {
-                window.location.href = "piiic.html"
-            }
+            window.location.href = "piiic.html";
         }
     }
 
-    var checkName = function(jsonObj,checkFlag){
-        try{
-            codeEn = jsonObj[theCodeName.toLowerCase()];
-        } catch (e) {
-            return null;
-        }
-        reloadURL(codeEn);
-    }
-
-    var sendURL = function(jsonURL,checkFlag){
+    var sendURL = function(jsonURL){
         var request;
         if(window.XMLHttpRequest){
             request = new XMLHttpRequest();
@@ -414,11 +390,7 @@ function reloadObj(){
             request.send(null);
             request.onreadystatechange=function(){
                 if(request.readyState==4 && request.status==200){
-                    var jsonObj = JSON.parse(request.responseText);
-                    if(checkFlag)
-                        checkName(jsonObj);
-                    else
-                        reload(jsonObj);
+                    reload(JSON.parse(request.responseText));
                 }
             };
         }

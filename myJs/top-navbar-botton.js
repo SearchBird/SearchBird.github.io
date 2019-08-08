@@ -87,12 +87,10 @@ function beginSearch() {
         return;
     }
     else {
-        if(pageType !== ""){
-            if(pageType == 1 || pageType == 0) {
-                new reloadObj().reloadPiiic(value);
-            }
+        if(pageType == 1){
+            window.location.href = "piiic.html?code=" + value;
         } else{
-            window.location.href = "piiic-main.html?code=" + value;
+            window.location.href = "html/piiic.html?code=" + value;
         }
     }
 }
@@ -189,9 +187,9 @@ $("#FileUpload").change(function(e) {
                             success: function (result) {
                                 globalObj.listCellData = {};
                                 if (result.msg == -1 || !result.msg) {
-                                    myAlert("上传失败了");
+                                    console.log("上传失败了");
                                 } else {
-                                    myAlert("上传成功");
+                                    console.log("上传成功");
                                 }
                                 globalLock.upLoadFlag2 = false;
                             },
