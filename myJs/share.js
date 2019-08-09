@@ -3,7 +3,7 @@ var _title,_source,_sourceUrl,_pic,_showcount,_desc,_summary,_site,
     _url = "";
 
 if(globalObj.urlType == 1) {
-    _url = 'http://searchbird.github.io/';
+    _url = 'http://saikadance.github.io/';
 } else if(globalObj.urlType == 2) {
     _url = window.location.href;
     debugger;
