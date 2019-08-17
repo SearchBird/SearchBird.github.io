@@ -201,6 +201,8 @@ function piiicInit() {
     // 拼接各自内容，并且绑定点击事件
     function appendCell(cellJsonList) {
         var cellInnerHtml = "";
+        // 先进行排序
+        cellJsonList = sortJsonList(cellJsonList);
         for(var index = cellJsonList.length;index -- > 0;) {
             var cellJson = cellJsonList[index];
             cellInnerHtml = cellInnerHtml
@@ -225,6 +227,13 @@ function piiicInit() {
         }
         $("#list-piiic-list").append(cellInnerHtml);
         initCellClick();
+    }
+
+    function sortJsonList(cellJsonList) {
+        cellJsonList.sort(function(a,b){
+            return parseInt(a.CodeNameEnVer.split("[")[1].replace("]")) - parseInt(b.CodeNameEnVer.split("[")[1].replace("]"));
+        })
+        return cellJsonList;
     }
 
     // 初始化格子点击事件
