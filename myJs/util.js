@@ -4,7 +4,7 @@ var tagMap = {
     "先锋" : "duty-scouts",
     "近卫" : "duty-Sworder",
     "狙击" : "duty-sniper",
-    "术士" : "duty-magic",
+    "术师" : "duty-magic",
     "重装" : "duty-heavyObj",
     "医疗" : "duty-medic",
     "特种" : "duty-Delta",
@@ -202,6 +202,9 @@ function reloadObj(){
         "术师" : "magic",
         "近卫" : "Sworder",
         "狙击" : "sniper",
+    };
+    var formaMap = {
+        "罗德岛" : "logo_rhodes"
     }
 
     this.reloadPiiic = function(codeName) {
@@ -217,7 +220,7 @@ function reloadObj(){
         $("#character-name").val(theCodeName);
 
         // 基础信息以及前言
-        var characBase = jsonObj.Character_Base[0];
+        var characBase = jsonObj.Character_Base;
         $("#CodeNameEn").html(characBase.CodeNameEn);
         $("#CodeNameCh").html(characBase.CodeNameCh);
         $("#CodeNameCh2").html(characBase.CodeNameCh);
@@ -251,8 +254,8 @@ function reloadObj(){
         $("#PrefaceCompare").html(prefaceCompare.replace("/(.*)<br>/",""));
 
         $("#NationEn").html(characBase.NationEn);
-        $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + ".png");
-        $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + characBase.Logo + "_B-min.png");
+        $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + ".png");
+        $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + "_B-min.png");
         $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-noweapon.png")
         $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-weapon.png")
         var range = "";
@@ -275,7 +278,7 @@ function reloadObj(){
 
 
         // 天赋
-        var Gift = jsonObj.Gift[0];
+        var Gift = jsonObj.Gift;
         if(Gift.isExist == 1) {
             var GiftNum = Gift.GiftNum;
             var giftWord = $("#gift-word");
@@ -297,7 +300,7 @@ function reloadObj(){
         }
 
         // 技能
-        var Skill = jsonObj.Skill[0];
+        var Skill = jsonObj.Skill;
         if(Skill.isExist == "1") {
             var LogNum = Skill.LogNum;
             var SkillNum = Skill.SkillNum;
@@ -338,7 +341,7 @@ function reloadObj(){
         }
 
         // 要领
-            var Gist = jsonObj.Gist[0];
+            var Gist = jsonObj.Gist;
         if(Gist.isExist == "1"){
             $("#Train").html(splitObjStr(Gist.Train));
             $("#Team").html(splitObjStr(Gist.Team));

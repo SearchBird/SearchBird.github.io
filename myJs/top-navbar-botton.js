@@ -151,10 +151,9 @@ $("#FileUpload").change(function(e) {
                         newBuildObj.packListCellData(globalObj.myData);
                         clearInterval(jsonInterval);
                         dataArr = undefined;
-                        debugger;
 
                         $.ajax({
-                            url: "https://saikapiic.xyz/uploadGithub/uploadMyData",
+                            url: "https:127.0.0.1:8081/uploadGithub/uploadMyData",//"https://saikapiic.xyz:8081/uploadGithub/uploadMyData",//
                             data: JSON.stringify(globalObj.myData),
                             type: "POST",
                             headers: {"Access-Control-Allow-Origin": "*"},
@@ -165,33 +164,31 @@ $("#FileUpload").change(function(e) {
                             //processData: false,//用于对data参数进行序列化处理 这里必须false，如果是多媒体文件就加上，json文件就要序列化处理
                             success: function (result) {
                                 globalObj.myData = {};
-                                if (result.msg == -1 || !result.msg) {
-                                    myAlert("上传失败了");
+                                if (result.msg != -1 && result.msg) {
+                                    $.ajax({
+                                        url: "https:127.0.0.1:8081/uploadGithub/uploadCellListData",//"https://saikapiic.xyz:8081/uploadGithub/uploadCellListData",//
+                                        data: JSON.stringify(globalObj.listCellData),
+                                        type: "POST",
+                                        headers: {"Access-Control-Allow-Origin": "*"},
+                                        cache: false,//上传文件无需缓存
+                                        async: true,
+                                        dataType: "json",
+                                        contentType: "application/json; charset=UTF-8", //multipart/form-data
+                                        //processData: false,//用于对data参数进行序列化处理 这里必须false，如果是多媒体文件就加上，json文件就要序列化处理
+                                        success: function (result) {
+                                            globalObj.listCellData = {};
+                                            if (result.msg == -1 || !result.msg) {
+                                                console.log("上传失败了");
+                                            } else {
+                                                console.log("上传成功");
+                                            }
+                                            globalLock.upLoadFlag2 = false;
+                                        },
+                                    })
                                 } else {
-                                    myAlert("上传成功");
+                                    myAlert("上传失败了");
                                 }
                                 globalLock.upLoadFlag = false;
-                            },
-                        })
-
-                        $.ajax({
-                            url: "https://saikapiic.xyz/uploadGithub/uploadCellListData",
-                            data: JSON.stringify(globalObj.listCellData),
-                            type: "POST",
-                            headers: {"Access-Control-Allow-Origin": "*"},
-                            cache: false,//上传文件无需缓存
-                            async: true,
-                            dataType: "json",
-                            contentType: "application/json; charset=UTF-8", //multipart/form-data
-                            //processData: false,//用于对data参数进行序列化处理 这里必须false，如果是多媒体文件就加上，json文件就要序列化处理
-                            success: function (result) {
-                                globalObj.listCellData = {};
-                                if (result.msg == -1 || !result.msg) {
-                                    console.log("上传失败了");
-                                } else {
-                                    console.log("上传成功");
-                                }
-                                globalLock.upLoadFlag2 = false;
                             },
                         })
                     }
@@ -201,8 +198,7 @@ $("#FileUpload").change(function(e) {
                 myAlert('文件类型不正确');
             }
         }
-        fileReader.readAsBinaryString(fileObj[0]);
-        e.target.files = [];
+        fileReader.readAsText(fileObj[0],"utf-8")//readAsBinaryString(fileObj[0]);
     } else {
         myAlert("目前正在上传文件，请稍等")
     }
@@ -293,16 +289,18 @@ function buildObj() {
                         request2.onreadystatechange=function(){
                             if(request2.readyState==4 && request2.status==200){
                                 // 给另外一个json提供的信息
-                                var jsonObj2 = JSON.parse(request.responseText);
-                                try{
-                                    myData.Character_Base.CodeVer = dataLeftCompleting(4, "0", parseInt(jsonObj2[myData.Character_Base.CodeNameEn]) + 1);
+                                var jsonObj2 = JSON.parse(request2.responseText);
+                                var num = parseInt(jsonObj2[myData.Character_Base.CodeNameEn]);
+                                if(!isNaN(num)) {
+                                    myData.Character_Base.CodeVer = dataLeftCompleting(4, "0", num + 1);
                                     myData.Character_Base.CodeVerInt = parseInt(jsonObj2[myData.Character_Base.CodeNameEn]) + 1;
-                                }catch(e){
+                                } else{
                                     myData.Character_Base.CodeVer = "[0001]";
                                     myData.Character_Base.CodeVerInt = 1;
                                 }
                                 globalObj.myData = myData;
                                 globalLock.extLock2 = false;
+                                debugger;
                             }
                         };
                     }
@@ -318,6 +316,9 @@ function buildObj() {
         value = Array(bits + 1).join(identifier) + value;
         return "[" + value.slice(-bits) + "]";
     }
+
+
+
 
     // 匹配基础信息属性
     function fixProperty() {
@@ -405,8 +406,8 @@ function buildObj() {
         function baseEntity(str) {
             if(str.indexOf("CodeNameCh") != -1) {
                 return "CodeNameCh";
-            } else if(str.indexOf("CodeImg") != -1){
-                return "CodeImg";
+            } else if(str.indexOf("codeimg") != -1){
+                return "codeimg";
             } else if(str.indexOf("Logo") != -1){
                 return "Logo";
             } else if(str.indexOf("Range") != -1){
@@ -416,12 +417,13 @@ function buildObj() {
             } else if(str.indexOf("Position") != -1){
                 return "Position";
             } else if(str.indexOf("AttackScope") != -1){
+                if(str.indexOf("AttackScope_E1") != -1){
+                    return "AttackScope_E1";
+                } else if(str.indexOf("AttackScope_E2") != -1){
+                    return "AttackScope_E2";
+                }
                 return "AttackScope";
-            } else if(str.indexOf("AttackScope_E1") != -1){
-                return "AttackScope_E1";
-            } else if(str.indexOf("AttackScope_E2") != -1){
-                return "AttackScope_E2";
-            } else if(str.indexOf("NationEn") != -1){
+            }  else if(str.indexOf("NationEn") != -1){
                 return "NationEn";
             } else if(str.indexOf("Duty") != -1){
                 return "Duty";

@@ -138,7 +138,7 @@ function piiicInit() {
     }
 
     function getCodeEn(jsonObj, str) {
-        code = jsonObj[str];
+        code = jsonObj[decodeURI(str,"utf-8")];
         if(!code) {
             myAlert("该干员测评不存在");
             return;
@@ -155,7 +155,6 @@ function piiicInit() {
             codeMapRangeLock = false;
         } else { // 不然就是搜索干员名称，直接获取名称对应的列表
             fixMap(jsonObj[str]);
-            getAllCodeUrl(codeMap);
         }
         mergeMap();
     }
@@ -184,6 +183,7 @@ function piiicInit() {
         for(var key in codeMap) {
             ++ mapLength;
         }
+        debugger;
         for(var key in codeMap) {
             piiicSendUrl(undefined, "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterCellListJson/" + key + ".json", 1);
         }
