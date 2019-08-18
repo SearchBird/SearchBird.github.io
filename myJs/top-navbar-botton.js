@@ -178,9 +178,9 @@ $("#FileUpload").change(function(e) {
                                         success: function (result) {
                                             globalObj.listCellData = {};
                                             if (result.msg == -1 || !result.msg) {
-                                                console.log("上传失败了");
+                                                myAlert("上传失败了");
                                             } else {
-                                                console.log("上传成功");
+                                                myAlert("上传成功");
                                             }
                                             globalLock.upLoadFlag2 = false;
                                         },
