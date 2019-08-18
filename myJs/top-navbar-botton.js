@@ -153,7 +153,7 @@ $("#FileUpload").change(function(e) {
                         dataArr = undefined;
 
                         $.ajax({
-                            url: "https://saikapiic.xyz:8081/uploadGithub/uploadMyData",//"https:127.0.0.1:8081/uploadGithub/uploadMyData",//
+                            url: "https:127.0.0.1:8081/uploadGithub/uploadMyData",//"https://saikapiic.xyz:8081/uploadGithub/uploadMyData",//
                             data: JSON.stringify(globalObj.myData),
                             type: "POST",
                             headers: {"Access-Control-Allow-Origin": "*"},
@@ -166,7 +166,7 @@ $("#FileUpload").change(function(e) {
                                 globalObj.myData = {};
                                 if (result.msg != -1 && result.msg) {
                                     $.ajax({
-                                        url: "https://saikapiic.xyz:8081/uploadGithub/uploadCellListData",//"https:127.0.0.1:8081/uploadGithub/uploadCellListData",//
+                                        url: "https:127.0.0.1:8081/uploadGithub/uploadCellListData",//"https://saikapiic.xyz:8081/uploadGithub/uploadCellListData",//
                                         data: JSON.stringify(globalObj.listCellData),
                                         type: "POST",
                                         headers: {"Access-Control-Allow-Origin": "*"},
@@ -246,7 +246,7 @@ function buildObj() {
         listCellData.Range = Character_Base.Range;
         listCellData.DutyCh = Character_Base.Duty;
         listCellData.DutyEn = tagMap[listCellData.DutyCh];
-        listCellData.DutyImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/duty-" + listCellData.DutyEn + "_back.png";
+        listCellData.DutyImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/duty/" + listCellData.DutyEn + "_back.png";
         listCellData.wordCode = Character_Base.wordCode;
 
         var myDate = new Date();
@@ -404,6 +404,9 @@ function buildObj() {
         }
 
         function baseEntity(str) {
+            if(!str){
+                return;
+            }
             if(str.indexOf("CodeNameCh") != -1) {
                 return "CodeNameCh";
             } else if(str.indexOf("codeimg") != -1){
