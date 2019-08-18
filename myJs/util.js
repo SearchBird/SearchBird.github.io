@@ -269,7 +269,7 @@ function reloadObj(){
         $("#artCode").html(Maker.artCode);
         $("#wordCode").html(Maker.wordCode);
         $("#dataCode").html(Maker.dataCode);*/
-        $("wordCode").html(characBase.workCode);
+        $("#wordCode").html(characBase.wordCode);
 
         // 调整制作人员高度
         var baseInfo = $("#base-info");

@@ -514,8 +514,12 @@ function image2base64(imgObj, type) {
     if(type == 1) {
         src = imgObj.attr("src")
     } else {
-        var background = imgObj.css('backgroundImage');
-        src = background.substring(background.indexOf('url("')).replace('url("', "").replace('url(', "").replace('")', "").replace(")","");
+        if(imgObj.length != 0) {
+            var background = imgObj.css('backgroundImage');
+            src = background.substring(background.indexOf('url("')).replace('url("', "").replace('url(', "").replace('")', "").replace(")","");
+        } else {
+            return;
+        }
     }
 
     var request;

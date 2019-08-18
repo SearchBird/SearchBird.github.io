@@ -65,6 +65,16 @@ img{
     left:10%;
 }
 
+/* 背景形状 */
+.back-curtain1{
+    position: absolute;
+    z-index: 0 !important;
+    right: 0px;
+    width: 470px;
+    border-left: 84px solid transparent;
+}
+/* 背景形状 */
+
 .line-opacity{
     position: absolute;
     top:702px;
@@ -113,6 +123,7 @@ img{
     top:396px;
     right:251px;
     font-family:Droid Sans;
+    z-index: 10;
 }
 
 
