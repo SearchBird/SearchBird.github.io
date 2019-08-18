@@ -406,7 +406,7 @@ function buildObj() {
         function baseEntity(str) {
             if(str.indexOf("CodeNameCh") != -1) {
                 return "CodeNameCh";
-            } else if(str.indexOf("codeimg") != -1){
+            } else if(str.indexOf("CodeImg") != -1){
                 return "codeimg";
             } else if(str.indexOf("Logo") != -1){
                 return "Logo";
