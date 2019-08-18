@@ -253,7 +253,8 @@ function reloadObj(){
         $("#PrefaceValue").html(prefaceValue.replace("/(.*)<br>/",""));
         $("#PrefaceCompare").html(prefaceCompare.replace("/(.*)<br>/",""));
 
-        $("#NationEn").html(characBase.NationEn);
+        var nationEn = characBase.NationEn;
+        $("#NationEn").html(nationEn.replace(nationEn.substring(nationEn.indexOf("("), nationEn.indexOf(")") + 1),""));
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + "_B-min.png");
         $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-noweapon.png")
