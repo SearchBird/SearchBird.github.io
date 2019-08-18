@@ -153,7 +153,7 @@ $("#FileUpload").change(function(e) {
                         dataArr = undefined;
 
                         $.ajax({
-                            url: "https:127.0.0.1:8081/uploadGithub/uploadMyData",//"https://saikapiic.xyz:8081/uploadGithub/uploadMyData",//
+                            url: "https://saikapiic.xyz:8081/uploadGithub/uploadMyData",//"https:127.0.0.1:8081/uploadGithub/uploadMyData",//
                             data: JSON.stringify(globalObj.myData),
                             type: "POST",
                             headers: {"Access-Control-Allow-Origin": "*"},
@@ -166,7 +166,7 @@ $("#FileUpload").change(function(e) {
                                 globalObj.myData = {};
                                 if (result.msg != -1 && result.msg) {
                                     $.ajax({
-                                        url: "https:127.0.0.1:8081/uploadGithub/uploadCellListData",//"https://saikapiic.xyz:8081/uploadGithub/uploadCellListData",//
+                                        url: "https://saikapiic.xyz:8081/uploadGithub/uploadCellListData",//"https:127.0.0.1:8081/uploadGithub/uploadCellListData",//
                                         data: JSON.stringify(globalObj.listCellData),
                                         type: "POST",
                                         headers: {"Access-Control-Allow-Origin": "*"},
