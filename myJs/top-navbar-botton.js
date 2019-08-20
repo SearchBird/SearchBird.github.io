@@ -140,7 +140,7 @@ $("#FileUpload").change(function(e) {
                 dataArr.shift();
 
                 // 去除提示
-                dataArr.splice(0, 25);
+                dataArr = spliceFont(dataArr);
 
                 // 封装json
                 var newBuildObj = new buildObj();
@@ -203,6 +203,15 @@ $("#FileUpload").change(function(e) {
         myAlert("目前正在上传文件，请稍等")
     }
 })
+
+function spliceFont(dataArr) {
+    for(var index = 0;index < dataArr.length;index ++) {
+        if(dataArr[index].indexOf("CodeNameCh") != -1) {
+            dataArr.splice(0, index);
+            return dataArr;
+        }
+    }
+}
 
 // 封装json
 function buildObj() {

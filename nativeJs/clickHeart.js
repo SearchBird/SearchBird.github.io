@@ -27,7 +27,6 @@
             hearts[i].scale += 0.004;
             hearts[i].alpha -= 0.013;
             hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+");color:" + hearts[i].color + ";background:url(/SearchBird.github.io/img/icon.jpg) no-repeat;background-size: 100%";
-            debugger;
         }
         requestAnimationFrame(gameloop);
     }
