@@ -183,7 +183,7 @@ $("#FileUpload").change(function(e) {
                                             if (result.msg == -1 || !result.msg) {
                                                 myAlert("上传失败了",0,true);
                                             } else {
-                                                myAlert("上传成功",0,true);
+                                                myAlert("上传成功<br/>几分钟内完成更新",0,true);
                                             }
                                             $(".loader-body").css({"display":"none","opacity": "0"});
                                             globalLock.upLoadFlag2 = false;
