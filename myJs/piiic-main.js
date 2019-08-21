@@ -105,30 +105,53 @@ function scrollInit() {
 }
 
 function hoverInit() {
+
+    // ToTop小动画
+    var i = 4
+    var toTopHover = setInterval(function () {
+        if(i == 1) {
+            clearInterval(toTopHover);
+        }
+        toTopHovFun();
+        setTimeout(function (){
+            toTopBluFun();
+        },300);
+        i -= 1;
+    },500);
+    // 小动画
+
     clickFlag.toTopHoverLock = true;
     $("#toTop").hover(function(){
-        for(var i = 7;i -- > 1;){
-            $(".toTop-inner" + i).animate( { opacity : "1"},"normal");
-        }
-        $("#toTop").append('<div class="toTop-inner1 move"></div>')
-            .append('<div class="toTop-inner3 move"></div>')
-            .append('<div class="toTop-inner5 move"></div>');
-        $(".move").each(function(index, value){
-            if(index == 0)
-                $(value).animate({height:0},"fast")
-            if(index == 1)
-                $(value).animate({height:0,left:0,bottom:0},"fast")
-            if(index == 2)
-                $(value).animate({height:0,left:0,bottom:0},"fast")
-        })
+        toTopHovFun();
     },function(){
-        for(var i = 7;i -- > 1;){
-            $(".toTop-inner" + i).animate( { opacity : "0.7"},"normal");
-            $(".move").each(function(index, value) {
-                $(value).stop().remove();
-            })
-        }
+        toTopBluFun();
     })
+}
+
+function toTopHovFun() {
+    for(var i = 7;i -- > 1;){
+        $(".toTop-inner" + i).animate( { opacity : "1"},"normal");
+    }
+    $("#toTop").append('<div class="toTop-inner1 move"></div>')
+        .append('<div class="toTop-inner3 move"></div>')
+        .append('<div class="toTop-inner5 move"></div>');
+    $(".move").each(function(index, value){
+        if(index == 0)
+            $(value).animate({height:0},"fast")
+        if(index == 1)
+            $(value).animate({height:0,left:0,bottom:0},"fast")
+        if(index == 2)
+            $(value).animate({height:0,left:0,bottom:0},"fast")
+    })
+}
+
+function toTopBluFun() {
+    for(var i = 7;i -- > 1;){
+        $(".toTop-inner" + i).animate( { opacity : "0.7"},"normal");
+        $(".move").each(function(index, value) {
+            $(value).stop().remove();
+        })
+    }
 }
 
 // 攻击范围样式初始化
