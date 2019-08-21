@@ -167,6 +167,15 @@ function piiicInit() {
             if(rangeList.length != 0) {
                 fixMap(rangeList);
             }
+            if(rangeId && dutyId) {
+                var keyArr = Object.keys(codeMap);
+                for(var keyIndex = keyArr.length;keyIndex -- > 0;) {
+                    var key = keyArr[keyIndex];
+                    if(!(dutyList.indexOf(key) != -1 && rangeList.indexOf(key) != -1)) {
+                        delete codeMap[key];
+                    }
+                }
+            }
             getAllCodeUrl(codeMap);
         }
     }
@@ -209,7 +218,9 @@ function piiicInit() {
                 + cellJson.CodeNameEnVer
                 + '"><div class="cell-img"><img src="'
                 + cellJson.CodeImg
-                + '"></div><div class="cell-word"><div class="header"><div class="main-color"></div><div class="time">'
+                + '"></div><div class="cell-word"><div class="header"><div class="main-color" style="background:'
+                + cellJson.MainColor
+                + '"></div><div class="time">'
                 + cellJson.commitDate
                 + '</div></div><div class="name">'
                 + cellJson.CodeNameCh
@@ -230,7 +241,7 @@ function piiicInit() {
 
     function sortJsonList(cellJsonList) {
         cellJsonList.sort(function(a,b){
-            return parseInt(a.CodeNameEnVer.split("[")[1].replace("]")) - parseInt(b.CodeNameEnVer.split("[")[1].replace("]"));
+            return new Date(Date.parse(a.commitDate.replace("<br/>"," "))) - new Date(Date.parse(b.commitDate.replace("<br/>"," ")));
         })
         return cellJsonList;
     }

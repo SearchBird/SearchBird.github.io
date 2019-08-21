@@ -109,12 +109,13 @@ body{
 .list-piiic-list .cell .cell-img img{
     position: absolute;
     display: inline-block;
-    width:67%;
+    width:60%;
     right: 10px;
     top:4%;
     border: 1px solid white;
 }
 /* 图片 */
+
 /* 文字 */
 .list-piiic-list .cell .cell-word{
     width:60%;
@@ -129,7 +130,6 @@ body{
 .list-piiic-list .cell .cell-word .header .main-color{
     width: 80px;
     height:7px;
-    background: #00aaff;
     display: inline-block;
     position: absolute;
     top: 8px;
