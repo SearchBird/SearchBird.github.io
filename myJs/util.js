@@ -462,6 +462,9 @@ function myAlert(msg, time, waitFlag) {
 
 function alertDispear($alert) {
     $alert.css("opacity", "0");
+    setTimeout(function () {
+        $alert.empty();
+    },400)
 }
 
 function typeOfAgent() {
