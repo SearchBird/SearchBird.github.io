@@ -128,6 +128,10 @@ textarea {
     background:rgba(255,255,255,0.7);
     font-size:22px;
 }
+.alert-curtain:hover{
+    cursor: pointer;
+}
+
 .alert-inner-border{
     width:84%;
     height:76%;
@@ -187,3 +191,110 @@ textarea {
     height:100%;
     margin:0 auto;
 }
+
+
+/* 加载等待css */
+.loader-body {
+    background-color: rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+    position: fixed;
+    z-index: 2002;
+    opacity: 0;
+    display: none;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-filter: contrast(30);
+    filter: contrast(30);
+}
+.blob {
+    position: absolute;
+    left: 180px;
+    top: 180px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #00ffeb;
+    content: "";
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    -webkit-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    transform: translateY(-100px);
+}
+.blob:nth-child(1) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.blob:nth-child(2) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.blob:nth-child(3) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.blob:nth-child(4) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.blob:nth-child(5) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.blob:nth-child(6) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+.blob:nth-child(7) {
+    -webkit-animation: spin 2.5s infinite ease-in-out;
+    animation: spin 2.5s infinite ease-in-out;
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg) translateY(-100px) rotate(0deg);
+        transform: rotate(0deg) translateY(-100px) rotate(0deg);
+    }
+    70% {
+        -webkit-transform: rotate(360deg) translateY(-100px) rotate(-360deg);
+        transform: rotate(360deg) translateY(-100px) rotate(-360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg) translateY(-100px) rotate(0deg);
+        transform: rotate(0deg) translateY(-100px) rotate(0deg);
+    }
+    70% {
+        -webkit-transform: rotate(360deg) translateY(-100px) rotate(-360deg);
+        transform: rotate(360deg) translateY(-100px) rotate(-360deg);
+    }
+}
+/* 加载等待css */

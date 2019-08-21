@@ -80,10 +80,10 @@ function piiicInit() {
     }
 
     function initHeight() {
-        var listBodyHeight = window.outerHeight - 50;
+        var listBodyHeight = window.innerHeight - 50;
         $("#list-body").css("height", listBodyHeight);
         $("#background-img").css("height", listBodyHeight);
-        $("#list-piiic-list").css("height", listBodyHeight - 180);
+        $("#list-piiic-list").css("height", listBodyHeight - 200);
     }
 
 
@@ -183,7 +183,6 @@ function piiicInit() {
         for(var key in codeMap) {
             ++ mapLength;
         }
-        debugger;
         for(var key in codeMap) {
             piiicSendUrl(undefined, "https://raw.githubusercontent.com/SearchBird/jsonUpload/master/characterCellListJson/" + key + ".json", 1);
         }

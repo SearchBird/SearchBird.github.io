@@ -33,9 +33,9 @@ $("#shareStation").click(function(){
 // 下载模板点击
 $("#downloadTemp").click(function() {
     var downloadA = document.createElement("a");
-    downloadA.setAttribute('download', '测评模板(命名和上传无关).zip');
+    downloadA.setAttribute('download', '测评模板.zip');
     downloadA.setAttribute('href', 'https://github.com/SearchBird/jsonUpload/blob/master/word/%E6%B5%8B%E8%AF%84%E6%A8%A1%E6%9D%BF.zip?raw=true');
-    downloadA.setAttribute('filename', '测评模板(命名和上传无关).zip');
+    downloadA.setAttribute('filename', '测评模板.zip');
     downloadA.click();
 })
 
@@ -107,6 +107,9 @@ $("#uploadGithub").click(function() {
 
 $("#FileUpload").change(function(e) {
     if(!globalLock.upLoadFlag && !globalLock.upLoadFlag2) {
+
+        $(".loader-body").css({"display":"block","opacity": "1"});
+
         globalLock.upLoadFlag = true;
         globalLock.upLoadFlag2 = true;
         var fileObj = e.target.files;//document.getElementById('fileToUpload').files[0]
@@ -178,10 +181,11 @@ $("#FileUpload").change(function(e) {
                                         success: function (result) {
                                             globalObj.listCellData = {};
                                             if (result.msg == -1 || !result.msg) {
-                                                myAlert("上传失败了");
+                                                myAlert("上传失败了",0,true);
                                             } else {
-                                                myAlert("上传成功");
+                                                myAlert("上传成功",0,true);
                                             }
+                                            $(".loader-body").css({"display":"none","opacity": "0"});
                                             globalLock.upLoadFlag2 = false;
                                         },
                                     })

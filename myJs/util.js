@@ -429,7 +429,7 @@ function importHtml(htmlUrl, isAsync, successFun) {
     });
 }
 
-function myAlert(msg, time) {
+function myAlert(msg, time, waitFlag) {
     if(!time) time = 0;
 
     var appear = $("#alert");
@@ -446,13 +446,22 @@ function myAlert(msg, time) {
         async: false,
         success: function (res) {
             $alert.html($(res));
-            $alert.css("opacity", "1");
+            $alert.css({"opacity": "1"});
             $(".alert-inner-word").html(msg)
-            setTimeout(function(){
-                $alert.css("opacity", "0");
-            },800 + time)
+            $(".alert-curtain").click(function () {
+                alertDispear($alert);
+            })
+            if(!waitFlag) {
+                setTimeout(function(){
+                    alertDispear($alert)
+                },800 + time)
+            }
         }
     });
+}
+
+function alertDispear($alert) {
+    $alert.css("opacity", "0");
 }
 
 function typeOfAgent() {
