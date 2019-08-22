@@ -273,7 +273,9 @@ function reloadObj(){
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + "_B-min.png");
         debugger;
-        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png");
+
+        var ddd = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + (characBase.codeimg ? lowerCaseStr : (lowerCaseStr + "2")) + ".png";
+        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + (characBase.codeimg ? lowerCaseStr : (lowerCaseStr + "2")) + ".png");
 
         // 分拆武器
         // $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png")
