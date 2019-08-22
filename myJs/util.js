@@ -257,8 +257,10 @@ function reloadObj(){
         $("#NationEn").html(nationEn.replace(nationEn.substring(nationEn.indexOf("("), nationEn.indexOf(")") + 1),""));
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + "_B-min.png");
-        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-noweapon.png")
-        $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-weapon.png")
+        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-noweapon.png");
+
+        var lowerCaseStr = codeEn.toLowerCase();
+        $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png")
         var range = "";
         for(var i = characBase.Range;i -- > 0 ;){
             range += "★";
@@ -314,7 +316,7 @@ function reloadObj(){
 
                 var skillHtml = '<div class="sk-box"><div><div class="sk-top-line"></div><div class="sk-desc">'
                     + '<img class="sk-img" src="'
-                    + "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + characBase.CodeNameEn + "/skill-" + num + ".png"
+                    + "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/skill" + num + ".png"
                     + '"/><div class="sk-word"><div class="sk-word-name heightLight">'
                     + Skill[skillName]
                     + '</div><div class="sk-desc-line"></div><div class="sk-word-test">'
