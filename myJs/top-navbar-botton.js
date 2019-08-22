@@ -250,8 +250,7 @@ function buildObj() {
     function packListCellData(myData) {
         var listCellData = {};
         var Character_Base = myData.Character_Base;
-        listCellData.CodeImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/charecter-bust/" + Character_Base.CodeNameEn.toLowerCase() + (Character_Base.CodeImg ? "2-min.png" : "-min.png");
-        debugger;
+        listCellData.CodeImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/charecter-bust/" + Character_Base.CodeNameEn.toLowerCase() + (Character_Base.codeimg ? "2-min.png" : "-min.png");
         listCellData.MainColor = Character_Base.MainColor;
         listCellData.CodeNameCh = Character_Base.CodeNameCh + Character_Base.CodeVer;
         listCellData.CodeNameEn = Character_Base.CodeNameEn;
@@ -266,7 +265,7 @@ function buildObj() {
         var myDate = new Date();
         var point = ".";
         var branch = ":";
-        listCellData.commitDate = myDate.getFullYear() + point + myDate.getMonth() + point + myDate.getDate() + "<br/>" + myDate.getHours() + branch + myDate.getMinutes() + branch + myDate.getSeconds();
+        listCellData.commitDate = myDate.getFullYear() + point + (myDate.getMonth() + 1) + point + myDate.getDate() + "<br/>" + myDate.getHours() + branch + myDate.getMinutes() + branch + myDate.getSeconds();
 
         globalObj.listCellData = listCellData;
     }
