@@ -192,7 +192,6 @@ function getQueryVariable(variable)
 function reloadObj(){
 
     var theCodeName = "";
-    var codeEn = "";
     var dutyMap = {
         "先锋" : "scouts",
         "辅助" : "assist",
@@ -204,7 +203,19 @@ function reloadObj(){
         "狙击" : "sniper",
     };
     var formaMap = {
-        "罗德岛" : "logo_rhodes"
+        "罗德岛" : "logo_rhodes",
+        "龙门近卫局" : "logo_lungmen",
+        "维多利亚/格拉斯哥帮" : "logo_victoria",
+        "雷姆必拓" : "logo_rim",
+        "莱恩生命" : "logo_rhine",
+        "黑钢" : "logo_blacksteel",
+        "深海猎人" : "logo_abyssal",
+        "莱塔尼亚" : "logo_Leithanien",
+        "喀兰贸易" : "logo_kjerag",
+        "卡西米尔" : "logo_kazimierz",
+        "乌萨斯/乌萨斯学生自治团" : "logo_ursus",
+        "企鹅物流" : "logo_penguin",
+        "拉兰特" : "logo_Laterano",
     }
 
     this.reloadPiiic = function(codeName) {
@@ -254,13 +265,18 @@ function reloadObj(){
         $("#PrefaceCompare").html(prefaceCompare.replace("/(.*)<br>/",""));
 
         var nationEn = characBase.NationEn;
+        var lowerCaseStr = characBase.CodeNameEn.toLowerCase();
         $("#NationEn").html(nationEn.replace(nationEn.substring(nationEn.indexOf("("), nationEn.indexOf(")") + 1),""));
-        $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + ".png");
-        $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formaMap[characBase.Logo] + "_B-min.png");
-        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + codeEn + "/character-noweapon.png");
 
-        var lowerCaseStr = codeEn.toLowerCase();
-        $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png")
+        // 阵营
+        var formationStr = formaMap[characBase.Logo] ? formaMap[characBase.Logo] : formaMap["罗德岛"] ;
+        $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + ".png");
+        $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + "_B-min.png");
+        debugger;
+        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png");
+
+        // 分拆武器
+        // $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png")
         var range = "";
         for(var i = characBase.Range;i -- > 0 ;){
             range += "★";
