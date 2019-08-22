@@ -9,7 +9,7 @@ $("#piiic").click(function() {
     if(pageType === 0) {
         window.location.href = "html/piiic.html";
     } else if(pageType == 1) {}
-    else{
+    else if(pageType == 2){
         window.location.href = "piiic.html";
     }
 })
@@ -250,7 +250,8 @@ function buildObj() {
     function packListCellData(myData) {
         var listCellData = {};
         var Character_Base = myData.Character_Base;
-        listCellData.CodeImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/charecter-bust/" + Character_Base.CodeNameEn.toLowerCase() + (Character_Base.CodeImg ? "-min.png" : "2-min.png")
+        listCellData.CodeImg = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/charecter-bust/" + Character_Base.CodeNameEn.toLowerCase() + (Character_Base.CodeImg ? "2-min.png" : "-min.png");
+        debugger;
         listCellData.MainColor = Character_Base.MainColor;
         listCellData.CodeNameCh = Character_Base.CodeNameCh + Character_Base.CodeVer;
         listCellData.CodeNameEn = Character_Base.CodeNameEn;
