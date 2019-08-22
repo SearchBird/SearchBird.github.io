@@ -2,6 +2,7 @@
     width : 1024px;
     margin:auto;
     position:relative;
+    z-index: 666
 }
 .background-header{
     /*opacity: 1;*/

@@ -209,7 +209,8 @@ textarea {
     -o-transition: all 0.5s;
 }
 .loader {
-    position: absolute;
+    position: fixed;
+    z-index: 2003;
     top: 50%;
     left: 50%;
     width: 400px;
