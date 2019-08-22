@@ -273,7 +273,7 @@ function reloadObj(){
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + "_B-min.png");
 
         var lowerCaseStr = characBase.CodeNameEn.toLowerCase();
-        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + (characBase.codeimg ? lowerCaseStr : (lowerCaseStr + "2")) + ".png");
+        $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + (characBase.codeimg ?  (lowerCaseStr + "2") : lowerCaseStr) + ".png");
 
         // 分拆武器
         // $("#weapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + lowerCaseStr + ".png")
