@@ -6,11 +6,10 @@ $("#homePage").click(function(){
 })
 
 $("#piiic").click(function() {
-    if(pageType === 0) {
-        window.location.href = "html/piiic.html";
-    } else if(pageType == 1) {}
-    else if(pageType == 2){
+    if(pageType == 1){
         window.location.href = "piiic.html";
+    } else{
+        window.location.href = "html/piiic.html";
     }
 })
 
@@ -70,6 +69,7 @@ $("#character-name").blur(function(){
 })
 // 搜索框动画 ============================
 
+
 // 回车和点击进行查询 ============================
 $("#character-name").keydown(function(e){
     if(e.keyCode==13) {
@@ -79,7 +79,6 @@ $("#character-name").keydown(function(e){
 $(".search-piiic").click(function(){
     beginSearch();
 })
-// 回车和点击进行查询 ============================
 
 function beginSearch() {
     var value = $.trim($("#character-name").val());
@@ -94,6 +93,7 @@ function beginSearch() {
         }
     }
 }
+// 回车和点击进行查询 ============================
 
 
 
