@@ -531,13 +531,13 @@ function buildObj() {
             } else if(str.indexOf("Logistics1Desc") != -1){
                 return "Logistics1Desc";
             } else if(str.indexOf("Logistics2Name") != -1){
-                return "Logistics1Name";
+                return "Logistics2Name";
             } else if(str.indexOf("Logistics2Desc") != -1){
-                return "Logistics1Desc";
+                return "Logistics2Desc";
             } else if(str.indexOf("Logistics3Name") != -1){
-                return "Logistics1Name";
+                return "Logistics3Name";
             } else if(str.indexOf("Logistics3Desc") != -1){
-                return "Logistics1Desc";
+                return "Logistics3Desc";
             } else if(str.indexOf("LogisticsOverall") != -1){
                 return "LogisticsOverall";
             }  else if(str.indexOf("Gist") != -1) {

@@ -265,16 +265,14 @@ function reloadObj(){
         $("#PrefaceCompare").html(prefaceCompare.replace("/(.*)<br>/",""));
 
         var nationEn = characBase.NationEn;
-        var lowerCaseStr = characBase.CodeNameEn.toLowerCase();
         $("#NationEn").html(nationEn.replace(nationEn.substring(nationEn.indexOf("("), nationEn.indexOf(")") + 1),""));
 
         // 阵营
         var formationStr = formaMap[characBase.Logo] ? formaMap[characBase.Logo] : formaMap["罗德岛"] ;
         $("#head-logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + ".png");
         $("#skill-Logo").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/formation/" + formationStr + "_B-min.png");
-        debugger;
 
-        var ddd = "https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + (characBase.codeimg ? lowerCaseStr : (lowerCaseStr + "2")) + ".png";
+        var lowerCaseStr = characBase.CodeNameEn.toLowerCase();
         $("#noweapon").attr("src","https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/character/" + lowerCaseStr + "/" + (characBase.codeimg ? lowerCaseStr : (lowerCaseStr + "2")) + ".png");
 
         // 分拆武器
