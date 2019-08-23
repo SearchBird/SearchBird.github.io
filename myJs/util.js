@@ -350,7 +350,7 @@ function reloadObj(){
                 var logName = "Logistics" + num + "Name";
                 var logDesc = "Logistics" + num + "Desc";
                 logisticsList.prepend((Skill[logDesc] ? Skill[logDesc] : "") + '<br/>');
-                logisticsList.prepend('<span class="heightLight">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
+                logisticsList.prepend('<span class="heightLight" style="margin-left: -30px;">' + (Skill[logName] ? Skill[logName] : "") + '</span><br/>');
             }
             $("#LogisticsOverall").html(splitObjStr(Skill.LogisticsOverall));
 
