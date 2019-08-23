@@ -93,8 +93,8 @@ function shareToqq(event){
         var _shareUrl = 'http://connect.qq.com/widget/shareqq/index.html?';
         _shareUrl += 'url=' + encodeURIComponent(_url||location.href);   //分享的链接
         _shareUrl += '&title=' + ($.trim($("#CodeNameCh").html()) + "测评长图分享");     //分享的标题
-        _shareUrl += '&summary=' + ($.trim("这是" + $("#wordCode") + "的关于" + $("#CodeNameCh").html()) + "的测评长图");     //分享的对话框内简介
-        _shareUrl += '&pics=' + $("#noweapon").attr("src");     //图片
+        _shareUrl += '&summary=' + ($.trim("这是" + $.trim($("#wordCode").html()) + "的关于" + $("#CodeNameCh").html()) + "的测评长图");     //分享的对话框内简介
+        _shareUrl += '&pics=' + globalObj.shareImg;     //图片
     } else {
         var _shareUrl = 'http://connect.qq.com/widget/shareqq/index.html?';
         _shareUrl += 'url=' + encodeURIComponent(_url||location.href);   //分享的链接
