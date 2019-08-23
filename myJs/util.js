@@ -363,10 +363,29 @@ function reloadObj(){
         // 要领
             var Gist = jsonObj.Gist;
         if(Gist.isExist == "1"){
-            $("#Train").html(splitObjStr(Gist.Train));
-            $("#Team").html(splitObjStr(Gist.Team));
-            $("#Deploy").html(splitObjStr(Gist.Deploy));
-            $("#Other").html(splitObjStr(Gist.Other));
+            if($.trim(Gist.Train)) {
+                $("#Train").html(splitObjStr(Gist.Train));
+            } else {
+                $("#Train_type").css("display","none");
+            }
+            if($.trim(Gist.Team)) {
+                $("#Team").html(splitObjStr(Gist.Team));
+            } else {
+                $("#Team_type").css("display","none");
+            }
+            if($.trim(Gist.Deploy)) {
+                $("#Deploy").html(splitObjStr(Gist.Deploy));
+            } else {
+                $("#Deploy_type").css("display","none");
+            }
+            if($.trim(Gist.Other)) {
+                $("#Other").html(splitObjStr(Gist.Other));
+            } else {
+                $("#Other_type").css("display","none");
+            }
+
+
+
         } else {
             $("#gist").remove();
         }

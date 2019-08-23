@@ -181,10 +181,11 @@ function piiicInit() {
     }
 
     function fixMap(codeList) {
-        for(var index = codeList.length;index -- > 0;) {
-            var codeName = codeList[index];
-            codeMap[codeName] = codeName;
-        }
+        if(codeList.length)
+            for(var index = codeList.length;index -- > 0;) {
+                var codeName = codeList[index];
+                codeMap[codeName] = codeName;
+            }
     }
 
     // 根据请求的json内容逐个进行URL发送
