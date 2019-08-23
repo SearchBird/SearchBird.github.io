@@ -91,7 +91,8 @@ function shareToqq(event){
     var _shareUrl = 'http://connect.qq.com/widget/shareqq/index.html?';
     _shareUrl += 'url=' + encodeURIComponent(_url||location.href);   //分享的链接
     _shareUrl += '&title=' + encodeURIComponent(_title||document.title);     //分享的标题
-    _shareUrl += '&desc=' + (globalObj.urlType == 2 ? ("这是" + $.trim($("#CodeNameCh").html()) + "测评长图分享哦") : "欢迎来到测评长图");     //分享的标题
+    _shareUrl += '&summary=' + (globalObj.urlType == 2 ? ($.trim($("#CodeNameCh").html()) + "测评长图分享") : "欢迎来到测评长图");     //分享的对话框内描述
+    _shareUrl += '&desc=' + (globalObj.urlType == 2 ? ($.trim($("#CodeNameCh").html()) + "测评长图分享") : "欢迎来到测评长图");     //外加的文字描述
     window.open(_shareUrl,'_blank');
 }
 //分享到开心网
