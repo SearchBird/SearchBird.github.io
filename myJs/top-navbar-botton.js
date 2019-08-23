@@ -396,6 +396,10 @@ function buildObj() {
                 if(colorStr && colorStr.indexOf("auto") == -1) {
                     highFlag = true;
                 }
+
+                if(property.indexOf("AttackScope") != -1) {
+                    dataStrArr[0] += "<br/>"
+                }
                 // 去掉第一行内容
                 if(beginFlag) {
                     beginFlag = false;
