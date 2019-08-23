@@ -6,7 +6,6 @@ if(globalObj.urlType == 1) {
     _url = 'http://saikadance.github.io/';
 } else if(globalObj.urlType == 2) {
     _url = window.location.href;
-    debugger;
 }
 
 shareClose();
@@ -89,9 +88,10 @@ function shareToRenren(event){
 //分享到qq
 function shareToqq(event){
     event.preventDefault();
-    var _shareUrl = 'https://connect.qq.com/widget/shareqq/iframe_index.html?';
+    var _shareUrl = 'http://connect.qq.com/widget/shareqq/index.html?';
     _shareUrl += 'url=' + encodeURIComponent(_url||location.href);   //分享的链接
     _shareUrl += '&title=' + encodeURIComponent(_title||document.title);     //分享的标题
+    _shareUrl += '&desc=' + (globalObj.urlType == 2 ? ("这是" + $.trim($("#CodeNameCh").html()) + "测评长图分享哦") : "欢迎来到测评长图");     //分享的标题
     window.open(_shareUrl,'_blank');
 }
 //分享到开心网
