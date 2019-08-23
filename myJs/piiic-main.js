@@ -186,7 +186,7 @@ function changeFont() {
 }
 
 function distanceInit() {
-    var baseInfoHeight = Math.floor($(".base-info").css("height").replace("px","")) + 155;
+    var baseInfoHeight = Math.floor($(".base-info").css("height").replace("px","")) + 175;
     $(".maker").css("top",baseInfoHeight + "px");
 }
 

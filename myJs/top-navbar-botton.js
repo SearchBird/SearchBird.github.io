@@ -116,8 +116,6 @@ $("#FileUpload").change(function(e) {
 
         // 判断xml文件
         if (!fileObj || fileObj.size <= 0) {
-            myAlert("请提交测评xml文件", 500);
-            globalLock.upLoadFlag = false;
             return;
         }
 
@@ -197,6 +195,7 @@ $("#FileUpload").change(function(e) {
                         })
                     }
                 }, 100);
+                $("#FileUpload").val(null);
             } catch (e) {
                 console.log(e)
                 myAlert('文件类型不正确');
