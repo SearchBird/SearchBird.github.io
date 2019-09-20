@@ -12,7 +12,6 @@
     <link type="text/css" rel="stylesheet" href="../css/skill.css"/>
     <link type="text/css" rel="stylesheet" href="../css/gist.css"/>
     <link type="text/css" rel="stylesheet" href="../css/share.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/add-2019-09-20-stylechange.css"/>
     <link type="text/css" rel="stylesheet" href="../css/piiic-toollist-botton.css"/>
     <link type="text/css" rel="stylesheet" href="../css/top-navbar-botton.css"/>
     <script rel="script">
@@ -32,10 +31,8 @@
     <script rel="script" src="../nativeJs/jquery.min.js"></script>
     <script rel="script" src="../nativeJs/jquery.lazyload.js"></script>
     <script rel="script" src="../nativeJs/html2canvas.js"></script>
-    <script rel="script" src="../nativeJs/reqrcode.js"></script>
     <script rel="script" src="../myJs/util.js"></script>
     <script rel="script" src="../myJs/piiic-main.js"></script>
-    <script rel="script" src="../myJs/piiic-main-add-2019-09-21.js"></script>
 </head>
 <body>
     <div id="piiic-header">
@@ -56,35 +53,11 @@
             <!-- 背景图片 -->
             <img class="background-logo" id="head-logo" src=""/>
 
-            <!-- ========== 渐变后幕 ========== -->
-            <div class="back-curtain2-middle"></div>
-            <div class="back-curtain1-top-outter">
-                <div class="back-curtain1-top"></div>
-            </div>
-            <div class="back-curtain3-line"></div>
-
-            <!-- 制作者背景模块 -->
-            <div class="back-curtain4-bottom">
-                <!-- 制作人员信息 -->
-                <div style="height:150px;border-left:2px solid #fff;border-top:0;border-right:0;border-bottom:0;float:right;margin-top:-170px;margin-right:11px;display: inline-block;"></div>
-                <div class="maker" id="maker">
-                    <div>
-                        <ul style="float:left;">
-                            <!--<li>美工</li>-->
-                            <li>文字攻略</li>
-                            <!--<li>数据记录</li>-->
-                        </ul>
-                        <ul style="float:right">
-                            <!--<li id="artCode"></li>-->
-                            <li id="wordCode"></li>
-                            <!--<li id="dataCode"></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="back-curtain4-bottom back-curtain4-bottom-shadow"></div>
+            <!-- 渐变后幕 -->
+            <div class="back-curtain1"></div>
+            <div class="back-curtain2"></div>
+            <div class="back-curtain3"></div>
             <div class="curtain-distance"></div>
-            <!-- ========== 渐变后幕 ========== -->
 
             <!-- 线条 -->
             <img class="back-line" src="https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/back-line.png">
@@ -92,18 +65,18 @@
 
             <!-- 人物 -->
             <img class="character-noweapon" id="noweapon" src="">
+            <img class="line-opacity" src="https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/line-opacity.png">
             <!--<img class="character-weapon" id="weapon" src="">-->
 
             <!-- LOGO -->
-            <img class="QR" src="../img/erweima.png">
             <img class="moyulogo" src="https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/moyulogo-min.png">
             <!--<img class="arknight" src="img/arknight-min.png">-->
             <img class="arknight" src="https://raw.githubusercontent.com/SearchBird/ImageIO/master/img/background/arknight-min.png">
 
             <!-- 基础信息 -->
             <div class="base-info" id="base-info">
-                <hr style="width:340px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:4px;margin-top:0;margin-left:0px;">
-                <hr style="width:200px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:0;margin-top:0;margin-left:0px">
+                <hr style="width:340px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:4px;margin-top:0;margin-right:41px;">
+                <hr style="width:200px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:0;margin-top:0;margin-right:181px">
 
                 <div style="display:inline-block;width:257px;margin-top:7px;">
                     <p style="display:inline-block">代号</p>
@@ -129,6 +102,25 @@
                     <div class="attack-inner" id="AttackScope_E1"></div>
                     <div class="attack-inner" id="AttackScope_E2"></div>
                     </div>
+                </div>
+            </div>
+
+            <!-- 制作人员信息 -->
+            <div class="maker" id="maker">
+                <div style="width:20px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-top:0;margin-right:41px;"></div>
+                <div style="width:150px;border-top:3px solid #fff;border-left:0;border-right:0;border-bottom:0;margin-bottom:4px;margin-top:0;margin-right:41px;"></div>
+
+                <div>
+                    <ul style="float:left;">
+                        <!--<li>美工</li>-->
+                        <li>文字攻略</li>
+                        <!--<li>数据记录</li>-->
+                    </ul>
+                    <ul style="float:right">
+                        <!--<li id="artCode"></li>-->
+                        <li id="wordCode"></li>
+                        <!--<li id="dataCode"></li>-->
+                    </ul>
                 </div>
             </div>
 

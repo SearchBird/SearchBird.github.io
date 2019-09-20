@@ -1,7 +1,7 @@
 /*背景图层*/
 .back-curtain1{
     position: absolute;
-    z-index:1008;
+    z-index: 0 !important;
     right: 0px;
     width: 470px;
     border-left: 84px solid transparent;
@@ -9,7 +9,7 @@
 .back-curtain2{
     position: absolute;
     left: 0px;
-    width: 150px;
+    width: 565px;
     border-right: 101px solid transparent;
 }
 .back-curtain3{

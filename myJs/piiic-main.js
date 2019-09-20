@@ -187,7 +187,9 @@ function changeFont() {
 
 function distanceInit() {
     var baseInfoHeight = Math.floor($(".base-info").css("height").replace("px","")) + 175;
-    $(".maker").css("top",baseInfoHeight + "px");
+
+    // 去掉高度计算，并入制作者背景模块
+    //$(".maker").css("top",baseInfoHeight + "px");
 }
 
 function imgOnload() {
@@ -202,6 +204,14 @@ function mainColor(color){
     $(".back-curtain1").css("border-bottom","642px solid " + color);
     $(".back-curtain2").css("border-top","643px solid " + color);
     $(".back-curtain3").css("border-bottom","642px solid " + color);
+
+    // 2019-09-20 第二模板
+    $(".back-curtain1-top").css({"border-top" : "380px solid " + LightenDarkenColor(color, 20)});
+    $(".back-curtain2-middle").css("border-bottom","595px solid " + color);
+    $(".back-curtain3-line").css("background",color);
+    $(".back-curtain4-bottom:first").css("border-top","170px solid " + color);
+    // 2019-09-20 第二模板
+
     $(".difference").each(function(index, value) {
         $(value).css("background", color);
     })
@@ -213,6 +223,7 @@ function mainColor(color){
     })
     $(".test-icon").css("border" ,  "3px solid" + color);
 }
+
 
 function differenceOnload(){
     var highLightColor;

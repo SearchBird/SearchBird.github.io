@@ -294,7 +294,7 @@ function reloadObj(){
         // 调整制作人员高度
         var baseInfo = $("#base-info");
         var makerHeight = (parseInt(baseInfo.css("top").replace("px","")) + parseInt(baseInfo.css("height").replace("px","")) + 25) + "px";
-        $("#maker").css("top",makerHeight);
+        //$("#maker").css("top",makerHeight);
 
 
         // 天赋
