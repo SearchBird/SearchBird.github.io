@@ -29,7 +29,7 @@ function LightenDarkenColor(col, amt) {
 $(function () {
     $(".QR").click(function () {
 
-        qrcode.decode("../img/test.png");
+        qrcode.decode("../img/qq.png");
         qrcode.callback = function (imgMsg) {
             alert("内容：" + utf82str(imgMsg));
             window.open(imgMsg);
