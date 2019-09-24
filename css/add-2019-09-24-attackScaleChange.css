@@ -1,0 +1,25 @@
+.E_1_Color{
+    color:skyblue;
+}
+.E_2_Color{
+    color:goldenrod;
+}
+.attack-outter{
+    width:80px;
+    display:inline-block;
+}
+.attack-mark{
+    width:62px;
+    display:inline-block;
+    text-align: left;
+    float:right;
+    margin-right:4px;
+}
+
+/* 修改的样式 */
+.attack-inner{
+
+}
+.attack-scale{
+    width:150px;
+}

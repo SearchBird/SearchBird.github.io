@@ -165,6 +165,8 @@ function attackScaleSizeInit() {
             $attackScale.css("font-size", "17px");
         }
     } else if(sizeArr.length > 1) {
+        // $attackScale.css({"width":"fit-content","margin-left":"auto","text-align":"left"})
+
         $attackScale.css({"width":"fit-content","margin-left":"auto","text-align":"left"})
     }
     if($("#AttackScope_E").html()) {
